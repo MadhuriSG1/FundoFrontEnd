@@ -1,0 +1,22 @@
+.my-form{
+    min-width: 15px;
+    max-width: 500px;
+    width: 300px;
+    text-align: center;
+  }
+   
+  .full-width {
+    /* width: 100%; */
+        width: 400px;
+    
+  }
+  .my-card{
+    text-align: center; 
+    width: 400px;
+    margin: auto;
+    margin-top: 180px;
+  }
+  .mat-card-header
+  {
+    padding-inline-start: auto;
+  }
