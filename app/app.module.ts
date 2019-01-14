@@ -10,13 +10,18 @@ import {MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,
   MatRadioModule,MatListModule,} from  '@angular/material';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from  '@angular/common/http';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ForgotpasswordComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +31,7 @@ import { RouterModule, Routes } from '@angular/router';
     MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule, 
     MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,
     MatRadioModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
