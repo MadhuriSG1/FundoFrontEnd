@@ -9,8 +9,13 @@ import { LoginUser } from '../app/Model/login.model';
 export class UserService {
 
   constructor(private http: HttpClient) { }
+  private url='http://8080/api/user/';
 
-  register(user: RegisterUser) {
-    return this.http.post(`/api/user/register`, user);
+  public registerUser(user: RegisterUser) :any {
+    return this.http.post<RegisterUser>(this.url+'register', user);
+}
+
+ public loginUser(loginuser: LoginUser):any {
+  return this.http.post(this.url+'login', loginuser);
 }
 }
