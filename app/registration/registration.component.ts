@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
@@ -13,10 +13,7 @@ import {MatSnackBar} from '@angular/material';
 export class RegistrationComponent implements OnInit {
   user:RegisterUser=new RegisterUser();
   registerForm: FormGroup;
-  submitted = false;
-  loading = false;
-
-
+  
   constructor(private formBuilder: FormBuilder,private userService: UserService,
      private matsnackbar: MatSnackBar, private router: Router) { }
 
@@ -28,10 +25,8 @@ export class RegistrationComponent implements OnInit {
       mobileNumber: ['', [Validators.required, Validators.maxLength(10)]]
   });
   }
-   // convenience getter for easy access to form fields
-    //get f() { return this.registerForm.controls; }
-
-    onRegisterSubmit() {
+  
+  onSubmit() {
       // this.submitted = true;
 
       // // stop here if form is invalid
@@ -40,8 +35,7 @@ export class RegistrationComponent implements OnInit {
       // }
 
       //this.loading = true;
-    
-      this.userService.registerUser(this.user)
+    this.userService.registerUser(this.user)
       .subscribe(
         data =>{
           if(data.value==200)
@@ -57,7 +51,7 @@ export class RegistrationComponent implements OnInit {
 
           }
         },
-        error => {
+      error => {
           console.log("Error");
           
         

@@ -15,7 +15,7 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { UserService } from './user.service';
 import { VerifyComponent } from './verify/verify.component';
-
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
 @NgModule({
@@ -36,6 +36,8 @@ import { VerifyComponent } from './verify/verify.component';
     MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,
     MatRadioModule,
     HttpClientModule,
+    FlexLayoutModule
+    
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
