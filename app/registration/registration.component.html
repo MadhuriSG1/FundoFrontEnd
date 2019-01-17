@@ -3,26 +3,31 @@
         <mat-card-title>Registration</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-  <form class="my-form">
+            
+  <form class="my-form" [formGroup]="registerForm" >
      <mat-form-field class="full-width">
             <mat-label>User Name</mat-label>
-            <input  matInput  placeholder="User Name"  name="uname" >
+            <input  matInput  placeholder="User Name" type="text"  name="name"  formControlName="name" [(ngModel)]="user.name">
          </mat-form-field>
          <mat-form-field class="full-width">
             <mat-label>Email</mat-label>
-            <input  matInput  placeholder="Email" name="email">
+            <input  matInput  placeholder="Email" type="Email" name="email"
+            formControlName="email" [(ngModel)]="user.email">
          </mat-form-field>
          <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
-            <input  matInput  placeholder="Password"  name="password">
+            <input  matInput  placeholder="Password" type="Password" name="password"
+            formControlName="password" [(ngModel)]="user.password">
          </mat-form-field>
          <mat-form-field class="full-width">
             <mat-label>Mobile Number</mat-label>
-            <input  matInput  placeholder="Mobile Number" name="mobile number" >
+            <input  matInput  placeholder="MobileNumber" name="mobileNumber" type="Text" 
+            formControlName="mobile" [(ngModel)]="user.mobileNumber">
          </mat-form-field>
   </form>
+         
 </mat-card-content>
 <mat-card-actions>
-   <button mat-raised-button (click)="registration()" color="primary">Register</button>
+   <button mat-raised-button (click)="onSubmit()" color="primary">Register</button>
 </mat-card-actions>
 </mat-card>

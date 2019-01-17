@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RegisterUser } from '../Model/register.model';
 import {MatSnackBar} from '@angular/material';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -27,14 +28,11 @@ export class RegistrationComponent implements OnInit {
   }
   
   onSubmit() {
-      // this.submitted = true;
-
-      // // stop here if form is invalid
+      
       // if (this.registerForm.invalid) {
       //     return;
       // }
 
-      //this.loading = true;
     this.userService.registerUser(this.user)
       .subscribe(
         data =>{
@@ -51,7 +49,7 @@ export class RegistrationComponent implements OnInit {
 
           }
         },
-      error => {
+        error => {
           console.log("Error");
           
         

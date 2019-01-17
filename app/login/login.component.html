@@ -1,5 +1,5 @@
 
-<mat-card class="my-card"  fxFlex="0 1 calc(33.3% - 32px)">
+<mat-card class="my-card">
     <mat-card-header>
         <mat-card-title>Login</mat-card-title>
       </mat-card-header>
@@ -17,7 +17,9 @@
    </mat-card-content>
    <mat-card-actions>
       <button mat-raised-button color="primary">LOGIN</button>
-      <button mat-raised-button color="primary" routerLink="/register">Registration</button>
+      <button mat-raised-button color="primary" class="x" routerLink="/register" >
+         <mat-icon>account_circle</mat-icon>Register</button>
+      <!-- <button mat-raised-button color="primary" (click)="navigateToRegistration();">Registration</button> -->
       <br><br><a routerLink="/forgotpassword">Forgot password?</a>
    </mat-card-actions>
 </mat-card>

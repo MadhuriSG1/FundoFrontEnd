@@ -10,13 +10,17 @@ import {Observable} from 'rxjs';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  private url='http://8080/api/user/';
+  private url='http://localhost:8080/api/user/';
 
   public registerUser(user: RegisterUser) :any {
-    return this.http.post(this.url+'register', user);
+    return this.http.post<RegisterUser>(this.url+'register', user);
 }
 
  public loginUser(loginuser: LoginUser):any {
   return this.http.post(this.url+'login', loginuser);
+}
+
+public verifyUser(token: String):any {
+  return this.http.get(this.url+'verify'+token);
 }
 }

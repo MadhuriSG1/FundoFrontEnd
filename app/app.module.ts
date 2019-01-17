@@ -7,15 +7,17 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,
         MatCheckboxModule, MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,
-        MatRadioModule,MatListModule,} from  '@angular/material';
+        MatRadioModule,MatListModule,MatSnackBarModule} from  '@angular/material';
 import { RegistrationComponent } from './registration/registration.component';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { HttpClientModule } from  '@angular/common/http';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { UserService } from './user.service';
 import { VerifyComponent } from './verify/verify.component';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -31,12 +33,16 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule, 
     MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,
+    MatSnackBarModule,
     MatRadioModule,
     HttpClientModule,
-    FlexLayoutModule
+    RouterModule,
+    
     
   ],
   providers: [UserService],
