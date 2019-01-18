@@ -10,7 +10,7 @@ import {MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,
         MatRadioModule,MatListModule,MatSnackBarModule} from  '@angular/material';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule } from '@angular/router';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute ,Routes} from '@angular/router';
 import { HttpClientModule } from  '@angular/common/http';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
@@ -18,6 +18,11 @@ import { UserService } from './user.service';
 import { VerifyComponent } from './verify/verify.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
+{ path: 'register', component: RegistrationComponent },
+{ path: 'login', component: LoginComponent },
+{ path: 'forgotpassword', component: ForgotpasswordComponent },
+{ path: 'resetpassword', component: ResetpasswordComponent }];
 
 
 @NgModule({
@@ -42,8 +47,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatRadioModule,
     HttpClientModule,
     RouterModule,
-    
-    
+    [RouterModule.forRoot(routes)]
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

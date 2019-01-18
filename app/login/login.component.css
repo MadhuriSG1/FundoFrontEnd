@@ -23,6 +23,11 @@
     margin-top: 180px;
     border-block-end-color: aqua;
   }
+  .divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
   .mat-card-header
   {
     padding-inline-start: auto;

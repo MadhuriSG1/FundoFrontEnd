@@ -4,23 +4,25 @@
         <mat-card-title>Login</mat-card-title>
       </mat-card-header>
    <mat-card-content>
-      <form class="my-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
          <mat-form-field class="full-width">
             <mat-label>Email</mat-label>
-            <input  matInput  placeholder="Email" name="email">
+            <input  matInput  placeholder="Email" name="email" type="email" 
+            formControlName="email" [(ngModel)]="user.email">
          </mat-form-field>
          <mat-form-field class="full-width">
             <mat-label>Password</mat-label>
-            <input  matInput  placeholder="Password" name="password">
+            <input  matInput  placeholder="Password" name="password" type="password" 
+            formControlName="password" [(ngModel)]="user.password">
          </mat-form-field>
-      </form>
-   </mat-card-content>
-   <mat-card-actions>
-      <button mat-raised-button color="primary">LOGIN</button>
-      <button mat-raised-button color="primary" class="x" routerLink="/register" >
-         <mat-icon>account_circle</mat-icon>Register</button>
-      <!-- <button mat-raised-button color="primary" (click)="navigateToRegistration();">Registration</button> -->
+    
+
+      <button mat-raised-button  color="primary" type="submit">Login</button>
+       <div class="divider"></div>
+      <button mat-raised-button color="primary" (click)="navigateToRegistration();">Registration</button> 
       <br><br><a routerLink="/forgotpassword">Forgot password?</a>
-   </mat-card-actions>
+
+</form>
+</mat-card-content>
 </mat-card>
 

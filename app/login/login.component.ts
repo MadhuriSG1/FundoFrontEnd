@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginUser } from '../Model/login.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -11,10 +15,39 @@ import { Router } from '@angular/router';
 
 
 export class LoginComponent implements OnInit {
+  user:LoginUser=new LoginUser();
+  loginForm: FormGroup;
 
-  constructor(private router:Router) { }
+  constructor(private formBuilder: FormBuilder,private userService: UserService,
+    private matsnackbar: MatSnackBar,private router:Router) { }
 
   ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      'email': [this.user.email,[ Validators.required]],
+      'password': [this.user.password,[ Validators.required,Validators.minLength(6)]]
+  });
+  }
+
+  onLoginSubmit(){
+    console.log(this.user.email);
+    this.userService.loginUser(this.user).subscribe(
+      data => { 
+        if(data.statusCode== 200)
+        {
+            this.matsnackbar.open(' Login Successfully ', 'LogIn', {
+              duration: 2000,});
+              localStorage.setItem('jwtToken',data.headers.get('jwtToken'));
+             this.router.navigate(['www.google.com']);
+        }
+         else{
+        this.matsnackbar.open(data.statusMessage,"Login Fails",)
+        }
+      },
+        
+       error => {
+           console.log("Error", error);
+          }
+      );
   }
 
   navigateToRegistration():void{
