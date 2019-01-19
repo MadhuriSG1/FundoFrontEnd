@@ -1,0 +1,21 @@
+<mat-card class="my-card">
+  <mat-card-header>
+      <mat-card-title>Password Recovery</mat-card-title>
+    </mat-card-header>
+ <mat-card-content>
+    <form class="my-form"  [formGroup]="resetForm" (ngSubmit)="onResetPageClick()">
+       <mat-form-field class="full-width">
+          <mat-label>New Password</mat-label>
+          <input  matInput  placeholder="Enter New Password" type="password" name="name" 
+          [(ngModel)]="user.email"formControlName="email">
+       </mat-form-field>
+       <mat-form-field class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input  matInput  placeholder="Enter Confirm Password" [(ngModel)]="user.password" 
+        formControlName="password" type="password" >
+     </mat-form-field>
+     <button mat-raised-button color="primary" type="submit" >Submit</button>
+    </form>
+ </mat-card-content>
+ 
+</mat-card>

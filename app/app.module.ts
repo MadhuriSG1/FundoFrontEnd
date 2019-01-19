@@ -17,6 +17,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { UserService } from './user.service';
 import { VerifyComponent } from './verify/verify.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ResetpageComponent } from './resetpage/resetpage.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
@@ -32,7 +33,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     RegistrationComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
-    VerifyComponent
+    VerifyComponent,
+    ResetpageComponent
   ],
   imports: [
     BrowserModule,

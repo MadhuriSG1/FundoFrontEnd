@@ -22,5 +22,19 @@ export class UserService {
 
 public verifyUser(token: String):any {
   return this.http.get(this.url+'verify'+token);
+  
+}
+
+public forgotPassword(email:string):any{
+  return this.http.get(this.url+'forgotpassword/?email='+email);
+}
+
+public resetPassword(token:string):any{
+  return this.http.get(this.url+'resetpassword/'+token);
+}
+
+public resetLink(loginmodel :LoginUser,token:string):any
+{
+  return this.http.post<LoginUser>(this.url+'resetpage/'+token,loginmodel);
 }
 }
