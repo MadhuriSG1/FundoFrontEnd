@@ -21,9 +21,11 @@ import { ResetpageComponent } from './resetpage/resetpage.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
+{path : 'verify/:token' ,component:VerifyComponent},
 { path: 'login', component: LoginComponent },
 { path: 'forgotpassword', component: ForgotpasswordComponent },
-{ path: 'resetpassword', component: ResetpasswordComponent }];
+{ path: 'resetpassword/:token', component: ResetpasswordComponent },
+{path : 'resetpage/:token',component:ResetpageComponent}];
 
 
 @NgModule({
