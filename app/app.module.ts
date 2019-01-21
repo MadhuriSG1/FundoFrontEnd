@@ -18,6 +18,10 @@ import { UserService } from './user.service';
 import { VerifyComponent } from './verify/verify.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ResetpageComponent } from './resetpage/resetpage.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomeComponent } from './home/home.component';
+import { SidebarComponent } from './home/sidebar/sidebar.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
@@ -36,7 +40,10 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     ForgotpasswordComponent,
     ResetpasswordComponent,
     VerifyComponent,
-    ResetpageComponent
+    ResetpageComponent,
+    HomeComponent,
+    SidebarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     MatRadioModule,
     HttpClientModule,
     RouterModule,
-    [RouterModule.forRoot(routes)]
+    [RouterModule.forRoot(routes)],
+    FlexLayoutModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

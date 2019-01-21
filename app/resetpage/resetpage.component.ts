@@ -20,9 +20,7 @@ export class ResetpageComponent implements OnInit {
     this.token=activatedRouter.snapshot.params['token'];
   }
   
-
-
-  ngOnInit() {
+ngOnInit() {
     this.resetForm=this.formBuilder.group({
       'email':[this.user.email,[
         Validators.required,
@@ -35,9 +33,7 @@ export class ResetpageComponent implements OnInit {
     })
 
   }
-
-
-  onResetPageClick()
+onResetPageClick()
   {
     this.userService.resetLink(this.user,this.token).subscribe(
 
