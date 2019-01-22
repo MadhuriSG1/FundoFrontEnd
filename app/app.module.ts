@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,
         MatCheckboxModule, MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,
         MatRadioModule,MatListModule,MatSnackBarModule} from  '@angular/material';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule } from '@angular/router';
 import { Router,ActivatedRoute ,Routes} from '@angular/router';
@@ -29,7 +30,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'login', component: LoginComponent },
 { path: 'forgotpassword', component: ForgotpasswordComponent },
 { path: 'resetpassword/:token', component: ResetpasswordComponent },
-{path : 'resetpage/:token',component:ResetpageComponent}];
+{path : 'resetpage/:token',component:ResetpageComponent},
+{ path: 'home', component: HomeComponent }];
 
 
 @NgModule({
@@ -59,7 +61,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     HttpClientModule,
     RouterModule,
     [RouterModule.forRoot(routes)],
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSidenavModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -1,3 +1,60 @@
-<p>
-  dashboard works!
-</p>
+
+<mat-toolbar>
+<mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+  <span>Fundo App</span>
+  <span class="example-spacer"></span>
+  
+  <div class="gb_Tf"><input class="gb_Cf" aria-label="Search" autocomplete="off" placeholder="Search" 
+    value="" name="q" role="combobox" type="text"></div>
+    
+  <mat-icon class="example-icon"><i class="material-icons">search</i></mat-icon>
+  <mat-icon class="example-icon"><i class="material-icons">refresh</i></mat-icon>
+  <mat-icon class="example-icon"><i class="material-icons">view_agenda</i></mat-icon>
+  <mat-icon class="example-icon"><i class="material-icons">settings</i></mat-icon>
+  <mat-icon class="example-icon"><i class="material-icons">apps</i></mat-icon>
+  <mat-icon class="example-icon"><i class="material-icons">notifications</i></mat-icon>
+  
+  
+</mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+                 (closed)="events.push('close!')">
+      <mat-action-list>
+          <button mat-list-item > Notes </button>
+          <button mat-list-item> Remainder </button>
+        </mat-action-list>
+        
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <p>Events:</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+<!-- 
+  <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+      <mat-drawer #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
+      <mat-drawer-content>
+        <mat-form-field>
+          <mat-label>Sidenav mode</mat-label>
+          <mat-select #mode value="side">
+            <mat-option value="side">Side</mat-option>
+            <mat-option value="over">Over</mat-option>
+            <mat-option value="push">Push</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Has backdrop</mat-label>
+          <mat-select #hasBackdrop>
+            <mat-option>Unset</mat-option>
+            <mat-option [value]="true">True</mat-option>
+            <mat-option [value]="false">False</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+      </mat-drawer-content>
+    </mat-drawer-container> -->
