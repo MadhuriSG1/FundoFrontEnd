@@ -16,6 +16,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { UserService } from './user.service';
+import { SidebartoggleService } from './home/sidebartoggle.service';
 import { VerifyComponent } from './verify/verify.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ResetpageComponent } from './resetpage/resetpage.component';
@@ -23,6 +24,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
+import { MatMenuModule} from '@angular/material/menu';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
@@ -62,9 +64,10 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     RouterModule,
     [RouterModule.forRoot(routes)],
     FlexLayoutModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatMenuModule
   ],
-  providers: [UserService],
+  providers: [UserService,SidebartoggleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

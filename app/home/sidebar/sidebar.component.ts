@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Input,ViewChild} from '@angular/core';
+import { MatSidenav } from '@angular/material';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
-
+ 
   ngOnInit() {
   }
+  @Input() value:boolean;
+  @ViewChild('sidenav') public myNav: MatSidenav;
+ constructor() { }
+   
 
+ ngOnChanges(){
+   this.myNav.toggle();
+  }
+
+ 
 }

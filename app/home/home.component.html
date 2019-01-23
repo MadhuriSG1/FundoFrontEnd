@@ -1,3 +1,13 @@
 
-<app-dashboard></app-dashboard>
+<!-- <app-dashboard></app-dashboard> -->
 
+<div fxLayout="column" fxLayoutAlign="start stretch"  >
+
+    <app-dashboard (eventClicked)="childEventClicked($event)" >
+      </app-dashboard>
+    <mat-divider></mat-divider>
+    <app-sidebar  [value]="clickedEvent"   fxLayoutAlign="start stretch" fxFlex="1 1 82%">
+    
+    </app-sidebar>
+      
+    </div>

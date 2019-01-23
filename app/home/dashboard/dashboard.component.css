@@ -3,7 +3,7 @@
   }
   
   .example-spacer {
-    flex: 1 1 auto;
+    flex: 1 1 20%;
   }
 
   .gb_Cf {
@@ -26,4 +26,16 @@
     margin-left: 54px;
     margin-right: 50px;
     overflow: hidden;
+}
+
+.bgcolor{
+  background-color: burlywood;
+}
+
+.mat-icon {
+  transform: scale(.8);
+}
+
+mat-button{
+  margin: 1px;
 }

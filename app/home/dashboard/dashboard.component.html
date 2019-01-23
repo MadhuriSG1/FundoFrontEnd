@@ -1,60 +1,68 @@
 
-<mat-toolbar>
+<mat-toolbar class=bgcolor>
 <mat-toolbar-row>
-    <button mat-icon-button (click)="sidenav.toggle()">
+  <div fxLayoutAlign="start center" fxFlex="1 1 20%">
+      <button mat-button (click)="onClick()">
         <mat-icon>menu</mat-icon>
       </button>
-  <span>Fundo App</span>
+  <span>Fundoo Notes</span>
   <span class="example-spacer"></span>
-  
-  <div class="gb_Tf"><input class="gb_Cf" aria-label="Search" autocomplete="off" placeholder="Search" 
+  </div>
+<div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px" class="example-icon">
+
+  <!-- <div class="gb_Tf"><input class="gb_Cf" aria-label="Search" autocomplete="off" placeholder="Search" 
     value="" name="q" role="combobox" type="text"></div>
-    
-  <mat-icon class="example-icon"><i class="material-icons">search</i></mat-icon>
-  <mat-icon class="example-icon"><i class="material-icons">refresh</i></mat-icon>
-  <mat-icon class="example-icon"><i class="material-icons">view_agenda</i></mat-icon>
-  <mat-icon class="example-icon"><i class="material-icons">settings</i></mat-icon>
-  <mat-icon class="example-icon"><i class="material-icons">apps</i></mat-icon>
-  <mat-icon class="example-icon"><i class="material-icons">notifications</i></mat-icon>
-  
-  
+    <mat-icon class="example-icon"><i class="material-icons">search</i></mat-icon> -->
+
+  <button mat-icon-button><mat-icon>search</mat-icon></button>
+  <button mat-icon-button><mat-icon>refresh</mat-icon></button>
+  <button mat-icon-button><mat-icon>view_agenda</mat-icon></button>
+  <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon></button>
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Send feedBack</button>
+      <button mat-menu-item>Help</button>
+      <button mat-menu-item>App download</button>
+      <button mat-menu-item>Keyboard shortcuts</button>
+      </mat-menu> 
+      <button mat-icon-button><mat-icon>apps</mat-icon></button>
+      <button mat-icon-button><mat-icon>notifications</mat-icon></button>
+      <button mat-icon-button [matMenuTriggerFor]="menu2"><mat-icon>account_circle</mat-icon></button>
+              <mat-menu #menu2="matMenu">
+                   <button mat-menu-item>SignOut</button>
+                   <button mat-menu-item>Add account</button>
+             </mat-menu>
+
+</div>
 </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-                 (closed)="events.push('close!')">
-      <mat-action-list>
-          <button mat-list-item > Notes </button>
-          <button mat-list-item> Remainder </button>
-        </mat-action-list>
+
+  <!-- <mat-toolbar class="backgcolor">
+    <mat-toolbar-row>
+       
+        <div fxLayoutAlign="start center" fxFlex="1 1 20%">
+            <button mat-button (click)="onClick()">
+                <mat-icon>menu</mat-icon>
+              </button>
         
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <p>Events:</p>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-<!-- 
-  <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
-      <mat-drawer #drawer [mode]="mode.value">I'm a drawer</mat-drawer>
-      <mat-drawer-content>
-        <mat-form-field>
-          <mat-label>Sidenav mode</mat-label>
-          <mat-select #mode value="side">
-            <mat-option value="side">Side</mat-option>
-            <mat-option value="over">Over</mat-option>
-            <mat-option value="push">Push</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Has backdrop</mat-label>
-          <mat-select #hasBackdrop>
-            <mat-option>Unset</mat-option>
-            <mat-option [value]="true">True</mat-option>
-            <mat-option [value]="false">False</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
-      </mat-drawer-content>
-    </mat-drawer-container> -->
+            <span> Fundoo Notes</span>
+          </div>
+            <div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px"> 
+              <button mat-icon-button><mat-icon>refresh</mat-icon></button>
+              <button mat-icon-button ><mat-icon>view_agenda </mat-icon></button>
+              <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon></button>
+              <mat-menu #menu="matMenu">
+                  <button mat-menu-item>Setting</button>
+                  <button mat-menu-item>SendFeedBack</button>
+                  <button mat-menu-item>Help</button>
+                  </mat-menu> 
+                  
+              <button mat-icon-button [matMenuTriggerFor]="menu2"><mat-icon>arrow_drop_down</mat-icon></button>
+              <mat-menu #menu2="matMenu">
+                   <button mat-menu-item>SignOut</button>
+             </mat-menu>
+           </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+     -->

@@ -1,0 +1,35 @@
+.example-container {
+    min-width: 1300px;
+      min-height: 600px;
+   
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+/*   
+  .example-card{
+    margin-top: 50px;
+     margin-left: 300px;
+    max-width: 500px; 
+  }
+  
+  .clear{
+    outline: none;
+  }
+  
+  .mat-input-element {
+
+    width: 471px;
+    height: 59px;
+    outline: none;
+    box-shadow: none;
+    border-color: transparent;
+  }
+  
+  textarea { 
+    resize: none; 
+  }
+  .xyz{
+    resize: none
+  } */
