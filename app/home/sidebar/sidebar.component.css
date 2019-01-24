@@ -7,7 +7,7 @@
   .example-sidenav {
     padding: 20px;
   }
-/*   
+  
   .example-card{
     margin-top: 50px;
      margin-left: 300px;
@@ -32,4 +32,14 @@
   }
   .xyz{
     resize: none
-  } */
+  } 
+
+  .mat-input-underline {
+    display: none;
+  }
+  
+  .noteclass{
+    max-height: 400px;
+    overflow-y: auto; 
+    
+  }

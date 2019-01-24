@@ -20,6 +20,6 @@ export class HomeComponent implements OnInit {
   childEventClicked(open:boolean)
   {
     this.clickedEvent=open;
-    //console.log(open);
+    console.log(open);
 }
 }

@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { MatMenuModule} from '@angular/material/menu';
+import { CreatenoteComponent } from './createnote/createnote.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'forgotpassword', component: ForgotpasswordComponent },
 { path: 'resetpassword/:token', component: ResetpasswordComponent },
 {path : 'resetpage/:token',component:ResetpageComponent},
+{path : 'createnote',component:CreatenoteComponent},
 { path: 'home', component: HomeComponent }];
 
 
@@ -47,7 +49,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     ResetpageComponent,
     HomeComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreatenoteComponent
   ],
   imports: [
     BrowserModule,
