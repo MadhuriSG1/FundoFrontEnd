@@ -1,8 +1,38 @@
+<div fxLayout="column" fxLayoutGap="10px">
+      <mat-card *ngIf=!navshow (click)="fullCardShow()" style="min-width: 5px">
+      Take a note...
+      <button mat-icon-button>
+            <mat-icon aria-label="Example icon-button with icon">
+                  add_photo_alternate
+            </mat-icon>
+         </button>   
+         <button mat-icon-button>
+               <mat-icon aria-label="Example icon-button with icon">
+                  brush
+               </mat-icon>
+            </button>
+   </mat-card>
+
+<!-- <mat-card class="example-card1" >
+   <div fxLayout="row" style="margin-left: 200px;" >
+      <input class="card1"  matInput placeholder="Take a note..." style="margin-left:20px;">  
+            <button mat-icon-button>
+               <mat-icon aria-label="Example icon-button with icon">
+                     add_photo_alternate
+               </mat-icon>
+            </button>    
+            <button mat-icon-button>
+                  <mat-icon aria-label="Example icon-button with icon">
+                     brush
+                  </mat-icon>
+               </button>    
+         </div>
+</mat-card> -->
 
         
   <div fxLayout="row">
           <div fxLayoutAlign="center center" fxLayoutAlign.xs="start center" fxFlexFill>
-             <mat-card class="example-card">
+             <mat-card *ngIf=navshow class="example-card">
                 <mat-card-content >
                    <input  matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="title">       
                    <div class ="noteclass" contenteditable="true"  data-placeholder='Enter some text' style="margin-left:20px;" 
@@ -45,8 +75,8 @@
                     </mat-menu>
                       </button>
                       <div style="margin-left: 200px;"> 
-                         <button mat-icon-button (click)="saveNote()" >Close
-                         </button>
+                         <button mat-icon-button >Close
+                         </button>     
                       </div>
                    </div>
                 </mat-card-content>

@@ -8,4 +8,66 @@
     
     </app-sidebar>
       
+    </div>  
+
+<!-- 
+<mat-toolbar class=bgcolor>
+    <mat-toolbar-row>
+      <div fxLayoutAlign="start center" fxFlex="1 1 20%">
+          <button mat-icon-button (click)="onClick()">
+            <mat-icon>menu</mat-icon>
+          </button>
+      <span>Fundoo Notes</span>
+      <span class="example-spacer"></span>
+      </div>
+    <div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px" class="example-icon">
+    
+      <button mat-icon-button><mat-icon>search</mat-icon></button>
+      <button mat-icon-button><mat-icon>refresh</mat-icon></button>
+      <button mat-icon-button><mat-icon>view_agenda</mat-icon></button>
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon></button>
+      <mat-menu #menu="matMenu">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Send feedBack</button>
+          <button mat-menu-item>Help</button>
+          <button mat-menu-item>App download</button>
+          <button mat-menu-item>Keyboard shortcuts</button>
+          </mat-menu> 
+          <button mat-icon-button><mat-icon>apps</mat-icon></button>
+          <button mat-icon-button><mat-icon>notifications</mat-icon></button>
+          <button mat-icon-button [matMenuTriggerFor]="menu2"><mat-icon>account_circle</mat-icon></button>
+                  <mat-menu #menu2="matMenu">
+                       <button mat-menu-item>SignOut</button>
+                       <button mat-menu-item>Add account</button>
+                 </mat-menu>
+    
     </div>
+    </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+<mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav #sidenav  class="example-sidenav" mode="side" disableClose >
+            <mat-action-list>
+                        <button mat-list-item> Notes </button>
+                        <button mat-list-item> Remainder </button>
+                        <mat-divider ></mat-divider>
+                        <h6 style="font-size:70%;" matSubheader >LABELS</h6>
+                        <button mat-list-item> Edit labels </button>
+                        <mat-divider></mat-divider>
+                        <button mat-list-item> Archive </button>
+                        <button mat-list-item> Trash </button>             
+           </mat-action-list>
+         
+      
+    <mat-sidenav-content>
+      <div fxLayout="row">
+        <div fxLayoutAlign="center center" fxLayoutAlign.xs="starter center"fxFlexFill>
+          <router-outlet></router-outlet>
+        </div>
+
+      </div>      
+    
+    </mat-sidenav-content> 
+    </mat-sidenav>
+    </mat-sidenav-container>
+     -->
