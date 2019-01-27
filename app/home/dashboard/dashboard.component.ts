@@ -7,9 +7,9 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @Output() eventClicked = new EventEmitter<boolean>();
+//   @Output() eventClicked = new EventEmitter<boolean>();
   
-open:boolean=false;
+// open:boolean=false;
 
   constructor() { }
 
@@ -17,9 +17,9 @@ open:boolean=false;
   }
 
 
-onClick(){
-   this.open=!this.open;
-    this.eventClicked.emit(this.open);
+// onClick(){
+//    this.open=!this.open;
+//     this.eventClicked.emit(this.open);
     
- }
+//  }
 }

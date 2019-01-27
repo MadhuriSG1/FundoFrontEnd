@@ -13,14 +13,14 @@ export class SidebarComponent implements OnInit {
  
   ngOnInit() {
   }
-  @Input() value:boolean;
-  @ViewChild('sidenav') public myNav: MatSidenav;
- constructor() { }
+//   @Input() value:boolean;
+//   @ViewChild('sidenav') public myNav: MatSidenav;
+//  constructor() { }
    
 
- ngOnChanges(){
-   this.myNav.toggle();
-  }
+//  ngOnChanges(){
+//    this.myNav.toggle();
+//   }
 
  
 }

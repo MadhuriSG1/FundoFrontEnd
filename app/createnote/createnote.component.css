@@ -1,4 +1,4 @@
-.example-card{
+/* .example-card{
     margin-top: 100px;
      margin-left: 300px;
     max-width: 500px; 
@@ -23,4 +23,29 @@
   }
   
 
+   */
+
+   .inputclass{
+
+    outline: none;
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    border: solid 0px transparent;
+    border-width: 0 0 0 4px
+  }
   
+  .takeanote{
+      outline: none;
+      outline-style: none;
+      box-shadow: none;
+      border-color: transparent;
+      border: solid 1px transparent;
+      max-height: 400px;
+      overflow-y: auto; 
+  }
+  .card{
+    margin: 2em;
+}
+
+

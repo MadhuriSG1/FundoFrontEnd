@@ -15,7 +15,9 @@ import { Router,ActivatedRoute ,Routes} from '@angular/router';
 import { HttpClientModule } from  '@angular/common/http';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { UserService } from './user.service';
+import { UserService } from './service/user.service';
+import { NotecrudService } from './service/notecrud.service';
+
 import { SidebartoggleService } from './home/sidebartoggle.service';
 import { VerifyComponent } from './verify/verify.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -26,6 +28,8 @@ import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { CreatenoteComponent } from './createnote/createnote.component';
+import { SinglecardComponent } from './singlecard/singlecard.component';
+import { NotesComponent } from './notes/notes.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
@@ -35,7 +39,12 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'resetpassword/:token', component: ResetpasswordComponent },
 {path : 'resetpage/:token',component:ResetpageComponent},
 {path : 'createnote',component:CreatenoteComponent},
-{ path: 'home', component: HomeComponent }];
+{ path: 'home', component: HomeComponent ,
+children:[
+  {path:'',redirectTo:'notebar',pathMatch:'full'},
+  {path:'notebar',component:NotesComponent}
+]
+}];
 
 
 @NgModule({
@@ -50,7 +59,9 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     HomeComponent,
     SidebarComponent,
     DashboardComponent,
-    CreatenoteComponent
+    CreatenoteComponent,
+    SinglecardComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +81,7 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     MatSidenavModule,
     MatMenuModule
   ],
-  providers: [UserService,SidebartoggleService],
+  providers: [UserService,SidebartoggleService,NotecrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

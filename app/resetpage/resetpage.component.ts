@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterUser } from '../Model/register.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
+import { UserService } from '../service/user.service';
 import {MatSnackBar} from '@angular/material';
 import { Router ,ActivatedRoute} from '@angular/router';
 
