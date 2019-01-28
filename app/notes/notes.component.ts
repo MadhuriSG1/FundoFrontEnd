@@ -9,24 +9,22 @@ import { NotecrudService } from '../service/notecrud.service';
 })
 export class NotesComponent implements OnInit {
 
- 
+
   //@Input() 
-  private  allnotes:CreateNoteModel[];
-  
-  showtoolbar=false;
-  constructor(private notecrudservice:NotecrudService ) { }
+  private allnotes: CreateNoteModel[];
 
-    ngOnInit() {
-      this.notecrudservice.getNotes().subscribe(
-        response=>{
-         console.log(response);
-         this.allnotes=response;
-        },
-        error =>{
-          console.log("Error",error);
-        } 
-      )
+  showtoolbar = false;
+  constructor(private notecrudservice: NotecrudService) { }
 
+  ngOnInit() {
+    this.notecrudservice.getNotes().subscribe(
+      response => {
+        console.log(response);
+        this.allnotes = response;
+      },
+      error => {
+        console.log("Error", error);
+      }
+    )
   }
-
 }

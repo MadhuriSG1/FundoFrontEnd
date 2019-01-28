@@ -32,14 +32,16 @@ export class LoginComponent implements OnInit {
     console.log(this.user.email);
     this.userService.loginUser(this.user).subscribe(
       data => { 
-        if(data.statusCode== 200)
+        if(data.body.statusCode== 200)
         {
             this.matsnackbar.open(' Login Successfully ', 'LogIn', {
               duration: 2000,});
-              localStorage.setItem('jwtToken',data.headers.get('jwtToken'));
-             this.router.navigate(['www.google.com']);
+              console.log(data.headers);
+              localStorage.setItem('jwtToken',data.headers.get('Authorization'));
+             this.router.navigate(['./home']);
         }
          else{
+           console.log(data);
         this.matsnackbar.open(data.statusMessage,"Login Fails",)
         }
       },

@@ -1,93 +1,6 @@
-<!-- <div fxLayout="column" fxLayoutGap="10px">
-      <mat-card *ngIf=!navshow (click)="fullCardShow()" style="min-width: 5px">
-      Take a note...
-      <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with icon">
-                  add_photo_alternate
-            </mat-icon>
-         </button>   
-         <button mat-icon-button>
-               <mat-icon aria-label="Example icon-button with icon">
-                  brush
-               </mat-icon>
-            </button>
-   </mat-card> -->
-
-<!-- <mat-card class="example-card1" >
-   <div fxLayout="row" style="margin-left: 200px;" >
-      <input class="card1"  matInput placeholder="Take a note..." style="margin-left:20px;">  
-            <button mat-icon-button>
-               <mat-icon aria-label="Example icon-button with icon">
-                     add_photo_alternate
-               </mat-icon>
-            </button>    
-            <button mat-icon-button>
-                  <mat-icon aria-label="Example icon-button with icon">
-                     brush
-                  </mat-icon>
-               </button>    
-         </div>
-</mat-card> -->
-<!-- 
-        
-  <div fxLayout="row">
-          <div fxLayoutAlign="center center" fxLayoutAlign.xs="start center" fxFlexFill>
-             <mat-card *ngIf=navshow class="example-card">
-                <mat-card-content >
-                   <input  matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="title">       
-                   <div class ="noteclass" contenteditable="true"  data-placeholder='Enter some text' style="margin-left:20px;" 
-                   [textContent]="content" (input)="content=$event.target.textContent">
-                   </div>
-                   <div fxLayout="row" >
-                      <button mat-icon-button>
-                         <mat-icon aria-label="Example icon-button with icon">
-                            add_alert
-                         </mat-icon>
-                      </button>
-                      <button mat-icon-button>
-                         <mat-icon aria-label="Example icon-button with icon">
-                            person_add
-                         </mat-icon>
-                      </button>
-                      <button mat-icon-button>
-                         <mat-icon aria-label="Example icon-button heart icon">
-                            palette
-                         </mat-icon>
-                      </button>
-                      <button mat-icon-button>
-                         <mat-icon aria-label="Example icon-button heart icon">
-                            add_photo_alternate
-                         </mat-icon>
-                      </button>
-                      <button mat-icon-button>
-                         <mat-icon aria-label="Example icon-button with a heart icon">
-                            archive
-                         </mat-icon>
-                      </button>
-                      <button mat-icon-button [matMenuTriggerFor]="menu">
-                         <mat-icon aria-label="Example icon-button with icon">
-                            more_vert
-                         </mat-icon>
-                         <mat-menu #menu="matMenu">
-                          <button mat-menu-item>Add label</button>
-                          <button mat-menu-item>Add drawing</button>
-                          <button mat-menu-item>Show checkboxes</button>
-                    </mat-menu>
-                      </button>
-                      <div style="margin-left: 200px;"> 
-                         <button mat-icon-button >Close
-                         </button>     
-                      </div>
-                   </div>
-                </mat-card-content>
-             </mat-card>
-          </div>
-          </div>
-   -->
-
    <div fxLayout="column" fxLayoutGap="10px" class="card"> 
       <mat-card *ngIf=!navshow (click)="fullCardShow()" style="min-width: 300px; margin:20px">
-        Take A Note ...
+        Take a note ...
       
       </mat-card>
       
@@ -96,8 +9,8 @@
         <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title" > 
         </mat-card-title>   
         <mat-card-subtitle>
-      <div class ="takeanote" contenteditable="true"  aria-placeholder='Enter some text' style="margin-left:20px;" 
-      [textContent]="createnote.content" (input)="createnote.content=$event.target.textContent" >
+      <div class ="takeanote" matInput placeholder="Take a note ..." contenteditable="true"  aria-placeholder='Enter some text' style="margin-left:20px;" 
+      [textContent]="createnote.content"   (input)="createnote.content=$event.target.textContent" >
       </div>
       </mat-card-subtitle>
       <div fxLayout="row">

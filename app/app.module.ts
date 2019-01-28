@@ -41,8 +41,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 {path : 'createnote',component:CreatenoteComponent},
 { path: 'home', component: HomeComponent ,
 children:[
-  {path:'',redirectTo:'notebar',pathMatch:'full'},
-  {path:'notebar',component:NotesComponent}
+  {path:'',redirectTo:'note',pathMatch:'full'},
+  {path:'note',component:NotesComponent}
 ]
 }];
 
