@@ -1,13 +1,13 @@
 export class CreateNoteModel{
     title:string; 
-    discription:string;
-    userid:number; 
-    pinned:boolean;
+    description:string;
+    userId:number; 
+    isPin:boolean;
     color:string;
     archive:boolean;
-    trash:boolean;
+    isTrash:boolean;
     createdate:Date;
     image:string;
     updateddate:string;
-    remainder:string;
+    reminder:string;
 }

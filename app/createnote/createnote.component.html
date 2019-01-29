@@ -9,8 +9,8 @@
         <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title" > 
         </mat-card-title>   
         <mat-card-subtitle>
-      <div class ="takeanote" matInput placeholder="Take a note ..." contenteditable="true"  aria-placeholder='Enter some text' style="margin-left:20px;" 
-      [textContent]="createnote.content"   (input)="createnote.content=$event.target.textContent" >
+      <div class ="takeanote"  matInput placeholder="Take a note.." contenteditable="true"  aria-placeholder='Take a note..' style="margin-left:20px;" 
+      [textContent]="createnote.description"  (input)="createnote.description=$event.target.textContent" >
       </div>
       </mat-card-subtitle>
       <div fxLayout="row">

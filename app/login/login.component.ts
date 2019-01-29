@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
             this.matsnackbar.open(' Login Successfully ', 'LogIn', {
               duration: 2000,});
               console.log(data.headers);
-              localStorage.setItem('jwtToken',data.headers.get('Authorization'));
+              localStorage.setItem('Authorization',data.headers.get('Authorization'));
              this.router.navigate(['./home']);
         }
          else{

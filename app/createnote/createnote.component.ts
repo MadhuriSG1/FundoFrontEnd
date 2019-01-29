@@ -26,7 +26,7 @@ export class CreatenoteComponent implements OnInit {
   noteSave()
   {
     this.navshow=!this.navshow;
-    this.createnote.pinned=true;
+    this.createnote.isPin=true;
    // this.createnote.userid=20;
     this.notecrudservice.createNote(this.createnote).subscribe(
         response =>{
@@ -43,7 +43,7 @@ export class CreatenoteComponent implements OnInit {
         } 
     );
     console.log(this.createnote.title);
-    console.log(this.createnote.discription);
+    console.log(this.createnote.description);
 }
 
   }

@@ -4,7 +4,7 @@
   </mat-card-title>
   <mat-card-subtitle>
      <p>
-       {{notedetails.content}}
+       {{notedetails.description}}
        </p>
   </mat-card-subtitle>
 
@@ -31,15 +31,20 @@
                         add_photo_alternate
                      </mat-icon>
                   </button>
-                  <button mat-icon-button>
+                  <button mat-icon-button >
                      <mat-icon aria-label="Example icon-button with a heart icon">
                         archive
                      </mat-icon>
                   </button>
-                  <button mat-icon-button>
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
                      <mat-icon aria-label="Example icon-button with a heart icon">
                         more_vert
                      </mat-icon>
+                     <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="noteDelete()">Delete note</button>
+                        <button mat-menu-item>Change labels</button>
+                        <button mat-menu-item>Show checkboxes</button>
+                  </mat-menu>
                   </button>
                   
                </div>

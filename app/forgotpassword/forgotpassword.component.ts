@@ -17,7 +17,6 @@ export class ForgotpasswordComponent implements OnInit {
   }
   onResetSubmit()
   {
-    console.log("fghdf");
     this.userService.forgotPassword(this.email).subscribe(
     
       data =>{
