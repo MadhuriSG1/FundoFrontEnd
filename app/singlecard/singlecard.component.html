@@ -1,8 +1,9 @@
+
 <mat-card class ="cardresize" >
-  <mat-card-title>	
+  <mat-card-title  (click)="openDialog()">	
       <p >{{notedetails.title}}</p>
   </mat-card-title>
-  <mat-card-subtitle>
+  <mat-card-subtitle  (click)="openDialog()">
      <p>
        {{notedetails.description}}
        </p>

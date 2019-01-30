@@ -44,7 +44,7 @@ public deleteNote(newNote:CreateNoteModel):any
 }
 
 public updateNote(updateNode:CreateNoteModel):any{
-  return this.http.put(this.noteUrl,updateNode,httpOptions);
+  return this.http.post(this.noteUrl+'/updatenote',updateNode,httpOptions);
 }
 
 }

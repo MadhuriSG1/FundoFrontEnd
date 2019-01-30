@@ -17,7 +17,8 @@ import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.compone
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { UserService } from './service/user.service';
 import { NotecrudService } from './service/notecrud.service';
-
+import { UpdatecardsService } from './service/updatecards.service';
+import {MatDialogModule} from '@angular/material/dialog'; 
 import { SidebartoggleService } from './home/sidebartoggle.service';
 import { VerifyComponent } from './verify/verify.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -30,6 +31,7 @@ import { MatMenuModule} from '@angular/material/menu';
 import { CreatenoteComponent } from './createnote/createnote.component';
 import { SinglecardComponent } from './singlecard/singlecard.component';
 import { NotesComponent } from './notes/notes.component';
+import { MydialogComponent } from './mydialog/mydialog.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
@@ -61,8 +63,10 @@ children:[
     DashboardComponent,
     CreatenoteComponent,
     SinglecardComponent,
-    NotesComponent
+    NotesComponent,
+    MydialogComponent
   ],
+  entryComponents:[MydialogComponent,SinglecardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -74,6 +78,7 @@ children:[
     MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,
     MatSnackBarModule,
     MatRadioModule,
+    MatDialogModule,
     HttpClientModule,
     RouterModule,
     [RouterModule.forRoot(routes)],
@@ -81,7 +86,7 @@ children:[
     MatSidenavModule,
     MatMenuModule
   ],
-  providers: [UserService,SidebartoggleService,NotecrudService],
+  providers: [UserService,SidebartoggleService,NotecrudService,UpdatecardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

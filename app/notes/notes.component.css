@@ -4,6 +4,9 @@
     padding-right: 300px;
 }
 
-.single-card {
+.single_card {
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    display: block;
 }

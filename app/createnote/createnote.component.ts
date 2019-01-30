@@ -42,8 +42,7 @@ export class CreatenoteComponent implements OnInit {
           console.log("Error",error);
         } 
     );
-    console.log(this.createnote.title);
-    console.log(this.createnote.description);
+   
 }
 
   }
