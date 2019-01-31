@@ -15,8 +15,11 @@ export class SinglecardComponent implements OnInit {
 
   constructor(private notecrudservice:NotecrudService,private snackBar:
      MatSnackBar,private dialog: MatDialog,private updatecardservice:UpdatecardsService) { }
-  
+
   @Input() notedetails:CreateNoteModel;
+
+  private colors:string[][]=[["white","salmon","orange","yellow"],["green","teal","blue","CadetBlue"],
+  ["Peru","turquoise","olive","gray"]];
 
   ngOnInit() {
 }
@@ -40,7 +43,7 @@ noteDelete()
 
 openDialog()
 {
-  console.log('hsgdhs');
+  
   const dialogRef = this.dialog.open(MydialogComponent, {
     width: '500px',
     data: {notedetails:this.notedetails}
@@ -65,7 +68,43 @@ openDialog()
       } 
       )
   });
-  
+}
 
+
+changeColor(single:string){
+  this.notedetails.color=single;
+  this.notecrudservice.updateNote(this.notedetails).subscribe(
+    response => {
+      if(response.statusCode==200)
+      {
+        this.snackBar.open(response.statusMessage,"",{
+          duration:2000,
+        })
+      }
+      this.updatecardservice.changemessage();
+    },
+    error => {
+       console.log("Error",error);
+    } 
+    );
+}
+
+
+archivenote(){
+  this.notedetails.isArchive=!this.notedetails.isArchive;
+  this.notecrudservice.updateNote(this.notedetails).subscribe(
+    response => {
+      if(response.statusCode==200)
+      {
+        this.snackBar.open(response.statusMessage,"",{
+          duration:2000,
+        })
+      }
+    },
+    error => {
+       console.log("Error",error);
+    } 
+    );
+    this.updatecardservice.changemessage();
 }
 }

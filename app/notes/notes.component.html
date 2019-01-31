@@ -1,18 +1,16 @@
-<div flexLayout="row"  >
+<div flexLayout="row">
   <div fxLayoutGap="15px">
-     <app-createnote fxLayoutAlign="center stretch">
-           
-       </app-createnote>
- </div>
- 
-     <div fxLayoutAlign="end center" fxLayoutGap="1px" fxLayout="row " class="single_card">
-        
-          <div *ngFor="let note of allnotes" fxLayoutGap="1px" > 
-            <app-singlecard [notedetails]= note>
- 
-            </app-singlecard>
-          </div> 
-   </div> 
- </div>
+    <app-createnote fxLayoutAlign="center stretch">
 
+    </app-createnote>
+  </div>
 
+  <div fxLayoutAlign="end center" fxLayoutGap="1px" fxLayout="row " class="single_card">
+
+    <div *ngFor="let note of allnotes" fxLayoutGap="1px">
+      <app-singlecard [notedetails]=note>
+
+      </app-singlecard>
+    </div>
+  </div>
+</div>

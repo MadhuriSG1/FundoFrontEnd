@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -8,29 +8,27 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./forgotpassword.component.css']
 })
 export class ForgotpasswordComponent implements OnInit {
-  email:string;
-  
+  email: string;
 
-  constructor(private matsnackbar: MatSnackBar,private userService: UserService,) { }
+  constructor(private matsnackbar: MatSnackBar, private userService: UserService, ) { }
 
   ngOnInit() {
   }
-  onResetSubmit()
-  {
+  onResetSubmit() {
     this.userService.forgotPassword(this.email).subscribe(
-    
-      data =>{
-        if(data.statusCode==200)
-        {
-          this.matsnackbar.open('A Reset Link Is Send To Your Email Address','',{
-            duration:2000,})
+
+      data => {
+        if (data.statusCode == 200) {
+          this.matsnackbar.open('A Reset Link Is Send To Your Email Address', '', {
+            duration: 2000,
+          })
         }
-        
-        else{
-          this.matsnackbar.open(data.statusMessage,"",{
-            duration:2000,})
+        else {
+          this.matsnackbar.open(data.statusMessage, "", {
+            duration: 2000,
+          })
         }
       }
     )
-}
+  }
 }

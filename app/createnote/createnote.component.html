@@ -1,17 +1,17 @@
-   <div fxLayout="row" fxLayoutGap="10px" class="card"> 
-      <mat-card *ngIf=!navshow (click)="fullCardShow()" style="min-width: 300px; margin:20px">
-        Take a note ...
-      
-      </mat-card>
-      
-      <mat-card *ngIf=navshow >
-      <mat-card-title >   
-        <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title" > 
-        </mat-card-title>   
-        <mat-card-subtitle>
-      <div class ="takeanote"  matInput placeholder="Take a note.." contenteditable="true"  aria-placeholder='Take a note..' style="margin-left:20px;" 
-      [textContent]="createnote.description"  (input)="createnote.description=$event.target.textContent" >
-      </div>
+<div fxLayout="row" fxLayoutGap="10px" class="card">
+   <mat-card *ngIf=!navshow (click)="fullCardShow()" style="min-width: 500px; margin:300px">
+      Take a note ...
+
+   </mat-card>
+
+   <mat-card *ngIf=navshow>
+      <mat-card-title>
+         <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title">
+      </mat-card-title>
+      <mat-card-subtitle>
+         <div class="takeanote" matInput placeholder="Take a note.." contenteditable="true" aria-placeholder='Take a note...'
+            style="margin-left:20px;" [textContent]="createnote.description" (input)="createnote.description=$event.target.textContent">
+         </div>
       </mat-card-subtitle>
       <div fxLayout="row">
          <button mat-icon-button>
@@ -44,16 +44,16 @@
                more_vert
             </mat-icon>
             <mat-menu #menu="matMenu">
-             <button mat-menu-item>Add label</button>
-             <button mat-menu-item>Add drawing</button>
-             <button mat-menu-item>Show checkboxes</button>
-       </mat-menu>
+               <button mat-menu-item>Add label</button>
+               <button mat-menu-item>Add drawing</button>
+               <button mat-menu-item>Show checkboxes</button>
+            </mat-menu>
          </button>
-         <div style="margin-left: 200px;"> 
-            <button mat-icon-button (click)="noteSave()" >Close
+         <div style="margin-left: 200px;">
+            <button mat-icon-button (click)="noteSave()">Close
             </button>
          </div>
       </div>
-      </mat-card>
-      
-      </div>
+   </mat-card>
+
+</div>

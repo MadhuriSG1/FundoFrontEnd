@@ -1,5 +1,5 @@
-import { Component, OnInit,Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CreateNoteModel } from '../Model/createnote.model';
 
 @Component({
@@ -9,8 +9,8 @@ import { CreateNoteModel } from '../Model/createnote.model';
 })
 export class MydialogComponent implements OnInit {
 
-  
-  
+
+
   //get dialog data in your component.
   constructor(public dialogRef: MatDialogRef<MydialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CreateNoteModel) { }
@@ -20,6 +20,6 @@ export class MydialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
-}
+  }
 
 }

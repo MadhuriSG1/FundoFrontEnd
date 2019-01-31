@@ -1,24 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,
-        MatCheckboxModule, MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,
-        MatRadioModule,MatListModule,MatSnackBarModule} from  '@angular/material';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import {
+  MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule,
+  MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule,
+  MatRadioModule, MatListModule, MatSnackBarModule
+} from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { RegistrationComponent } from './registration/registration.component';
 import { RouterModule } from '@angular/router';
-import { Router,ActivatedRoute ,Routes} from '@angular/router';
-import { HttpClientModule } from  '@angular/common/http';
+import { Router, ActivatedRoute, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { UserService } from './service/user.service';
 import { NotecrudService } from './service/notecrud.service';
 import { UpdatecardsService } from './service/updatecards.service';
-import {MatDialogModule} from '@angular/material/dialog'; 
+import { MatDialogModule } from '@angular/material/dialog';
 import { SidebartoggleService } from './home/sidebartoggle.service';
 import { VerifyComponent } from './verify/verify.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -27,7 +28,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { DashboardComponent } from './home/dashboard/dashboard.component';
-import { MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { CreatenoteComponent } from './createnote/createnote.component';
 import { SinglecardComponent } from './singlecard/singlecard.component';
 import { NotesComponent } from './notes/notes.component';
@@ -35,17 +36,18 @@ import { MydialogComponent } from './mydialog/mydialog.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
-{path : 'verify/:token' ,component:VerifyComponent},
+{ path: 'verify/:token', component: VerifyComponent },
 { path: 'login', component: LoginComponent },
 { path: 'forgotpassword', component: ForgotpasswordComponent },
 { path: 'resetpassword/:token', component: ResetpasswordComponent },
-{path : 'resetpage/:token',component:ResetpageComponent},
-{path : 'createnote',component:CreatenoteComponent},
-{ path: 'home', component: HomeComponent ,
-children:[
-  {path:'',redirectTo:'note',pathMatch:'full'},
-  {path:'note',component:NotesComponent}
-]
+{ path: 'resetpage/:token', component: ResetpageComponent },
+{ path: 'createnote', component: CreatenoteComponent },
+{
+  path: 'home', component: HomeComponent,
+  children: [
+    { path: '', redirectTo: 'note', pathMatch: 'full' },
+    { path: 'note', component: NotesComponent }
+  ]
 }];
 
 
@@ -66,7 +68,7 @@ children:[
     NotesComponent,
     MydialogComponent
   ],
-  entryComponents:[MydialogComponent,SinglecardComponent],
+  entryComponents: [MydialogComponent, SinglecardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -74,8 +76,8 @@ children:[
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatNativeDateModule,MatDatepickerModule,MatIconModule,MatButtonModule,MatCheckboxModule, 
-    MatToolbarModule, MatCardModule,MatFormFieldModule,MatInputModule,MatListModule,
+    MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule, MatCheckboxModule,
+    MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatListModule,
     MatSnackBarModule,
     MatRadioModule,
     MatDialogModule,
@@ -86,7 +88,7 @@ children:[
     MatSidenavModule,
     MatMenuModule
   ],
-  providers: [UserService,SidebartoggleService,NotecrudService,UpdatecardsService],
+  providers: [UserService, SidebartoggleService, NotecrudService, UpdatecardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

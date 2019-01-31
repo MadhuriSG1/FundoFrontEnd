@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateNoteModel } from '../Model/createnote.model';
 import { NotecrudService } from '../service/notecrud.service';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -10,39 +10,37 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./createnote.component.css']
 })
 export class CreatenoteComponent implements OnInit {
-  
-  navshow:boolean=false;
-  createnote:CreateNoteModel=new CreateNoteModel;
-  
-  constructor(private notecrudservice:NotecrudService,private snackBar: MatSnackBar) { }
+
+  navshow: boolean = false;
+  createnote: CreateNoteModel = new CreateNoteModel;
+
+  constructor(private notecrudservice: NotecrudService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
-  fullCardShow()
-  {
-    this.navshow=!this.navshow;
+  fullCardShow() {
+    this.navshow = !this.navshow;
   }
-  noteSave()
-  {
-    this.navshow=!this.navshow;
-    this.createnote.isPin=true;
-   // this.createnote.userid=20;
+  noteSave() {
+    this.navshow = !this.navshow;
+    this.createnote.isPin = true;
+    // this.createnote.userid=20;
     this.notecrudservice.createNote(this.createnote).subscribe(
-        response =>{
-          if(response.statusCode==200)
-          {
-            this.snackBar.open(response.statusMessage,"",{
-              duration:2000,
-            })
-          }
+      response => {
+        console.log(response);
+        if (response.statusCode == 200) {
+          this.snackBar.open(response.statusMessage, "", {
+            duration: 2000,
+          })
+        }
 
-        },
-        error =>{
-          console.log("Error",error);
-        } 
+      },
+      error => {
+        console.log("Error", error);
+      }
     );
-   
-}
 
   }
+
+}
