@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Label } from '../Model/label.model';
+import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.component';
+import { NotecrudService } from '../service/notecrud.service';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -6,20 +10,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  private clickedEvent: boolean;
+  label:Label=new Label();
+  labelsall:Label[];
 
-  
-  private clickedEvent:boolean;
+  constructor(private notecurdservice:NotecrudService,private dialog: MatDialog) {
+  }
 
   ngOnInit() {
-
+    this.notecurdservice.getAllLabels().subscribe(
+      response=>
+      {
+        this.labelsall=response;
+        console.log(this.labelsall.length);
+      }
+)
   }
-  constructor(){
 
-  }
-
-  childEventClicked(open:boolean)
+  EditLabelDialog()
   {
-    this.clickedEvent=open;
-    console.log(open);
+    const dialogRef = this.dialog.open(EditlabeldialogComponent, {
+      width: '300px',
+      height:'400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        if(result!=null)
+        {
+          this.label.labelTitle=result;
+          this.notecurdservice.createLabel(this.label).subscribe(
+              response =>
+              {
+               console.log(response);
+              }
+            )
+        }
+    });
 }
+ 
+
 }

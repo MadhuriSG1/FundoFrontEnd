@@ -5,25 +5,25 @@ import { MatSidenav } from '@angular/material';
   providedIn: 'root'
 })
 export class SidebartoggleService {
-  private sidenav: MatSidenav;
+//   private sidenav: MatSidenav;
 
-  constructor() { }
-
-
-  public setSidenav(sidenav: MatSidenav) {
-    this.sidenav = sidenav;
-}
-
-public open() {
-    return this.sidenav.open();
-}
+//   constructor() { }
 
 
-public close() {
-    return this.sidenav.close();
-}
+//   public setSidenav(sidenav: MatSidenav) {
+//     this.sidenav = sidenav;
+// }
 
-public toggle(): void {
-this.sidenav.toggle();
-}
+// public open() {
+//     return this.sidenav.open();
+// }
+
+
+// public close() {
+//     return this.sidenav.close();
+// }
+
+// public toggle(): void {
+// this.sidenav.toggle();
+// }
 }

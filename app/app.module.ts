@@ -33,6 +33,8 @@ import { CreatenoteComponent } from './createnote/createnote.component';
 import { SinglecardComponent } from './singlecard/singlecard.component';
 import { NotesComponent } from './notes/notes.component';
 import { MydialogComponent } from './mydialog/mydialog.component';
+import { EditlabeldialogComponent } from './editlabeldialog/editlabeldialog.component';
+import { LabelsComponent } from './labels/labels.component';
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
 { path: 'register', component: RegistrationComponent },
@@ -46,7 +48,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
   path: 'home', component: HomeComponent,
   children: [
     { path: '', redirectTo: 'note', pathMatch: 'full' },
-    { path: 'note', component: NotesComponent }
+    { path: 'note', component: NotesComponent },
+    {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange',}
   ]
 }];
 
@@ -66,9 +69,11 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     CreatenoteComponent,
     SinglecardComponent,
     NotesComponent,
-    MydialogComponent
+    MydialogComponent,
+    EditlabeldialogComponent,
+    LabelsComponent
   ],
-  entryComponents: [MydialogComponent, SinglecardComponent],
+  entryComponents: [MydialogComponent, SinglecardComponent,EditlabeldialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -10,8 +10,6 @@ import { UpdatecardsService } from '../service/updatecards.service';
 })
 export class NotesComponent implements OnInit {
 
-
-  //@Input() 
   private allnotes: CreateNoteModel[];
 
   showtoolbar = false;
