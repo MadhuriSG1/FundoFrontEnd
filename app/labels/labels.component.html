@@ -2,15 +2,13 @@
   
   <div fxLayout="column" fxLayoutGap="20px">
 
-    <div fxLayoutAlign="center start">
-      <app-createnote>
+    <div fxLayoutAlign="center stretch" style="margin: auto">
+      <app-createnote style="margin: auto">
 
       </app-createnote>
 
     </div>
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="15px grid">
-      <!-- flexLayout="row wrap" fxLayoutGap="10px"> -->
-
       <div *ngFor="let note of allnotes">
         <span *ngFor="let lb of note.labels">
           <span *ngIf="labelcheck(lb)">

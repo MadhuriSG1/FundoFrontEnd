@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CreateNoteModel } from '../../app/Model/createnote.model'
 import { Observable } from 'rxjs';
 import { Label } from '../Model/label.model';
-//For adding headers
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -52,12 +52,12 @@ export class NotecrudService {
 
   public createLabel(newLabel:Label){
 
-    return this.http.post(this.labelUrl+'createlabel',newLabel,httpOptions);
+    return this.http.post(this.labelUrl,newLabel,httpOptions);
   }
 
   public getAllLabels():Observable<Label[]>
   {
-    return this.http.get<Label[]>(this.labelUrl+'getalllabels',httpOptions2);
+    return this.http.get<Label[]>(this.labelUrl,httpOptions2);
 }
 
   

@@ -50,12 +50,12 @@
   <mat-sidenav #drawer class="example-sidenav" mode="side" disableClose>
     <mat-action-list>
       <button mat-list-item routerLink="/home/note" routerLinkActive="active"> Notes </button>
-      <button mat-list-item> Remainder </button>
+      <button mat-list-item>Reminder</button>
       <mat-divider></mat-divider>
       <h6 style="font-size:65%;" matSubheader>LABELS</h6>
     
 <mat-list>
-  <mat-list-item *ngFor = "let lb of labelsall"> <!--  routerLink="/forgot" -->
+  <mat-list-item *ngFor = "let lb of labelsall"> 
    <button routerLink="/home/labels/{{lb.labelTitle}}" routerLinkActive="active">
    {{lb.labelTitle}}
    </button>
