@@ -35,23 +35,7 @@ import { NotesComponent } from './notes/notes.component';
 import { MydialogComponent } from './mydialog/mydialog.component';
 import { EditlabeldialogComponent } from './editlabeldialog/editlabeldialog.component';
 import { LabelsComponent } from './labels/labels.component';
-
-const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
-{ path: 'register', component: RegistrationComponent },
-{ path: 'verify/:token', component: VerifyComponent },
-{ path: 'login', component: LoginComponent },
-{ path: 'forgotpassword', component: ForgotpasswordComponent },
-{ path: 'resetpassword/:token', component: ResetpasswordComponent },
-{ path: 'resetpage/:token', component: ResetpageComponent },
-{ path: 'createnote', component: CreatenoteComponent },
-{
-  path: 'home', component: HomeComponent,
-  children: [
-    { path: '', redirectTo: 'note', pathMatch: 'full' },
-    { path: 'note', component: NotesComponent },
-    {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange',}
-  ]
-}];
+import {MatChipsModule} from '@angular/material/chips'; 
 
 
 @NgModule({
@@ -88,10 +72,10 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     MatDialogModule,
     HttpClientModule,
     RouterModule,
-    [RouterModule.forRoot(routes)],
     FlexLayoutModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatChipsModule
   ],
   providers: [UserService, SidebartoggleService, NotecrudService, UpdatecardsService],
   bootstrap: [AppComponent]

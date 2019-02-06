@@ -26,7 +26,7 @@ export class NotecrudService {
   constructor(private http: HttpClient) { }
 
   private noteUrl = 'http://localhost:8888/api/note';
-  private labelUrl='http://localhost:8888/api/label/';
+  private labelUrl='http://localhost:8888/api/label';
   //For sending data to the server
   public createNote(newNote: CreateNoteModel): any {
     console.log(newNote);
@@ -34,10 +34,11 @@ export class NotecrudService {
     return this.http.post<CreateNoteModel>(this.noteUrl, newNote, httpOptions);
   }
 
-  public getNotes(): Observable<CreateNoteModel[]> {
-    console.log(localStorage.getItem('Authorization'));
-    return this.http.get<CreateNoteModel[]>(this.noteUrl, httpOptions2);
+  public getNotes(isTrash,isArchive): Observable<CreateNoteModel[]> {
+  
+    return this.http.get<CreateNoteModel[]>(this.noteUrl+'?isTrash='+isTrash+'&isArchive='+isArchive ,httpOptions2);
   }
+
 
   public deleteNote(newNote: CreateNoteModel): any {
     console.log(newNote);
@@ -60,6 +61,19 @@ export class NotecrudService {
     return this.http.get<Label[]>(this.labelUrl,httpOptions2);
 }
 
+
+public updateLabel(updateLabel:Label):any{
+  return this.http.put(this.labelUrl,updateLabel,httpOptions);
+}
+
+public addLabelToNote(noteid:Number,labelId:Number):any{
   
+  return this.http.post(this.labelUrl+'/addlabeltonote?noteid='+noteid+'&labelId='+labelId,httpOptions2);
+}
+
+public removelabelfromnote(noteid:Number,labelId:Number):any{
+  return this.http.post(this.labelUrl+'/removelabelfromnote?noteid='+noteid+'&labelId='+labelId,httpOptions2);
+}
+
 
 }

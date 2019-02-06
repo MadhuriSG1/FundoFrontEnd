@@ -1,12 +1,9 @@
-<div fxLayout="row" fxLayoutGap="10px">
-  
-  <div fxLayout="column" fxLayoutGap="20px">
-
-    <div fxLayoutAlign="center stretch" style="margin: auto">
-      <app-createnote style="margin: auto">
+<div fxLayout="row" >
+  <div fxLayoutGap="15px">
+    <div fxLayout="column" fxLayoutGap="20px">
+      <app-createnote fxLayoutAlign="center stretch">
 
       </app-createnote>
-
     </div>
     <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="15px grid">
       <div *ngFor="let note of allnotes">
@@ -20,6 +17,6 @@
       </div>
 
     </div>
-  </div>
 
+  </div>
 </div>

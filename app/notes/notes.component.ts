@@ -13,19 +13,13 @@ export class NotesComponent implements OnInit {
   private allnotes: CreateNoteModel[];
 
   showtoolbar = false;
-  constructor(private notecrudservice: NotecrudService,private updatecardservice:UpdatecardsService) { }
+  constructor(private updatecardservice:UpdatecardsService) {
+    this.updatecardservice.changemessage('false','false')
+   }
 
   ngOnInit() {
-    this.notecrudservice.getNotes().subscribe(
-      response => {
-        console.log(response);
-        this.allnotes = response;
-      },
-      error => {
-        console.log("Error", error);
-      }
-    )
 
-    this.updatecardservice.currentnotes.subscribe(message => this.allnotes = message)
+    this.updatecardservice.currentnotes.subscribe(message => this.allnotes = message);
   }
 }
+

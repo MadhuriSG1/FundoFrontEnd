@@ -63,8 +63,8 @@
 </mat-list>
       <button mat-list-item (click)="EditLabelDialog()"> Edit Labels </button>
       <mat-divider style="background-origin: initial;"></mat-divider>
-      <button mat-list-item> Archive </button>
-      <button mat-list-item> Trash </button>
+      <button mat-list-item routerLink="archive" routerLinkActive="active"> Archive </button>
+      <button mat-list-item routerLink="trash" routerLinkActive="active"> Trash </button>
     </mat-action-list>
   </mat-sidenav>
 
@@ -73,6 +73,3 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-
-
- 

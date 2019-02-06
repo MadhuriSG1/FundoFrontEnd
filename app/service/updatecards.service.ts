@@ -10,10 +10,12 @@ export class UpdatecardsService {
   
   private allNotes=new BehaviorSubject([]);
   currentnotes=this.allNotes.asObservable();
+  private isTrash='false';
+  private isArchive='false';
 
   constructor(private notecrud:NotecrudService) {
     
-    this.notecrud.getNotes().subscribe(
+    this.notecrud.getNotes(this.isTrash,this.isArchive).subscribe(
       response =>{
         this.allNotes.next(response);
       },
@@ -29,9 +31,26 @@ export class UpdatecardsService {
     
    }
    
-  changemessage()
+  changemessage(isTrash:string,isArchive:string)
   {
-    this.notecrud.getNotes().subscribe(
+    this.isTrash;
+    this.isArchive;
+    this.notecrud.getNotes(isTrash,isArchive).subscribe(
+      response=>{
+  
+        this.allNotes.next(response);
+      },
+      error =>{  
+       console.log(error);
+      }
+    )          
+  }
+
+  changemessage2()
+  {
+    this.isTrash;
+    this.isArchive;
+    this.notecrud.getNotes(this.isTrash,this.isArchive).subscribe(
       response=>{
   
         this.allNotes.next(response);
@@ -43,3 +62,5 @@ export class UpdatecardsService {
   }
 
 }
+
+

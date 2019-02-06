@@ -5,6 +5,9 @@ import {MatSnackBar} from '@angular/material';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from  '@angular/material';
 import { MydialogComponent } from '../mydialog/mydialog.component';
 import { UpdatecardsService } from '../service/updatecards.service';
+import { Label } from '../Model/label.model';
+import {MatChipsModule} from '@angular/material/chips'; 
+
 
 @Component({
   selector: 'app-singlecard',
@@ -17,11 +20,22 @@ export class SinglecardComponent implements OnInit {
      MatSnackBar,private dialog: MatDialog,private updatecardservice:UpdatecardsService) { }
 
   @Input() notedetails:CreateNoteModel;
+  private labelsall:Label[];
 
   private colors:string[][]=[["white","salmon","orange","yellow"],["green","teal","blue","CadetBlue"],
   ["Peru","turquoise","olive","gray"]];
 
+
+
+
   ngOnInit() {
+    this.notecrudservice.getAllLabels().subscribe(
+      response=>
+      {
+        this.labelsall=response;
+        //console.log(this.labelsall.length);
+      }
+)
 }
 noteDelete()
 {
@@ -61,7 +75,7 @@ openDialog()
             duration:2000,
           })
         }
-        this.updatecardservice.changemessage();
+        this.updatecardservice.changemessage('false','false');
       },
       error => {
          console.log("Error",error);
@@ -81,7 +95,7 @@ changeColor(single:string){
           duration:2000,
         })
       }
-      this.updatecardservice.changemessage();
+      this.updatecardservice.changemessage('false','false');
     },
     error => {
        console.log("Error",error);
@@ -89,9 +103,35 @@ changeColor(single:string){
     );
 }
 
+haveThisLabel(label:Label,note:CreateNoteModel)
+ {
+  this.notecrudservice.addLabelToNote(note.noteid,label.labelId).subscribe(
+    response =>
+    {
+      
+      console.log(response);
+       this.updatecardservice.changemessage2();
+     }
+  );
+ }
+
+ removeThisLabel(label:Label,note:CreateNoteModel)
+ {
+   console.log('Removed label from note');
+this.notecrudservice.removelabelfromnote(note.noteid,label.labelId).subscribe(
+   response =>
+   {
+    this.updatecardservice.changemessage2();
+  }
+ )
+ }
 
 archivenote(){
   this.notedetails.isArchive=!this.notedetails.isArchive;
+  if(this.notedetails.isArchive)
+  {
+    this.notedetails.isPin=false;
+  }
   this.notecrudservice.updateNote(this.notedetails).subscribe(
     response => {
       if(response.statusCode==200)
@@ -99,12 +139,66 @@ archivenote(){
         this.snackBar.open(response.statusMessage,"",{
           duration:2000,
         })
+        this.updatecardservice.changemessage('false','false');
       }
     },
     error => {
        console.log("Error",error);
     } 
     );
-    this.updatecardservice.changemessage();
+   
 }
+
+trashnote()
+ {
+  this.notedetails.isTrash=true;
+   this.notedetails.isPin=false;
+
+  this.notecrudservice.updateNote(this.notedetails).subscribe(
+    response => {
+       if(response.statusCode==200)
+      {
+         this.snackBar.open(response.statusMessage,"",{
+           duration:2000,
+          
+       })
+        this.updatecardservice.changemessage2();
+      }
+    },
+     error => {
+        console.log("Error",error);
+     } 
+     );
+    
+ }
+
+ restore()
+ {
+    this.notedetails.isTrash=false;
+  this.notecrudservice.updateNote(this.notedetails).subscribe(
+    response => {
+     if(response.statusCode==200)
+       {
+        this.snackBar.open(response.statusMessage,"",{
+          duration:2000,
+          
+       })
+       this.updatecardservice.changemessage2();
+     }
+    },
+    error => {
+        console.log("Error",error);
+     } 
+     );
+ }
+
+ 
+
+ lncheck(x,y)
+{
+  console.log(x);
+  console.log(y);
 }
+
+}
+

@@ -22,20 +22,26 @@ export class HomeComponent implements OnInit {
       response=>
       {
         this.labelsall=response;
-        console.log(this.labelsall.length);
+         console.log(response);
       }
 )
   }
+
+  childEventClicked(open:boolean)
+  {
+    this.clickedEvent=open; 
+}
 
   EditLabelDialog()
   {
     const dialogRef = this.dialog.open(EditlabeldialogComponent, {
       width: '300px',
-      height:'400px'
+      height:'400px',
+      data: {labelsall:this.labelsall}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-        if(result!=null)
+        if(result!=null || result!="")
         {
           this.label.labelTitle=result;
           this.notecurdservice.createLabel(this.label).subscribe(
@@ -50,3 +56,4 @@ export class HomeComponent implements OnInit {
  
 
 }
+

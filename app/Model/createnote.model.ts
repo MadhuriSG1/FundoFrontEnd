@@ -1,4 +1,5 @@
 export class CreateNoteModel{
+    noteid:number;
     title:string; 
     description:string;
     userId:number; 
