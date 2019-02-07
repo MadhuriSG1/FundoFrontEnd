@@ -200,5 +200,31 @@ trashnote()
   console.log(y);
 }
 
+unpinned()
+  {
+    this.notedetails.isPin=!this.notedetails.isPin;
+    if(this.notedetails.isPin)
+    {
+      this.notedetails.isArchive=false;
+    }
+
+    this.notecrudservice.updateNote(this.notedetails).subscribe(
+      response => {
+        if(response.statusCode==200)
+        {
+          this.snackBar.open(response.statusMessage,"",{
+            duration:2000,
+            
+          })
+        }
+        this.updatecardservice.changemessage2();
+      },
+      error => {
+         console.log("Error",error);
+      } 
+      );
+
+}
+
 }
 

@@ -12,7 +12,7 @@ export class EditlabeldialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EditlabeldialogComponent>, 
   @Inject(MAT_DIALOG_DATA) private data: Label[],private noteCurdService:NotecrudService)  { 
-     }
+    }
 
   Label:string;
 
@@ -39,28 +39,3 @@ labelTitleupdate(updateLabel:Label)
 }
 
 
-
-// constructor(public dialogRef: MatDialogRef<EditlabeldialogComponent>,
-//   @Inject(MAT_DIALOG_DATA) private data: Label[],private noteCurdService:NotecrudService) { 
-// }
-
-// Label:string;
-
-// ngOnInit() {
-//   console.log(this.data);
-// }
-
-// onNoClick(): void {
-//   this.dialogRef.close();
-// }
-
-// labelnameupdate(updateLabel:Label)
-// {
-//   console.log(updateLabel);
-//   this.noteCurdService.updateLabel(updateLabel).subscribe(
-//     response=>
-//     {
-//      console.log(response); 
-//     }
-//   );
-// }

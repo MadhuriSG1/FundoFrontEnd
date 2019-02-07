@@ -26,7 +26,7 @@ export class UpdatecardsService {
     );
   
    }
-
+   
    ngOnInit():void {
     
    }
@@ -60,6 +60,7 @@ export class UpdatecardsService {
       }
     )          
   }
+
 
 }
 

@@ -21,36 +21,26 @@ export class LabelsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.labelvalue=this.activeRoute.snapshot.params['labelvalue'];
+    this.labelvalue = this.activeRoute.snapshot.params['labelvalue'];
 
-    this.updatecardservice.currentnotes.subscribe(udnotes=>{
-      this.allnotes=udnotes});
+    this.updatecardservice.currentnotes.subscribe(udnotes => {
+      this.allnotes = udnotes
+    });
 
-      //This Is will Update filter (labelvalue ) over child route
-      this.router.events.subscribe((e: any) => {
-        this.labelvalue=this.activeRoute.snapshot.params['labelvalue'];
+    //This Is will Update filter (labelvalue ) over child route
+    this.router.events.subscribe((e: any) => {
+      this.labelvalue = this.activeRoute.snapshot.params['labelvalue'];
 
-      });
+    });
   }
 
-  labelcheck(label:Label)
-  {
-    if(label.labelTitle == this.labelvalue)
-    {
-        return true
+  labelcheck(label: Label) {
+    if (label.labelTitle == this.labelvalue) {
+      return true
     }
-    else
-    {
+    else {
       return false;
     }
   }
-
-  ngOnDestroy(){
-    console.log('destroy');
-  }
-
-  paramsChange(){
-
-}
 
 }

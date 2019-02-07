@@ -8,7 +8,7 @@
   <mat-card-content> 
       <div *ngFor = "let labels of data.labelsall">
           <mat-form-field class="adjust">
-        <input matInput [(ngModel)]="labels.lablTitle" > 
+        <input matInput value="{{labels.labelTitle}}">
       </mat-form-field>
         <button mat-icon-button (click)="labelTitleupdate(labels)"><mat-icon>
             check_circle
@@ -22,29 +22,3 @@
  
 </mat-card>
 
-
-<!-- 
-<mat-card >
-    <mat-card-title class="size">Edit Labels</mat-card-title>
-   
-    <mat-card-subtitle>
-      <br>
-      <input matInput placeholder="Enter Label Name" [(ngModel)]="Label">
-      
-    </mat-card-subtitle>
-  
-    <mat-card-content> 
-      <div *ngFor = "let labesx of data.labelsall">
-          <mat-form-field class="widthadjust">
-        <input matInput [(ngModel)]="labesx.labelName" > 
-      </mat-form-field>
-        <button mat-icon-button (click)="labelnameupdate(labesx)"><mat-icon>
-            check_circle
-        </mat-icon></button>
-      
-      </div>
-    </mat-card-content>
-    <mat-card-footer mat-dialog-actions>
-        <button mat-icon-button  [mat-dialog-close]="Label" (click)="LabelCreted()">Create</button>
-        </mat-card-footer>
-  </mat-card> -->

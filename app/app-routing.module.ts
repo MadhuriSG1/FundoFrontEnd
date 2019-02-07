@@ -12,6 +12,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { VerifyComponent } from './verify/verify.component';
 import { ResetpageComponent } from './resetpage/resetpage.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { TrashComponent } from './trash/trash.component'; 
 
 
 const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -27,6 +29,8 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
   children: [
     { path: '', redirectTo: 'note', pathMatch: 'full' },
     { path: 'note', component: NotesComponent },
+    {path:'archive',component:ArchiveComponent},
+    {path:'trash',component:TrashComponent},
     {path:'labels/:labelvalue',component:LabelsComponent , runGuardsAndResolvers: 'paramsChange',}
   ]
 }];
@@ -35,3 +39,4 @@ const routes: Routes = [{ path: '', redirectTo: '/login', pathMatch: 'full' },
     imports: [RouterModule.forRoot(routes)],
 })
 export class AppRoutingModule { }
+

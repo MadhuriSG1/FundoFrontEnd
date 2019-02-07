@@ -50,7 +50,6 @@ export class NotecrudService {
     return this.http.post(this.noteUrl + '/updatenote', updateNode, httpOptions);
   }
 
-
   public createLabel(newLabel:Label){
 
     return this.http.post(this.labelUrl,newLabel,httpOptions);
@@ -60,7 +59,6 @@ export class NotecrudService {
   {
     return this.http.get<Label[]>(this.labelUrl,httpOptions2);
 }
-
 
 public updateLabel(updateLabel:Label):any{
   return this.http.put(this.labelUrl,updateLabel,httpOptions);
@@ -74,6 +72,5 @@ public addLabelToNote(noteid:Number,labelId:Number):any{
 public removelabelfromnote(noteid:Number,labelId:Number):any{
   return this.http.post(this.labelUrl+'/removelabelfromnote?noteid='+noteid+'&labelId='+labelId,httpOptions2);
 }
-
 
 }

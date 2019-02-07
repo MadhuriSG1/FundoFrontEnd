@@ -19,6 +19,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { UserService } from './service/user.service';
 import { NotecrudService } from './service/notecrud.service';
 import { UpdatecardsService } from './service/updatecards.service';
+import { UpdatelabelsService } from './service/updatelabels.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SidebartoggleService } from './home/sidebartoggle.service';
 import { VerifyComponent } from './verify/verify.component';
@@ -35,7 +36,9 @@ import { NotesComponent } from './notes/notes.component';
 import { MydialogComponent } from './mydialog/mydialog.component';
 import { EditlabeldialogComponent } from './editlabeldialog/editlabeldialog.component';
 import { LabelsComponent } from './labels/labels.component';
-import {MatChipsModule} from '@angular/material/chips'; 
+import {MatChipsModule} from '@angular/material/chips';
+import { ArchiveComponent } from './archive/archive.component';
+import { TrashComponent } from './trash/trash.component'; 
 
 
 @NgModule({
@@ -55,7 +58,9 @@ import {MatChipsModule} from '@angular/material/chips';
     NotesComponent,
     MydialogComponent,
     EditlabeldialogComponent,
-    LabelsComponent
+    LabelsComponent,
+    ArchiveComponent,
+    TrashComponent
   ],
   entryComponents: [MydialogComponent, SinglecardComponent,EditlabeldialogComponent],
   imports: [
@@ -77,7 +82,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatMenuModule,
     MatChipsModule
   ],
-  providers: [UserService, SidebartoggleService, NotecrudService, UpdatecardsService],
+  providers: [UserService, SidebartoggleService, NotecrudService, UpdatecardsService,UpdatelabelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
