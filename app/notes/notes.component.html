@@ -5,30 +5,30 @@
 
       </app-createnote>
     </div>
-    <h1>PINNED</h1>
+    <h4>PINNED</h4>
 
     <div fxLayoutAlign="end center" fxLayoutGap="1px" fxLayout="row " class="single_card">
 
-      <div *ngFor="let note of allnotes" >
-          <span *ngIf=note.isPin></span>
-        <app-singlecard [notedetails]=note>
+      <div *ngFor="let note of allnotes">
+        <span *ngIf=note.isPin>
+          <app-singlecard [notedetails]=note>
 
-        </app-singlecard>
+          </app-singlecard>
+        </span>
       </div>
     </div>
 
-    <h1>OTHERS</h1>
+    <h4>OTHERS</h4>
+<div fxLayoutAlign="end center" fxLayoutGap="1px" fxLayout="row " class="single_card">
 
-    <div fxLayoutAlign="end center" fxLayoutGap="1px" fxLayout="row " class="single_card">
+  <div *ngFor="let note of allnotes">
+    <span *ngIf=!note.isPin>
+      <app-singlecard [notedetails]=note>
 
-        <div *ngFor="let note of allnotes" >
-            <span *ngIf=!note.isPin></span>
-          <app-singlecard [notedetails]=note>
-  
-          </app-singlecard>
-        </div>
-      </div>
-
+      </app-singlecard>
+    </span>
   </div>
 </div>
 
+  </div>
+</div>

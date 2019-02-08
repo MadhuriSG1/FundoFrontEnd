@@ -4,6 +4,8 @@ import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.com
 import { NotecrudService } from '../service/notecrud.service';
 import { MatDialog } from '@angular/material';
 import { UpdatecardsService } from '../service/updatecards.service';
+import { MatSnackBar } from '@angular/material';
+import { UpdatelabelsService } from '../service/updatelabels.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,9 @@ export class HomeComponent implements OnInit {
   label: Label = new Label();
   labelsall: Label[];
 
-  constructor(private notecurdservice: NotecrudService, private dialog: MatDialog, private updatecardsService: UpdatecardsService) {
+  constructor(private notecurdservice: NotecrudService, private dialog: MatDialog,
+     private updatecardsService: UpdatecardsService,private matsnackbar:MatSnackBar,
+     private updatelabelsService:UpdatelabelsService) {
   }
   ngOnInit() {
     this.notecurdservice.getAllLabels().subscribe(
@@ -36,7 +40,7 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
+     
       this.updatecardsService.changemessage2();
       if (result != null && result != "") {
         this.label.labelTitle = result;
@@ -47,6 +51,6 @@ export class HomeComponent implements OnInit {
         )
       }
     });
+    
   }
 }
-

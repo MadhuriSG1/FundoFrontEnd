@@ -60,8 +60,8 @@ export class NotecrudService {
     return this.http.get<Label[]>(this.labelUrl,httpOptions2);
 }
 
-public updateLabel(updateLabel:Label):any{
-  return this.http.put(this.labelUrl,updateLabel,httpOptions);
+public updateLabel(updateLabel:Label):Observable<Label[]>{
+  return this.http.put<Label[]>(this.labelUrl,updateLabel,httpOptions);
 }
 
 public addLabelToNote(noteid:Number,labelId:Number):any{
@@ -71,6 +71,10 @@ public addLabelToNote(noteid:Number,labelId:Number):any{
 
 public removelabelfromnote(noteid:Number,labelId:Number):any{
   return this.http.post(this.labelUrl+'/removelabelfromnote?noteid='+noteid+'&labelId='+labelId,httpOptions2);
+}
+
+public deleteLabel(deleteLabel:Label):any{
+    return this.http.post(this.labelUrl+'/deletelabel',deleteLabel,httpOptions);
 }
 
 }

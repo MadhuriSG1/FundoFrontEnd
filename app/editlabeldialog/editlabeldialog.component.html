@@ -7,12 +7,16 @@
   </mat-card-subtitle>
   <mat-card-content> 
       <div *ngFor = "let labels of data.labelsall">
+          <button mat-icon-button (click)="deleteLabel(labels)"><mat-icon>
+              delete
+            </mat-icon>
+            </button>
           <mat-form-field class="adjust">
-        <input matInput value="{{labels.labelTitle}}">
+        <input matInput [(ngModel)]="labels.labelTitle">
       </mat-form-field>
-        <button mat-icon-button (click)="labelTitleupdate(labels)"><mat-icon>
-            check_circle
-        </mat-icon></button>
+        <button mat-icon-button (click)="labelTitleupdate(labels)">
+            <mat-icon>edit</mat-icon>
+            </button>
       
       </div>
     </mat-card-content>
@@ -21,4 +25,3 @@
   </mat-card-footer>
  
 </mat-card>
-

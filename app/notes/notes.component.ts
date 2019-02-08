@@ -14,16 +14,18 @@ export class NotesComponent implements OnInit {
 
   private allnotes: CreateNoteModel[];
   private alllabels: Label[];
+  private isPin='false';
 
   showtoolbar = false;
   constructor(private updatecardservice:UpdatecardsService,private updatelabelsService:UpdatelabelsService ) {
-    this.updatecardservice.changemessage('false','false')
+    this.updatecardservice.changemessage('false','false');
+    this.updatelabelsService.changemessagelabel();
    }
 
   ngOnInit() {
 
     this.updatecardservice.currentnotes.subscribe(message => this.allnotes = message);
-    this.updatelabelsService.currentlabels.subscribe(labels=>this.alllabels)
+    this.updatelabelsService.currentlabels.subscribe(labels=>this.alllabels=labels);
   }
 }
 

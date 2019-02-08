@@ -2,7 +2,11 @@
    <mat-card-title (click)="openDialog()">
       <p>{{notedetails.title}}</p>
    </mat-card-title>
-   <!-- <button mat-icon-button (click)="unpinned()"><mat-icon> pin_drop</mat-icon></button> -->
+   <button mat-icon-button (click)="pinned()">
+      <mat-icon>touch_app</mat-icon>
+   </button>
+   <!-- <img src="home/admin1/Downloads/pinBeforeClick.svg"> -->
+   <!-- <img mat-card-image src="home/admin1/Downloads/pinBeforeClick.svg"> -->
    <mat-card-subtitle (click)="openDialog()">
       <p>
          {{notedetails.description}}
@@ -52,8 +56,6 @@
                archive
             </mat-icon>
          </button>
-
-
          <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon aria-label="Example icon-button with a heart icon">
                more_vert
@@ -68,9 +70,11 @@
                            <button (click)="removeThisLabel(label,notedetails)">Remove</button>
                         </div>
                      </mat-list>
-
+                     
                   </mat-menu>
                </button>
+                  <button mat-menu-item (click)="trashnote()">Add to Trash</button>
+              
 
             </mat-menu>
          </button>

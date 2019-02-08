@@ -31,9 +31,25 @@ labelTitleupdate(updateLabel:Label)
    this.noteCurdService.updateLabel(updateLabel).subscribe(
      response=>
     {
-     console.log(response); 
+     console.log("res==="+response); 
      }
    );
+ }
+
+ deleteLabel(deleteLabel:Label)
+ {
+  this.noteCurdService.deleteLabel(deleteLabel).subscribe(
+    response =>
+    {
+      console.log(response);
+      this.noteCurdService.getAllLabels().subscribe(
+        response=>
+        {
+         console.log(response);
+        })
+    }
+)
+
  }
 
 }

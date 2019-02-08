@@ -20,4 +20,17 @@ export class UpdatelabelsService {
       }
     );
   }
+
+  changemessagelabel()
+  {
+    this.notecrud.getAllLabels().subscribe(
+      response=>{
+  
+       this.allLabels.next(response);
+      },
+      error =>{  
+       console.log(error);
+      }
+    )          
+  }
 }

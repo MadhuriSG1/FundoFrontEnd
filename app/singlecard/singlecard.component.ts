@@ -171,7 +171,6 @@ trashnote()
      );
     
  }
-
  restore()
  {
     this.notedetails.isTrash=false;
@@ -200,7 +199,7 @@ trashnote()
   console.log(y);
 }
 
-unpinned()
+pinned()
   {
     this.notedetails.isPin=!this.notedetails.isPin;
     if(this.notedetails.isPin)
