@@ -74,7 +74,7 @@ public removelabelfromnote(noteid:Number,labelId:Number):any{
 }
 
 public deleteLabel(deleteLabel:Label):any{
-    return this.http.post(this.labelUrl+'/deletelabel',deleteLabel,httpOptions);
+  return this.http.post(this.labelUrl+'/deletelabel',deleteLabel,httpOptions);
 }
 
 }

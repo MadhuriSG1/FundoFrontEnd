@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { UpdatecardsService } from '../service/updatecards.service';
 import { MatSnackBar } from '@angular/material';
 import { UpdatelabelsService } from '../service/updatelabels.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private notecurdservice: NotecrudService, private dialog: MatDialog,
      private updatecardsService: UpdatecardsService,private matsnackbar:MatSnackBar,
-     private updatelabelsService:UpdatelabelsService) {
+     private updatelabelsService:UpdatelabelsService,private router: Router) {
   }
   ngOnInit() {
     this.notecurdservice.getAllLabels().subscribe(
@@ -52,5 +53,9 @@ export class HomeComponent implements OnInit {
       }
     });
     
+  }
+
+  SignOut(): void {
+    this.router.navigate(["/login"]);
   }
 }

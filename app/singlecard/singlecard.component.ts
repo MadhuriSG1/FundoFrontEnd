@@ -193,11 +193,11 @@ trashnote()
 
  
 
- lncheck(x,y)
-{
-  console.log(x);
-  console.log(y);
-}
+//  lncheck(x,y)
+// {
+//   console.log(x);
+//   console.log(y);
+// }
 
 pinned()
   {
