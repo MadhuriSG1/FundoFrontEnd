@@ -7,7 +7,7 @@
   }
 
 .bgcolor{
-  background-color: burlywood;
+  background-color: beige;
 }
 
 .mat-icon {
@@ -76,3 +76,24 @@ mat-button{
     z-index: 100;
     width: 100%  !important;
 } 
+
+.searchInput{
+  width: 700px;
+  height:40px;
+ border-radius: 8px;
+  font-size:15px;
+  
+  background-color:white;
+  border: 0px;
+
+}
+.searchButton{
+  width: 40px;
+  height: 40;
+  margin-left: 40px;
+  margin-right: -50px;
+  background-color:whitesmoke;
+}
+.buttonOver:hover{
+  background-color: darkgoldenrod;
+}

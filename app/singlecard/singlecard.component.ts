@@ -166,7 +166,7 @@ trashnote()
       }
     },
      error => {
-        console.log("Error",error);
+        console.log("Errobooleanr",error);
      } 
      );
     
