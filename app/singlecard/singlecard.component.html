@@ -2,85 +2,88 @@
    <mat-card-title (click)="openDialog()">
       <p>{{notedetails.title}}</p>
    </mat-card-title>
-   <button mat-icon-button (click)="pinned()">
-      <mat-icon>touch_app</mat-icon>
-   </button>
-   <!-- <img src="home/admin1/Downloads/pinBeforeClick.svg"> -->
-   <!-- <img mat-card-image src="home/admin1/Downloads/pinBeforeClick.svg"> -->
-   <mat-card-subtitle (click)="openDialog()">
-      <p>
-         {{notedetails.description}}
-      </p>
-   </mat-card-subtitle>
-   <mat-card-content>
-      <span *ngFor="let item of notedetails.labels" class="seperate">{{item.labelTitle}}</span>
-   </mat-card-content>
-   <mat-card-footer>
+   <button mat-icon-button class="pinChange" style="position: absolute; right: 0;color:white; margin-top: -80px" (click)="pinned()"
+      *ngIf="isPinned"><mat-icon style="background-color: white">touch_app</mat-icon></button>
+      <button mat-icon-button style="position: absolute; right: 0; margin-top: -80px" (click)="pinned()"
+         *ngIf="!isPinned">
+         <mat-icon style="background-color: teal">touch_app</mat-icon>
+      </button>
+      <!-- <img src="home/admin1/Downloads/pinBeforeClick.svg">  -->
+      <!-- <img mat-card-image src="home/admin1/Downloads/pinBeforeClick.svg"> -->
+      <mat-card-subtitle (click)="openDialog()">
+         <p>
+            {{notedetails.description}}
+         </p>
+      </mat-card-subtitle>
+      <mat-card-content (click)="openDialog()">
+         <span *ngFor="let item of notedetails.labels" class="seperate">{{item.labelTitle}}</span>
+      </mat-card-content>
+      <mat-card-footer>
 
-      <div fxLayout="row">
-         <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">
-               add_alert
-            </mat-icon>
-         </button>
-         <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">
-               person_add
-            </mat-icon>
-         </button>
-         <button mat-icon-button [matMenuTriggerFor]="colormenu">
-            <mat-icon aria-label="Example icon-button with a heart icon">
-               palette
-            </mat-icon>
-         </button>
-         <mat-menu #colormenu="matMenu">
-            <mat-list>
+         <div>
+            <button mat-icon-button>
+               <mat-icon aria-label="Example icon-button with a heart icon">
+                  add_alert
+               </mat-icon>
+            </button>
+            <button mat-icon-button>
+               <mat-icon aria-label="Example icon-button with a heart icon">
+                  person_add
+               </mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="colormenu">
+               <mat-icon aria-label="Example icon-button with a heart icon">
+                  palette
+               </mat-icon>
+            </button>
+            <mat-menu #colormenu="matMenu">
+               <mat-list>
 
-               <div *ngFor="let colorx of colors">
-                  <span *ngFor="let single of colorx">
-                     <button class="manual" mat-icon-button (click)="changeColor(single)">
-                        <mat-icon [style.color]="single">fiber_manual_record</mat-icon>
-                     </button>
-                  </span>
-               </div>
-            </mat-list>
-         </mat-menu>
+                  <div *ngFor="let colorx of colors">
+                     <span *ngFor="let single of colorx">
+                        <button class="manual" mat-icon-button (click)="changeColor(single)">
+                           <mat-icon [style.color]="single">fiber_manual_record</mat-icon>
+                        </button>
+                     </span>
+                  </div>
+               </mat-list>
+            </mat-menu>
 
-         <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon">
-               add_photo_alternate
-            </mat-icon>
-         </button>
-         <button mat-icon-button (click)="archivenote()">
-            <mat-icon aria-label="Example icon-button with a heart icon">
-               archive
-            </mat-icon>
-         </button>
-         <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon aria-label="Example icon-button with a heart icon">
-               more_vert
-            </mat-icon>
-            <mat-menu #menu="matMenu">
-               <button mat-menu-item (click)="noteDelete()">Delete note</button>
-               <button mat-menu-item [matMenuTriggerFor]="menulabel">Add Label
-                  <mat-menu #menulabel="matMenu">
-                     <mat-list>
-                        <div *ngFor="let label of labelsall">
-                           {{label.labelTitle}} <button (click)="haveThisLabel(label,notedetails)">Add</button>
-                           <button (click)="removeThisLabel(label,notedetails)">Remove</button>
-                        </div>
-                     </mat-list>
-                     
-                  </mat-menu>
-               </button>
+            <button mat-icon-button>
+               <mat-icon aria-label="Example icon-button with a heart icon">
+                  add_photo_alternate
+               </mat-icon>
+            </button>
+            <button mat-icon-button (click)="archivenote()">
+               <mat-icon aria-label="Example icon-button with a heart icon">
+                  archive
+               </mat-icon>
+            </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+               <mat-icon aria-label="Example icon-button with a heart icon">
+                  more_vert
+               </mat-icon>
+               <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="noteDelete()">Delete note</button>
+                  <button mat-menu-item [matMenuTriggerFor]="menulabel">Add Label
+                     <mat-menu #menulabel="matMenu">
+                        <mat-list>
+                           <div *ngFor="let label of labelsall">
+                              {{label.labelTitle}} <button (click)="haveThisLabel(label,notedetails)">Add</button>
+                              <button (click)="removeThisLabel(label,notedetails)">Remove</button>
+                           </div>
+                        </mat-list>
+
+                     </mat-menu>
+                  </button>
                   <button mat-menu-item (click)="trashnote()">Add to Trash</button>
                   <button mat-menu-item (click)="restore()">Restore</button>
-              
-
-            </mat-menu>
-         </button>
 
 
-      </div>
-   </mat-card-footer>
+               </mat-menu>
+            </button>
+
+
+         </div>
+      </mat-card-footer>
 </mat-card>

@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   private clickedEvent: boolean;
+  private show:boolean;
   label: Label = new Label();
   labelsall: Label[];
 
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
         console.log(response);
       }
     )
+    
   }
   childEventClicked(open: boolean) {
     this.clickedEvent = open;
@@ -58,4 +60,8 @@ export class HomeComponent implements OnInit {
   SignOut(): void {
     this.router.navigate(["/login"]);
   }
+
+  
+
+
 }

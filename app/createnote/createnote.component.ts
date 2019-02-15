@@ -24,7 +24,7 @@ export class CreatenoteComponent implements OnInit {
   }
   noteSave() {
     this.navshow = !this.navshow;
-    this.createnote.isPin = true;
+    this.createnote.isPin = false;
     // this.createnote.userid=20;
     this.notecrudservice.createNote(this.createnote).subscribe(
       response => {

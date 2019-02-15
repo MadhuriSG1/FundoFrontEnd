@@ -21,6 +21,7 @@ export class SinglecardComponent implements OnInit {
 
   @Input() notedetails:CreateNoteModel;
   private labelsall:Label[];
+  private isPinned:boolean=false;
 
   private colors:string[][]=[["white","salmon","orange","yellow"],["green","teal","blue","CadetBlue"],
   ["Peru","turquoise","olive","gray"]];
@@ -206,6 +207,7 @@ pinned()
     {
       this.notedetails.isArchive=false;
     }
+    this.isPinned=!this.isPinned;
 
     this.notecrudservice.updateNote(this.notedetails).subscribe(
       response => {

@@ -1,43 +1,105 @@
-.example-icon {
-    padding: 0 14px;
-  }
+
+ mat-toolbar {
+  height: 64px;
+  width: 100%;
+  top: 0; /* Sets the sticky toolbar to be on top */
+ z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  position: sticky;
   
-  .example-spacer {
-    flex: 1 1 20%;
-  }
+} 
 
 .bgcolor{
-  background-color: beige;
+  background-color:white;
 }
 
-.mat-icon {
-  transform: scale(.8);
-}
 
-mat-button{
-  margin: 1px;
-}
 
+.searchInput{
+  width: 500px;
+  height:30px;
+  font-size:15px;
+  background-color:0;
+  border: 0px;
+ 
+
+}
+.searchButton{
+  width: 40px;
+  height: 40;
+  background-color:whitesmoke;
+}
+.searchMatCard
+{
+  width: 50000px;
+  height: 40px;
+  margin-right: 150px;
+
+}
+.buttonOver:hover{
+  background-color: rgba(231, 201, 136, 0.959);
+}
+.buttonOver
+{
+  width: 250px;
+  border-radius: 0px 50px 50px 0px;
+}
+input:focus { 
+  outline: 0px;
+}
+button:focus { 
+  background-color: rgba(231, 201, 136, 0.959);
+}
 .example-container {
-    min-width: 1300px;
-      min-height: 600px;
-   
-  }
+  min-width: 1300px;
+    min-height: 600px;
+  border: 0px solid rgba(255, 255, 255);
+}
+
+/* .scrollContent
+{
+  overflow: scroll;
+} */
+
+/* .example-sidenav {
+  padding: 20px;
+}
+.example-container {
+  min-width: 1300px;
+    min-height: 600px;
+  border: 0px solid rgba(255, 255, 255);
+} */
+
+/* .example-icon {
+    padding: 0 14px;
+  } */
   
-  .example-sidenav {
-    padding: 20px;
-  }
+  /* .example-spacer {
+    flex: 1 1 20%;
+  } */
+
+
+/* mat-icon {
+  transform: scale(.8);
+} */
+
+ mat-button{
+  margin: 10px;
+} 
+
+
   
+ 
+/*   
   .example-card{
     margin-top: 50px;
      margin-left: 300px;
     max-width: 500px; 
   }
-  
-  .clear{
+   */
+  /* .clear{
     outline: none;
-  }
-  
+  } */
+/*    
   .mat-input-element {
 
     width: 471px;
@@ -45,7 +107,7 @@ mat-button{
     outline: none;
     box-shadow: none;
     border-color: transparent;
-  }
+  } 
   
   textarea { 
     resize: none; 
@@ -64,36 +126,5 @@ mat-button{
     
   }
 
-  .example-container {
-    min-width: 1300px;
-      min-height: 600px;
-    border: 0px solid rgba(255, 255, 255);
-  }
-
-  mat-toolbar {
-    height: 64px;
-    position: fixed;
-    z-index: 100;
-    width: 100%  !important;
-} 
-
-.searchInput{
-  width: 700px;
-  height:40px;
- border-radius: 8px;
-  font-size:15px;
   
-  background-color:white;
-  border: 0px;
-
-}
-.searchButton{
-  width: 40px;
-  height: 40;
-  margin-left: 40px;
-  margin-right: -50px;
-  background-color:whitesmoke;
-}
-.buttonOver:hover{
-  background-color: darkgoldenrod;
-}
+  */
