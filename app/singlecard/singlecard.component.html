@@ -2,12 +2,10 @@
    <mat-card-title (click)="openDialog()">
       <p>{{notedetails.title}}</p>
    </mat-card-title>
-   <button mat-icon-button class="pinChange" style="position: absolute; right: 0;color:white; margin-top: -80px" (click)="pinned()"
-      *ngIf="isPinned"><mat-icon style="background-color: white">touch_app</mat-icon></button>
-      <button mat-icon-button style="position: absolute; right: 0; margin-top: -80px" (click)="pinned()"
-         *ngIf="!isPinned">
-         <mat-icon style="background-color: teal">touch_app</mat-icon>
-      </button>
+   <button mat-icon-button style="position: absolute; right: 0;margin-top: -80px" (click)="pinned()">
+   <mat-icon *ngIf="notedetails.isPin"><img src="assets/images/pinAfterClick(1).svg"></mat-icon>
+   <mat-icon *ngIf="!notedetails.isPin"><img src="assets/images/pinBeforeClick.svg"></mat-icon></button>
+      
       <!-- <img src="home/admin1/Downloads/pinBeforeClick.svg">  -->
       <!-- <img mat-card-image src="home/admin1/Downloads/pinBeforeClick.svg"> -->
       <mat-card-subtitle (click)="openDialog()">

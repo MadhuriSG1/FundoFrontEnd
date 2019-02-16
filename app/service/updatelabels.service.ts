@@ -10,7 +10,7 @@ export class UpdatelabelsService {
   currentlabels=this.allLabels.asObservable();
 
   constructor(private notecrud:NotecrudService) { 
-    this.notecrud.getAllLabels() .subscribe(
+    this.notecrud.getAllLabels().subscribe(
       response =>{
         this.allLabels.next(response);
       },
@@ -31,6 +31,7 @@ export class UpdatelabelsService {
       error =>{  
        console.log(error);
       }
-    )          
+    )  
+            
   }
 }

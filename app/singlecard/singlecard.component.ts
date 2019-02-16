@@ -17,16 +17,15 @@ import {MatChipsModule} from '@angular/material/chips';
 export class SinglecardComponent implements OnInit {
 
   constructor(private notecrudservice:NotecrudService,private snackBar:
-     MatSnackBar,private dialog: MatDialog,private updatecardservice:UpdatecardsService) { }
+     MatSnackBar,private dialog: MatDialog,private updatecardservice:UpdatecardsService) { 
+       
+     }
 
   @Input() notedetails:CreateNoteModel;
   private labelsall:Label[];
-  private isPinned:boolean=false;
-
+  
   private colors:string[][]=[["white","salmon","orange","yellow"],["green","teal","blue","CadetBlue"],
   ["Peru","turquoise","olive","gray"]];
-
-
 
 
   ngOnInit() {
@@ -34,7 +33,7 @@ export class SinglecardComponent implements OnInit {
       response=>
       {
         this.labelsall=response;
-        //console.log(this.labelsall.length);
+    
       }
 )
 }
@@ -127,33 +126,37 @@ this.notecrudservice.removelabelfromnote(note.noteid,label.labelId).subscribe(
  )
  }
 
-archivenote(){
-  this.notedetails.isArchive=!this.notedetails.isArchive;
-  if(this.notedetails.isArchive)
-  {
-    this.notedetails.isPin=false;
-  }
-  this.notecrudservice.updateNote(this.notedetails).subscribe(
-    response => {
-      if(response.statusCode==200)
-      {
-        this.snackBar.open(response.statusMessage,"",{
-          duration:2000,
-        })
-        this.updatecardservice.changemessage('false','false');
-      }
-    },
-    error => {
-       console.log("Error",error);
-    } 
-    );
-   
-}
+
+// archivenote(){
+//   this.notedetails.note.archive=!this.notedetails.note.archive;
+//   this.notedetails.note.trash=false;
+//   if(this.notedetails.note.archive)
+//   {
+//     this.notedetails.note.pinned=false;
+//   }
+//  // console.log(this.notedetails.archive);
+//   this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+//     response => {
+//       if(response.statusCode==166)
+//       {
+//         this.snackBar.open(response.statusMessage,"",{
+//           duration:2000,
+          
+//         })
+//       }
+//       this.cardupdate.changemessage2();
+//     },
+//     error => {
+//        console.log("Error",error);
+//     } 
+//     );
+    
+// }
 
 trashnote()
  {
   this.notedetails.isTrash=true;
-   this.notedetails.isPin=false;
+   //this.notedetails.isPin=false;
 
   this.notecrudservice.updateNote(this.notedetails).subscribe(
     response => {
@@ -207,8 +210,6 @@ pinned()
     {
       this.notedetails.isArchive=false;
     }
-    this.isPinned=!this.isPinned;
-
     this.notecrudservice.updateNote(this.notedetails).subscribe(
       response => {
         if(response.statusCode==200)
@@ -226,6 +227,30 @@ pinned()
       );
 
 }
+
+archivenote(){
+  this.notedetails.isArchive=!this.notedetails.isArchive;
+  if(this.notedetails.isArchive)
+  {
+    this.notedetails.isPin=false;
+  }
+  this.notecrudservice.updateNote(this.notedetails).subscribe(
+    response => {
+      if(response.statusCode==200)
+      {
+        this.snackBar.open(response.statusMessage,"",{
+          duration:2000,
+        })
+        this.updatecardservice.changemessage2();
+      }
+    },
+    error => {
+       console.log("Error",error);
+    } 
+    );
+  
+}
+
 
 }
 

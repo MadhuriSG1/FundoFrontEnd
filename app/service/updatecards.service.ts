@@ -15,6 +15,7 @@ export class UpdatecardsService {
 
   constructor(private notecrud:NotecrudService) {
     
+    
     this.notecrud.getNotes(this.isTrash,this.isArchive).subscribe(
       response =>{
         this.allNotes.next(response);
@@ -26,6 +27,7 @@ export class UpdatecardsService {
     );
   
    }
+
    
    ngOnInit():void {
     

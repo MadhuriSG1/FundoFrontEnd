@@ -40,7 +40,7 @@ export class CreatenoteComponent implements OnInit {
         console.log("Error", error);
       }
     );
-
+    location.reload();
   }
 
 }

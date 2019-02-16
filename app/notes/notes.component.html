@@ -19,16 +19,16 @@
     </div>
 
     <h4>OTHERS</h4>
-<div fxLayoutAlign="start center" fxLayoutGap="1px" fxLayout="row " class="single_card">
+    <div fxLayoutAlign="start center" fxLayoutGap="1px" fxLayout="row " class="single_card">
 
-  <div *ngFor="let note of allnotes">
-    <span *ngIf=!note.isPin>
-      <app-singlecard [notedetails]=note>
+      <div *ngFor="let note of allnotes">
+        <span *ngIf=!note.isPin>
+          <app-singlecard [notedetails]=note>
 
-      </app-singlecard>
-    </span>
-  </div>
-</div>
+          </app-singlecard>
+        </span>
+      </div>
+    </div>
 
   </div>
 </div>
