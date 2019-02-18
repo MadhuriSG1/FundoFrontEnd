@@ -15,15 +15,12 @@ export class ArchiveComponent implements OnInit {
   private  allnotes:CreateNoteModel[];
   @Input() notedetails:CreateNoteModel;
 
- // haspinned;
- // hasunpinned;
   constructor(private updatecardsService:UpdatecardsService,private snackBar:
     MatSnackBar,private dialog: MatDialog,private updatecardservice:UpdatecardsService,
     private notecrudservice:NotecrudService) { 
     this.updatecardsService.changemessage('false','true');
-    
   }
-
+  
   ngOnInit() {
     
     this.updatecardsService.currentnotes.subscribe(
@@ -32,27 +29,6 @@ export class ArchiveComponent implements OnInit {
       );
       
 }
-unArchivenote(){
-  this.notedetails.isArchive=this.notedetails.isArchive;
-  if(this.notedetails.isArchive)
-  {
-    this.notedetails.isPin=false;
-  }
-  this.notecrudservice.updateNote(this.notedetails).subscribe(
-    response => {
-      if(response.statusCode==200)
-      {
-        this.snackBar.open(response.statusMessage,"",{
-          duration:2000,
-        })
-        this.updatecardservice.changemessage2();
-      }
-    },
-    error => {
-       console.log("Error",error);
-    } 
-    );
-  
-}
+
 
 }

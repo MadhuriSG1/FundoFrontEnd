@@ -29,7 +29,8 @@ public forgotPassword(email:string):any{
   return this.http.get(this.url+'forgotpassword/?email='+email);
 }
 
-public resetPassword(token:string):any{
+public resetPassword(token:string):any
+{
   return this.http.get(this.url+'resetpassword/'+token);
 }
 

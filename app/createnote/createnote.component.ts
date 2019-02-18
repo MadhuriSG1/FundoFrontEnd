@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateNoteModel } from '../Model/createnote.model';
 import { NotecrudService } from '../service/notecrud.service';
 import { MatSnackBar } from '@angular/material';
+import { UpdatecardsService } from '../service/updatecards.service';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class CreatenoteComponent implements OnInit {
   navshow: boolean = false;
   createnote: CreateNoteModel = new CreateNoteModel;
 
-  constructor(private notecrudservice: NotecrudService, private snackBar: MatSnackBar) { }
+  constructor(private notecrudservice: NotecrudService, private snackBar: MatSnackBar,
+    private updatecardsService:UpdatecardsService) { }
 
   ngOnInit() {
   }
@@ -33,6 +35,7 @@ export class CreatenoteComponent implements OnInit {
           this.snackBar.open(response.statusMessage, "", {
             duration: 2000,
           })
+          this.updatecardsService.changemessage2();
         }
 
       },
@@ -40,7 +43,7 @@ export class CreatenoteComponent implements OnInit {
         console.log("Error", error);
       }
     );
-    location.reload();
+  
   }
 
 }

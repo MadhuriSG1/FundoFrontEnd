@@ -14,33 +14,33 @@
          </div>
       </mat-card-subtitle>
       <div fxLayout="row">
-         <button mat-icon-button>
+         <button mat-icon-button matTooltip="Remind me">
             <mat-icon aria-label="Example icon-button with a heart icon">
                add_alert
             </mat-icon>
          </button>
-         <button mat-icon-button>
+         <button mat-icon-button matTooltip="Collaborator">
             <mat-icon aria-label="Example icon-button with a heart icon">
                person_add
             </mat-icon>
          </button>
-         <button mat-icon-button>
+         <button mat-icon-button matTooltip="Change  color">
             <mat-icon aria-label="Example icon-button with a heart icon">
                palette
             </mat-icon>
          </button>
-         <button mat-icon-button>
+         <button mat-icon-button matTooltip="Add image">
             <mat-icon aria-label="Example icon-button with a heart icon">
                add_photo_alternate
             </mat-icon>
          </button>
-         <button mat-icon-button>
+         <button mat-icon-button matTooltip="Archive">
             <mat-icon aria-label="Example icon-button with a heart icon">
                archive
             </mat-icon>
          </button>
          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon aria-label="Example icon-button with icon">
+            <mat-icon aria-label="Example icon-button with icon" matTooltip="More">
                more_vert
             </mat-icon>
             <mat-menu #menu="matMenu">

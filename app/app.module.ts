@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule,
   MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule,
-  MatRadioModule, MatListModule, MatSnackBarModule
+  MatRadioModule, MatListModule, MatSnackBarModule,MatTooltipModule
 } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RegistrationComponent } from './registration/registration.component';
@@ -20,6 +20,7 @@ import { UserService } from './service/user.service';
 import { NotecrudService } from './service/notecrud.service';
 import { UpdatecardsService } from './service/updatecards.service';
 import { UpdatelabelsService } from './service/updatelabels.service';
+import { ViewchangeService } from './service/viewchange.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SidebartoggleService } from './home/sidebartoggle.service';
 import { VerifyComponent } from './verify/verify.component';
@@ -39,6 +40,7 @@ import { LabelsComponent } from './labels/labels.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ArchiveComponent } from './archive/archive.component';
 import { TrashComponent } from './trash/trash.component'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
 
 
 @NgModule({
@@ -80,9 +82,11 @@ import { TrashComponent } from './trash/trash.component';
     FlexLayoutModule,
     MatSidenavModule,
     MatMenuModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule,MatGridListModule
   ],
-  providers: [UserService, SidebartoggleService, NotecrudService, UpdatecardsService,UpdatelabelsService],
+  providers: [UserService, SidebartoggleService, NotecrudService,
+    ViewchangeService,UpdatecardsService,UpdatelabelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

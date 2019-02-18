@@ -4,14 +4,14 @@
       
     <div fxLayoutAlign="start center" fxFlex="1 1 20%">
         
-      <button mat-icon-button (click)=drawer.toggle()>
+      <button mat-icon-button (click)=drawer.toggle() matTooltip="Main menu">
         <mat-icon>menu</mat-icon>
       </button>
       
       <img mat-img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
       <span>Fundoo Notes</span>
       <mat-card class="searchMatCard" fxLayoutAlign="center center"  style="margin-left:90px;" >
-      <button mat-icon-button class=searchButton style="background-color:white;">
+      <button mat-icon-button class=searchButton style="background-color:white;" matTooltip="Search">
         <mat-icon>search</mat-icon>
       </button>
       <input mat-input class="searchInput" placeholder="Search" style="margin-left:15px;">
@@ -24,12 +24,12 @@
         <mat-icon>refresh</mat-icon>
       </button>
 
-      <button mat-icon-button matTooltip="View" (click)="changeView()">
-        <mat-icon *ngIf="show">
+      <button mat-icon-button  (click)="changeView()">
+        <mat-icon *ngIf="show" >
           view_stream</mat-icon>
-        <mat-icon *ngIf="!show">view_column</mat-icon>
+        <mat-icon *ngIf="!show">view_module</mat-icon>
       </button>
-      <button mat-icon-button [matMenuTriggerFor]="menu">
+      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Settings">
         <mat-icon>settings</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
@@ -39,13 +39,13 @@
         <button mat-menu-item>App download</button>
         <button mat-menu-item>Keyboard shortcuts</button>
       </mat-menu>
-      <button mat-icon-button>
+      <button mat-icon-button matTooltip="Googgle apps">
         <mat-icon>apps</mat-icon>
       </button>
-      <button mat-icon-button>
+      <button mat-icon-button matTooltip="Notifications">
         <mat-icon>notifications</mat-icon>
       </button>
-      <button mat-icon-button [matMenuTriggerFor]="menu2">
+      <button mat-icon-button [matMenuTriggerFor]="menu2" matTooltip="Fundoo Account">
         <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #menu2="matMenu">
