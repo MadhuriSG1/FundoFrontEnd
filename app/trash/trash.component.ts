@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateNoteModel } from '../Model/createnote.model';
 import { UpdatecardsService } from '../service/updatecards.service';
+import { ViewchangeService } from '../service/viewchange.service';
 
 @Component({
   selector: 'app-trash',
@@ -11,8 +12,9 @@ export class TrashComponent implements OnInit {
 
  
   private  allnotes:CreateNoteModel[];
+  private currentView:boolean;
 
-  constructor(private cradupdate:UpdatecardsService) { 
+  constructor(private cradupdate:UpdatecardsService,private viewchangeService:ViewchangeService) { 
     this.cradupdate.changemessage('true','false');
   }
 
@@ -20,6 +22,11 @@ export class TrashComponent implements OnInit {
     this.cradupdate.currentnotes.subscribe(
       updatenotes=>
       this.allnotes=updatenotes);
+      this.viewchangeService.currentView.subscribe(view=>
+        {
+          this.currentView=view
+        }
+        );
 }
 
 }

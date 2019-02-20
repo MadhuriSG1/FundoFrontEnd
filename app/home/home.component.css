@@ -12,8 +12,14 @@
   background-color:white;
 }
 
+.disablescroll{
+  overflow-x: hidden;
+  
+}
 
-
+.mat-sidenav:hover{
+  overflow-y: auto;
+}
 .searchInput{
   width: 500px;
   height:30px;
@@ -21,7 +27,6 @@
   background-color:0;
   border: 0px;
  
-
 }
 .searchButton{
   width: 40px;

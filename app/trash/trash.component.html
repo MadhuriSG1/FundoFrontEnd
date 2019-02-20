@@ -1,6 +1,5 @@
 
-<div fxLayoutAlign="start center"
- fxLayoutGap="1px" fxLayout="row wrap" class="single_card">
+<div *ngIf="currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid " fxLayout="row wrap">
   
   <div *ngFor ="let note of allnotes" fxLayout="row wrap">
             
@@ -9,3 +8,13 @@
         </app-singlecard>
   </div>
 </div>
+
+<div *ngIf="!currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid" fxLayout="column wrap">
+  
+            <div *ngFor ="let note of allnotes">
+                      
+                  <app-singlecard [notedetails]=note>
+          
+                  </app-singlecard>
+            </div>
+          </div>

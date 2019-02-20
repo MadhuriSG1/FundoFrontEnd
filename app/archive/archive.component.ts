@@ -4,6 +4,7 @@ import { UpdatecardsService } from '../service/updatecards.service';
 import {MatSnackBar} from '@angular/material';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from  '@angular/material';
 import { NotecrudService } from '../service/notecrud.service';
+import { ViewchangeService } from '../service/viewchange.service';
 
 @Component({
   selector: 'app-archive',
@@ -13,11 +14,12 @@ import { NotecrudService } from '../service/notecrud.service';
 export class ArchiveComponent implements OnInit {
 
   private  allnotes:CreateNoteModel[];
+  private currentView:boolean;
   @Input() notedetails:CreateNoteModel;
 
   constructor(private updatecardsService:UpdatecardsService,private snackBar:
     MatSnackBar,private dialog: MatDialog,private updatecardservice:UpdatecardsService,
-    private notecrudservice:NotecrudService) { 
+    private notecrudservice:NotecrudService,private viewchangeService:ViewchangeService ) { 
     this.updatecardsService.changemessage('false','true');
   }
   
@@ -27,6 +29,11 @@ export class ArchiveComponent implements OnInit {
       updatenotes=>
       this.allnotes=updatenotes
       );
+      this.viewchangeService.currentView.subscribe(view=>
+        {
+          this.currentView=view
+        }
+        );
       
 }
 

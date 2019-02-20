@@ -1,8 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { RegisterUser } from '../Model/register.model';
 import { LoginUser } from '../Model/login.model';
 import {Observable} from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'token': localStorage.getItem('Authorization')
+  }
+  )
+};
+
+const httpOptions2 = {
+  headers: new HttpHeaders({
+    'token': localStorage.getItem('Authorization')
+  })
+};
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,4 +53,9 @@ public resetLink(loginmodel :LoginUser,token:string):any
 {
   return this.http.post<LoginUser>(this.url+'resetpage/'+token,loginmodel);
 }
+public getCollaboratorUserId(email: String):Observable<LongRange>
+{
+  return this.http.get<LongRange>(this.url+'collabpersonid?email='+email,httpOptions2);
+}
+
 }

@@ -27,6 +27,7 @@ export class NotecrudService {
 
   private noteUrl = 'http://localhost:8888/api/note';
   private labelUrl='http://localhost:8888/api/label';
+  private collaboratorUrl='http://localhost:8888/api/collaborator';
   //For sending data to the server
   public createNote(newNote: CreateNoteModel): any {
     console.log(newNote);
@@ -76,5 +77,10 @@ public removelabelfromnote(noteid:Number,labelId:Number):any{
 public deleteLabel(deleteLabel:Label):any{
   return this.http.post(this.labelUrl+'/deletelabel',deleteLabel,httpOptions);
 }
+
+public addCollaborator(sharedUserId:LongRange,sharedNoteId:LongRange):any{
+  return this.http.post(this.collaboratorUrl+'?sharedUserId='+sharedUserId+'&sharedNoteId='+sharedNoteId,httpOptions2)
+}
+
 
 }

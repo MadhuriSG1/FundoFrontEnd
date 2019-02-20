@@ -7,6 +7,7 @@ import { MydialogComponent } from '../mydialog/mydialog.component';
 import { UpdatecardsService } from '../service/updatecards.service';
 import { Label } from '../Model/label.model';
 import { MatChipsModule } from '@angular/material/chips';
+import { ColabdialogComponent } from '../colabdialog/colabdialog.component';
 
 
 @Component({
@@ -78,6 +79,19 @@ export class SinglecardComponent implements OnInit {
           console.log("Error", error);
         }
       )
+    });
+  }
+
+  openColabDialog()
+  {
+    const dialogRef=this.dialog.open(ColabdialogComponent,{
+      width:'500px',
+      height:'200px',
+      data:{notedetails:this.notedetails}
+    });
+
+    dialogRef.afterClosed().subscribe(result=>{
+     
     });
   }
 
@@ -211,6 +225,7 @@ export class SinglecardComponent implements OnInit {
     );
 
   }
+
 
 
 }

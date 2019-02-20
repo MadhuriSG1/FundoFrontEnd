@@ -40,7 +40,8 @@ import { LabelsComponent } from './labels/labels.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ArchiveComponent } from './archive/archive.component';
 import { TrashComponent } from './trash/trash.component'; 
-import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ColabdialogComponent } from './colabdialog/colabdialog.component'; 
 
 
 @NgModule({
@@ -62,9 +63,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     EditlabeldialogComponent,
     LabelsComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+    ColabdialogComponent
   ],
-  entryComponents: [MydialogComponent, SinglecardComponent,EditlabeldialogComponent],
+  entryComponents: [MydialogComponent, SinglecardComponent,EditlabeldialogComponent,ColabdialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

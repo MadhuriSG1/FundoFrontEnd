@@ -1,101 +1,104 @@
-
+<div class=disablescroll> 
   <mat-toolbar class="toolbar" class="bgcolor">
-  <mat-toolbar-row>
-      
-    <div fxLayoutAlign="start center" fxFlex="1 1 20%">
-        
-      <button mat-icon-button (click)=drawer.toggle() matTooltip="Main menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-      
-      <img mat-img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
-      <span>Fundoo Notes</span>
-      <mat-card class="searchMatCard" fxLayoutAlign="center center"  style="margin-left:90px;" >
-      <button mat-icon-button class=searchButton style="background-color:white;" matTooltip="Search">
-        <mat-icon>search</mat-icon>
-      </button>
-      <input mat-input class="searchInput" placeholder="Search" style="margin-left:15px;">
-    </mat-card>
-    </div>
-    <div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px">
-
-
-      <button mat-icon-button matTooltip="Refresh">
-        <mat-icon>refresh</mat-icon>
-      </button>
-
-      <button mat-icon-button  (click)="changeView()">
-        <mat-icon *ngIf="show" >
-          view_stream</mat-icon>
-        <mat-icon *ngIf="!show">view_module</mat-icon>
-      </button>
-      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Settings">
-        <mat-icon>settings</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item>Send feedBack</button>
-        <button mat-menu-item>Help</button>
-        <button mat-menu-item>App download</button>
-        <button mat-menu-item>Keyboard shortcuts</button>
-      </mat-menu>
-      <button mat-icon-button matTooltip="Googgle apps">
-        <mat-icon>apps</mat-icon>
-      </button>
-      <button mat-icon-button matTooltip="Notifications">
-        <mat-icon>notifications</mat-icon>
-      </button>
-      <button mat-icon-button [matMenuTriggerFor]="menu2" matTooltip="Fundoo Account">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-      <mat-menu #menu2="matMenu">
-        <button mat-menu-item (click)="SignOut()">SignOut</button>
-        <button mat-menu-item>Add account</button>
-      </mat-menu>
-    </div>
-  </mat-toolbar-row>
+    <mat-toolbar-row>
   
-</mat-toolbar>
-
-<mat-divider></mat-divider>
-
-<mat-sidenav-container class="example-container" autosize>
-  <mat-sidenav #drawer class="example-sidenav" mode="side" disableClose>
-    <mat-action-list>
-      <button mat-list-item routerLink="/home/note" routerLinkActive="active" class="buttonOver">
-        <mat-icon>lightbulb_outline</mat-icon> <i style="margin: 10%;"></i>Notes
-      </button>
-      <button mat-list-item class="buttonOver">
-        <mat-icon>notifications_none</mat-icon><i style="margin: 10%;"></i>Reminder
-      </button>
-      <mat-divider></mat-divider>
-      <h6 style="font-size:65%;" matSubheader style="width: 250Px">LABELS</h6>
-
-      <mat-list >
-        <mat-list-item *ngFor="let lb of labelsall">
-          <button routerLink="/home/labels/{{lb.labelTitle}}" routerLinkActive="active" class="buttonOver" fxLayoutAlign="right center">
-            <mat-icon>label_outline</mat-icon>
-            <i style="margin: 10%;"></i>{{lb.labelTitle}}
+      <div fxLayoutAlign="start center" fxFlex="1 1 20%">
+  
+        <button mat-icon-button (click)=drawer.toggle() matTooltip="Main menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+  
+        <img mat-img src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png">
+        <span>Fundoo Notes</span>
+        <mat-card class="searchMatCard" fxLayoutAlign="center center" style="margin-left:90px;">
+          <button mat-icon-button class=searchButton style="background-color:white;" matTooltip="Search">
+            <mat-icon>search</mat-icon>
           </button>
-        </mat-list-item>
-      </mat-list>
-      <button mat-list-item (click)="EditLabelDialog()" class="buttonOver">
-        <mat-icon>edit</mat-icon><i style="margin: 10%;"></i> Edit Labels
-      </button>
-
-      <mat-divider></mat-divider>
-      <button mat-list-item routerLink="archive" routerLinkActive="active" class="buttonOver">
-        <mat-icon>archive</mat-icon><i style="margin: 10%;"></i> Archive
-      </button>
-      <button mat-list-item routerLink="trash" routerLinkActive="active" class="buttonOver">
-        <mat-icon>delete</mat-icon><i style="margin: 10%;"></i> Trash
-      </button>
-    </mat-action-list>
-  </mat-sidenav>
-
-
-  <mat-sidenav-content class="scrollContent">
-    <router-outlet></router-outlet>
+          <input mat-input class="searchInput" placeholder="Search" style="margin-left:15px;">
+        </mat-card>
+      </div>
+      <div fxFlex="1 1 80%" fxLayoutAlign="end stretch" fxLayoutGap.xs="1px">
+  
+  
+        <button mat-icon-button matTooltip="Refresh">
+          <mat-icon>refresh</mat-icon>
+        </button>
+  
+        <button mat-icon-button (click)="changeView()">
+          <mat-icon *ngIf="show">
+            view_stream</mat-icon>
+          <mat-icon *ngIf="!show">view_module</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Settings">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Send feedBack</button>
+          <button mat-menu-item>Help</button>
+          <button mat-menu-item>App download</button>
+          <button mat-menu-item>Keyboard shortcuts</button>
+        </mat-menu>
+        <button mat-icon-button matTooltip="Googgle apps">
+          <mat-icon>apps</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Notifications">
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu2" matTooltip="Fundoo Account">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu2="matMenu">
+          <button mat-menu-item (click)="SignOut()">SignOut</button>
+          <button mat-menu-item>Add account</button>
+        </mat-menu>
+      </div>
+    </mat-toolbar-row>
+  
+  </mat-toolbar>
  
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <mat-divider></mat-divider>
+  <div class=enablescroll>
+  <mat-sidenav-container class="example-container" autosize>
+    <mat-sidenav #drawer class="example-sidenav" mode="side" disableClose>
+      <mat-action-list>
+        <button mat-list-item routerLink="/home/note" routerLinkActive="active" class="buttonOver">
+          <mat-icon>lightbulb_outline</mat-icon> <i style="margin: 10%;"></i>Notes
+        </button>
+        <button mat-list-item class="buttonOver">
+          <mat-icon>notifications_none</mat-icon><i style="margin: 10%;"></i>Reminder
+        </button>
+        <mat-divider></mat-divider>
+        <h6 style="font-size:65%;" matSubheader style="width: 250Px">LABELS</h6>
+  
+        <mat-list>
+          <mat-list-item *ngFor="let lb of labelsall">
+            <button routerLink="/home/labels/{{lb.labelTitle}}" routerLinkActive="active" class="buttonOver"
+              fxLayoutAlign="right center">
+              <mat-icon>label_outline</mat-icon>
+              <i style="margin: 10%;"></i>{{lb.labelTitle}}
+            </button>
+          </mat-list-item>
+        </mat-list>
+        <button mat-list-item (click)="EditLabelDialog()" class="buttonOver">
+          <mat-icon>edit</mat-icon><i style="margin: 10%;"></i> Edit Labels
+        </button>
+  
+        <mat-divider></mat-divider>
+        <button mat-list-item routerLink="archive" routerLinkActive="active" class="buttonOver">
+          <mat-icon>archive</mat-icon><i style="margin: 10%;"></i> Archive
+        </button>
+        <button mat-list-item routerLink="trash" routerLinkActive="active" class="buttonOver">
+          <mat-icon>delete</mat-icon><i style="margin: 10%;"></i> Trash
+        </button>
+      </mat-action-list>
+    </mat-sidenav>
+  
+  
+    <mat-sidenav-content class="scrollContent">
+      <router-outlet></router-outlet>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+</div>

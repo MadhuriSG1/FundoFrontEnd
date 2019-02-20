@@ -1,22 +1,80 @@
-<div fxLayout="row" >
-  <div fxLayoutGap="15px">
-    <div fxLayout="column" fxLayoutGap="20px">
+<div flexLayout="row" fxFlexOffset="10%" fxLayoutGap="10px">
+  <div fxLayout="column" fxLayoutGap="20px">
+    <div>
       <app-createnote fxLayoutAlign="center stretch">
 
       </app-createnote>
     </div>
-    <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="15px grid">
+
+    <div >
+    <h4>PINNED</h4>
+    <div *ngIf="currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid " fxLayout="row wrap">
       <div *ngFor="let note of allnotes">
         <span *ngFor="let lb of note.labels">
           <span *ngIf="labelcheck(lb)">
+              <span *ngIf=note.isPin>
             <app-singlecard [notedetails]=note>
 
             </app-singlecard>
+            </span>
           </span>
         </span>
       </div>
 
     </div>
+
+
+    <div *ngIf="!currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid" fxLayout="column wrap">
+        <div *ngFor="let note of allnotes">
+          <span *ngFor="let lb of note.labels">
+            <span *ngIf="labelcheck(lb)">
+                <span *ngIf=note.isPin>
+              <app-singlecard [notedetails]=note>
+  
+              </app-singlecard>
+             </span>
+            </span>
+          </span>
+        </div>
+  
+      </div>
+
+    </div>
+
+    <div >
+        <h4>OTHERS</h4>
+        <div *ngIf="currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid " fxLayout="row wrap">
+          <div *ngFor="let note of allnotes">
+            <span *ngFor="let lb of note.labels">
+              <span *ngIf="labelcheck(lb)">
+                  <span *ngIf=!note.isPin>
+                <app-singlecard [notedetails]=note>
+    
+                </app-singlecard>
+                </span>
+              </span>
+            </span>
+          </div>
+    
+        </div>
+    
+    
+        <div *ngIf="!currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid" fxLayout="column wrap">
+            <div *ngFor="let note of allnotes">
+              <span *ngFor="let lb of note.labels">
+                <span *ngIf="labelcheck(lb)">
+                    <span *ngIf=!note.isPin>
+                  <app-singlecard [notedetails]=note>
+      
+                  </app-singlecard>
+                 </span>
+                </span>
+              </span>
+            </div>
+      
+          </div>
+    
+        </div>
 
   </div>
 </div>
