@@ -78,7 +78,7 @@ public deleteLabel(deleteLabel:Label):any{
   return this.http.post(this.labelUrl+'/deletelabel',deleteLabel,httpOptions);
 }
 
-public addCollaborator(sharedUserId:LongRange,sharedNoteId:LongRange):any{
+public addCollaborator(sharedUserId:Number,sharedNoteId:Number):any{
   return this.http.post(this.collaboratorUrl+'?sharedUserId='+sharedUserId+'&sharedNoteId='+sharedNoteId,httpOptions2)
 }
 

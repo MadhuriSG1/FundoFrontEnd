@@ -30,11 +30,11 @@ export class ColabdialogComponent implements OnInit {
     console.log("after close "+this.email);
     this.dialogRef.close();
     this.userService.getCollaboratorUserId(this.email).subscribe(
-      (response)=>{
+      (response:Number)=>{
         console.log(response);
         if(response>0)
         {
-          this.noteCurdService.addCollaborator(response,this.data.noteid).subscribe(
+          this.noteCurdService.addCollaborator(response,this.data.notedetails1.noteid).subscribe(
             response=>
             {
               console.log(response);

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CreateNoteModel } from '../Model/createnote.model';
+import { TotalNote } from '../Model/totalnote.model';
 import { NotecrudService } from '../service/notecrud.service';
 import { MatSnackBar } from '@angular/material';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
@@ -21,8 +22,10 @@ export class SinglecardComponent implements OnInit {
     MatSnackBar, private dialog: MatDialog, private updatecardservice: UpdatecardsService) {
 
   }
-
   @Input() notedetails: CreateNoteModel;
+  @Input() notedetails1:TotalNote;
+
+ 
   private labelsall: Label[];
   private allnotes: CreateNoteModel[];
 

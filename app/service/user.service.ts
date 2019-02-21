@@ -53,9 +53,9 @@ public resetLink(loginmodel :LoginUser,token:string):any
 {
   return this.http.post<LoginUser>(this.url+'resetpage/'+token,loginmodel);
 }
-public getCollaboratorUserId(email: String):Observable<LongRange>
+public getCollaboratorUserId(email: String):Observable<Number>
 {
-  return this.http.get<LongRange>(this.url+'collabpersonid?email='+email,httpOptions2);
+  return this.http.get<Number>(this.url+'collabpersonid?email='+email,httpOptions2);
 }
 
 }
