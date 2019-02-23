@@ -5,6 +5,7 @@ import { CreateNoteModel } from '../Model/createnote.model';
 import { UpdatecardsService } from '../service/updatecards.service';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ViewchangeService } from '../service/viewchange.service';
+import { TotalNote } from '../Model/totalnote.model';
 
 @Component({
   selector: 'app-labels',
@@ -13,7 +14,7 @@ import { ViewchangeService } from '../service/viewchange.service';
 })
 export class LabelsComponent implements OnInit {
 
-  private  allnotes:CreateNoteModel[];
+  private  allnotes:TotalNote[];
   labelvalue:string; 
   private currentView:boolean;
   constructor(private updatecardservice:UpdatecardsService,private router:Router,

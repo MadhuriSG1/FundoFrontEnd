@@ -10,8 +10,6 @@ import { CreateNoteModel } from '../Model/createnote.model';
 export class MydialogComponent implements OnInit {
 
 
-
-  //get dialog data in your component.
   constructor(public dialogRef: MatDialogRef<MydialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CreateNoteModel) { }
 

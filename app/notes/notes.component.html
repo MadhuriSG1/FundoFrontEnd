@@ -11,9 +11,9 @@
       <h5>PINNED</h5>
       <div *ngIf="currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid " fxLayout="row wrap">
 
-        <div *ngFor="let note of allnotes">
-          <span *ngIf=note.isPin>
-            <app-singlecard [notedetails]=note>
+        <div *ngFor="let singlenote of allnotes">
+          <span *ngIf=singlenote.note.isPin>
+            <app-singlecard [notedetails]=singlenote >
 
             </app-singlecard>
           </span>
@@ -23,9 +23,9 @@
 
       <div *ngIf="!currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid" fxLayout="column wrap">
 
-        <div *ngFor="let note of allnotes">
-          <span *ngIf=note.isPin>
-            <app-singlecard [notedetails]=note>
+        <div *ngFor="let singlenote of allnotes">
+          <span *ngIf=singlenote.note.isPin>
+            <app-singlecard [notedetails]=singlenote>
             </app-singlecard>
           </span>
         </div>
@@ -36,9 +36,9 @@
     <div>
       <h5>OTHERS</h5>
       <div *ngIf="currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid " fxLayout="row wrap">
-        <div *ngFor="let note of allnotes">
-          <span *ngIf=!note.isPin>
-            <app-singlecard [notedetails]=note>
+        <div *ngFor="let singlenote of allnotes">
+          <span *ngIf=!singlenote.note.isPin>
+            <app-singlecard [notedetails]=singlenote>
 
             </app-singlecard>
           </span>
@@ -47,9 +47,9 @@
 
       <div *ngIf="!currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid" fxLayout="column wrap">
 
-        <div *ngFor="let note of allnotes">
-          <span *ngIf=!note.isPin>
-            <app-singlecard [notedetails]=note>
+        <div *ngFor="let singlenote of allnotes">
+          <span *ngIf=!singlenote.note.isPin>
+            <app-singlecard [notedetails]=singlenote>
 
             </app-singlecard>
           </span>

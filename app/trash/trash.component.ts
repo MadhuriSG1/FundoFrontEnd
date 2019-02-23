@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateNoteModel } from '../Model/createnote.model';
 import { UpdatecardsService } from '../service/updatecards.service';
 import { ViewchangeService } from '../service/viewchange.service';
+import { TotalNote } from '../Model/totalnote.model';
 
 @Component({
   selector: 'app-trash',
@@ -11,7 +12,7 @@ import { ViewchangeService } from '../service/viewchange.service';
 export class TrashComponent implements OnInit {
 
  
-  private  allnotes:CreateNoteModel[];
+  private  allnotes:TotalNote[];
   private currentView:boolean;
 
   constructor(private cradupdate:UpdatecardsService,private viewchangeService:ViewchangeService) { 

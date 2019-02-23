@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateNoteModel } from '../Model/createnote.model';
 import { NotecrudService } from '../service/notecrud.service';
 import { UpdatecardsService } from '../service/updatecards.service';
 import { UpdatelabelsService } from '../service/updatelabels.service';
 import { Label } from '../Model/label.model';
 import { ViewchangeService } from '../service/viewchange.service';
+import { TotalNote } from '../Model/totalnote.model';
 
 @Component({
   selector: 'app-notes',
@@ -13,7 +13,7 @@ import { ViewchangeService } from '../service/viewchange.service';
 })
 export class NotesComponent implements OnInit {
 
-  private allnotes: CreateNoteModel[];
+  private allnotes: TotalNote[];
   private alllabels: Label[];
   private isPin='false';
   private currentView:boolean;

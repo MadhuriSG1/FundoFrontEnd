@@ -5,15 +5,15 @@
 
       </app-createnote>
     </div>
-
+    
     <div >
     <h4>PINNED</h4>
     <div *ngIf="currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid " fxLayout="row wrap">
-      <div *ngFor="let note of allnotes">
-        <span *ngFor="let lb of note.labels">
+      <div *ngFor="let singlenote of allnotes">
+        <span *ngFor="let lb of singlenote.note.labels">
           <span *ngIf="labelcheck(lb)">
-              <span *ngIf=note.isPin>
-            <app-singlecard [notedetails]=note>
+              <span *ngIf=singlenote.note.isPin>
+            <app-singlecard [notedetails]=singlenote>
 
             </app-singlecard>
             </span>
@@ -23,13 +23,12 @@
 
     </div>
 
-
     <div *ngIf="!currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid" fxLayout="column wrap">
-        <div *ngFor="let note of allnotes">
-          <span *ngFor="let lb of note.labels">
+        <div *ngFor="let singlenote of allnotes">
+          <span *ngFor="let lb of singlenote.note.labels">
             <span *ngIf="labelcheck(lb)">
-                <span *ngIf=note.isPin>
-              <app-singlecard [notedetails]=note>
+                <span *ngIf=singlenote.note.isPin>
+              <app-singlecard [notedetails]=singlenote>
   
               </app-singlecard>
              </span>
@@ -44,11 +43,11 @@
     <div >
         <h4>OTHERS</h4>
         <div *ngIf="currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid " fxLayout="row wrap">
-          <div *ngFor="let note of allnotes">
-            <span *ngFor="let lb of note.labels">
+          <div *ngFor="let singlenote of allnotes">
+            <span *ngFor="let lb of singlenote.note.labels">
               <span *ngIf="labelcheck(lb)">
-                  <span *ngIf=!note.isPin>
-                <app-singlecard [notedetails]=note>
+                  <span *ngIf=!singlenote.note.isPin>
+                <app-singlecard [notedetails]=singlenote>
     
                 </app-singlecard>
                 </span>
@@ -60,11 +59,11 @@
     
     
         <div *ngIf="!currentView" fxLayoutAlign="start center" fxLayoutGap="15px grid" fxLayout="column wrap">
-            <div *ngFor="let note of allnotes">
-              <span *ngFor="let lb of note.labels">
+            <div *ngFor="let singlenote of allnotes">
+              <span *ngFor="let lb of singlenote.note.labels">
                 <span *ngIf="labelcheck(lb)">
-                    <span *ngIf=!note.isPin>
-                  <app-singlecard [notedetails]=note>
+                    <span *ngIf=!singlenote.note.isPin>
+                  <app-singlecard [notedetails]=singlenote>
       
                   </app-singlecard>
                  </span>

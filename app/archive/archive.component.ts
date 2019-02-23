@@ -5,6 +5,7 @@ import {MatSnackBar} from '@angular/material';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from  '@angular/material';
 import { NotecrudService } from '../service/notecrud.service';
 import { ViewchangeService } from '../service/viewchange.service';
+import { TotalNote } from '../Model/totalnote.model';
 
 @Component({
   selector: 'app-archive',
@@ -13,9 +14,9 @@ import { ViewchangeService } from '../service/viewchange.service';
 })
 export class ArchiveComponent implements OnInit {
 
-  private  allnotes:CreateNoteModel[];
+  private  allnotes:TotalNote[];
   private currentView:boolean;
-  @Input() notedetails:CreateNoteModel;
+  @Input() notedetails:TotalNote;
 
   constructor(private updatecardsService:UpdatecardsService,private snackBar:
     MatSnackBar,private dialog: MatDialog,private updatecardservice:UpdatecardsService,

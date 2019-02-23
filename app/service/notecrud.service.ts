@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CreateNoteModel } from '../../app/Model/createnote.model'
 import { Observable } from 'rxjs';
 import { Label } from '../Model/label.model';
+import { TotalNote } from '../Model/totalnote.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -35,9 +36,9 @@ export class NotecrudService {
     return this.http.post<CreateNoteModel>(this.noteUrl, newNote, httpOptions);
   }
 
-  public getNotes(isTrash,isArchive): Observable<CreateNoteModel[]> {
+  public getNotes(isTrash,isArchive): Observable<TotalNote[]> {
   
-    return this.http.get<CreateNoteModel[]>(this.noteUrl+'?isTrash='+isTrash+'&isArchive='+isArchive ,httpOptions2);
+    return this.http.get<TotalNote[]>(this.noteUrl+'?isTrash='+isTrash+'&isArchive='+isArchive ,httpOptions2);
   }
 
 

@@ -22,12 +22,11 @@ export class SinglecardComponent implements OnInit {
     MatSnackBar, private dialog: MatDialog, private updatecardservice: UpdatecardsService) {
 
   }
-  @Input() notedetails: CreateNoteModel;
-  @Input() notedetails1:TotalNote;
+  
+  @Input() notedetails:TotalNote;
 
- 
   private labelsall: Label[];
-  private allnotes: CreateNoteModel[];
+  private allnotes: TotalNote[];
 
   private colors: string[][] = [["white", "salmon", "orange", "yellow"], ["green", "teal", "blue", "CadetBlue"],
   ["Peru", "turquoise", "olive", "gray"]];
@@ -42,7 +41,7 @@ export class SinglecardComponent implements OnInit {
     )
   }
   noteDelete() {
-    this.notecrudservice.deleteNote(this.notedetails).subscribe(
+    this.notecrudservice.deleteNote(this.notedetails.note).subscribe(
       response => {
         if (response.statusCode == 200) {
           this.snackBar.open(response.statusMessage, "", {
@@ -69,7 +68,7 @@ export class SinglecardComponent implements OnInit {
       console.log('The dialog was closed');
       this.notedetails = result;
       console.log(this.notedetails);
-      this.notecrudservice.updateNote(this.notedetails).subscribe(
+      this.notecrudservice.updateNote(this.notedetails.note).subscribe(
         response => {
           if (response.statusCode == 200) {
             this.snackBar.open(response.statusMessage, "", {
@@ -100,8 +99,8 @@ export class SinglecardComponent implements OnInit {
 
 
   changeColor(single: string) {
-    this.notedetails.color = single;
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notedetails.note.color = single;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if (response.statusCode == 200) {
           this.snackBar.open(response.statusMessage, "", {
@@ -137,10 +136,10 @@ export class SinglecardComponent implements OnInit {
 
 
   trashnote() {
-    this.notedetails.isTrash = true;
+    this.notedetails.note.isTrash = true;
     //this.notedetails.isPin=false;
 
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if (response.statusCode == 200) {
           this.snackBar.open(response.statusMessage, "", {
@@ -158,8 +157,8 @@ export class SinglecardComponent implements OnInit {
 
   }
   restore() {
-    this.notedetails.isTrash = false;
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notedetails.note.isTrash = false;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if (response.statusCode == 200) {
           this.snackBar.open(response.statusMessage, "", {
@@ -185,11 +184,11 @@ export class SinglecardComponent implements OnInit {
   // }
 
   pinned() {
-    this.notedetails.isPin = !this.notedetails.isPin;
-    if (this.notedetails.isPin) {
-      this.notedetails.isArchive = false;
+    this.notedetails.note.isPin = !this.notedetails.note.isPin;
+    if (this.notedetails.note.isPin) {
+      this.notedetails.note.isArchive = false;
     }
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if (response.statusCode == 200) {
           this.snackBar.open(response.statusMessage, "", {
@@ -208,11 +207,11 @@ export class SinglecardComponent implements OnInit {
   }
 
   archivenote() {
-    this.notedetails.isArchive = !this.notedetails.isArchive;
-    if (this.notedetails.isArchive) {
-      this.notedetails.isPin = false;
+    this.notedetails.note.isArchive = !this.notedetails.note.isArchive;
+    if (this.notedetails.note.isArchive) {
+      this.notedetails.note.isPin = false;
     }
-    this.notecrudservice.updateNote(this.notedetails).subscribe(
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response => {
         if (response.statusCode == 200) {
           this.snackBar.open(response.statusMessage, "", {

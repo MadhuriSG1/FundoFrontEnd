@@ -1,22 +1,22 @@
-<div class="noteover"><mat-card  class="cardresize" [style.background-color]="notedetails.color">
+<div class="noteover"><mat-card  class="cardresize" [style.background-color]="notedetails.note.color">
    <mat-card-title (click)="openDialog()">
-      <p>{{notedetails.title}}</p>
+      <p>{{notedetails.note.title}}</p>
    </mat-card-title>
    <button mat-icon-button  class=buttons style="position: absolute; right: 0;margin-top: -80px" (click)="pinned()">
-      <mat-icon *ngIf="notedetails.isPin"><img src="assets/images/pinAfterClick(1).svg"></mat-icon>
-      <mat-icon *ngIf="!notedetails.isPin"><img src="assets/images/pinBeforeClick.svg"></mat-icon>
+      <mat-icon *ngIf="notedetails.note.isPin"><img src="assets/images/pinAfterClick(1).svg"></mat-icon>
+      <mat-icon *ngIf="!notedetails.note.isPin"><img src="assets/images/pinBeforeClick.svg"></mat-icon>
    </button>
 
    <mat-card-subtitle (click)="openDialog()">
       <p>
-         {{notedetails.description}}
+         {{notedetails.note.description}}
       </p>
    </mat-card-subtitle>
    <mat-card-content (click)="openDialog()">
       <mat-chip-list>
-      <div *ngFor="let item of notedetails.labels" >
+      <div *ngFor="let item of notedetails.note.labels" >
          <mat-chip [selectable]="selectable" [removable]="removable">
-            {{item.labelTitle}} <button mat-icon-button (click)="removeThisLabel(item,notedetails)"><mat-icon>cancel</mat-icon></button></mat-chip>
+            {{item.labelTitle}} <button mat-icon-button (click)="removeThisLabel(item,notedetails.note)"><mat-icon>cancel</mat-icon></button></mat-chip>
          </div>
          </mat-chip-list>
    </mat-card-content>
@@ -72,8 +72,8 @@
                   <mat-menu #menulabel="matMenu">
                      <mat-list>
                         <div *ngFor="let label of labelsall">
-                           {{label.labelTitle}} <button (click)="haveThisLabel(label,notedetails)">Add</button>
-                           <button (click)="removeThisLabel(label,notedetails)">Remove</button>
+                           {{label.labelTitle}} <button (click)="haveThisLabel(label,notedetails.note)">Add</button>
+                           <button (click)="removeThisLabel(label,notedetails.note)">Remove</button>
                         </div>
                      </mat-list>
 

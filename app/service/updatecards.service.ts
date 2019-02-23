@@ -10,11 +10,6 @@ export class UpdatecardsService {
   
   private allNotes=new BehaviorSubject([]);
   currentnotes=this.allNotes.asObservable();
-  private refreshNeed=new Subject<void>();
-  get refreshNeeds()
-  {
-    return this.refreshNeeds;
-  }
   private isTrash='false';
   private isArchive='false';
 
@@ -23,6 +18,7 @@ export class UpdatecardsService {
     
     this.notecrud.getNotes(this.isTrash,this.isArchive).subscribe(
       response =>{
+        console.log(response);
         this.allNotes.next(response);
       },
       error=>
@@ -30,7 +26,6 @@ export class UpdatecardsService {
         console.log(error);
       }
     );
-  
    }
 
    
@@ -52,12 +47,10 @@ export class UpdatecardsService {
       }
     )          
   }
-
   changemessage2()
   {
     this.notecrud.getNotes(this.isTrash,this.isArchive).subscribe(
       response=>{
-  
         this.allNotes.next(response);
       },
       error =>{  
@@ -65,38 +58,6 @@ export class UpdatecardsService {
       }
     )          
   }
-
-//   changemessage(archive:string,trash:string)
-//   {
-//     this.archive=archive;
-//     this.trash=trash;
-//     this.notecrud.getNotes(archive,trash).subscribe(
-//       response=>{
-
-//         console.log(response);
-//         this.allNotes2.next(response);
-//       },
-//       error =>{  
-//        console.log(error);
-//       }
-//     )          
-//   }
-
-//   changemessage2()
-//   {
-//     this.notecrud.getNotes(this.archive,this.trash).subscribe(
-//       response=>
-//       {
-//         console.log(response);
-//         this.allNotes2.next(response);
-//       },
-//       error =>{  
-//        console.log(error);
-//       }
-//     )          
-// }
-  
-
 
 }
 
