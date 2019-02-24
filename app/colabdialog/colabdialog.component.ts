@@ -14,9 +14,8 @@ import { UpdatecardsService } from '../service/updatecards.service';
 export class ColabdialogComponent implements OnInit {
 
   constructor(public dialogRef:MatDialogRef<ColabdialogComponent>,
-   private noteCurdService:NotecrudService,
-    private userService:UserService , private snackBar: MatSnackBar,private updatecardservice: UpdatecardsService,
-    @Inject(MAT_DIALOG_DATA) private data) { 
+   private noteCurdService:NotecrudService, @Inject(MAT_DIALOG_DATA) private data,
+    private userService:UserService , private snackBar: MatSnackBar,private updatecardservice: UpdatecardsService,) { 
      
     }
    private email:String;
@@ -36,11 +35,12 @@ export class ColabdialogComponent implements OnInit {
       (response:Number) =>
       {
         console.log(response);
-        if(response >= 0)
+        if(response >0)
         {
-          this.noteCurdService.addCollaborator(response,this.data.notedetails.note.noteid).subscribe(
+          this.noteCurdService.addCollaborator(this.data.notedetails.note.noteid,response).subscribe(
             response =>
             {
+              console.log(response)
               this.snackBar.open(response.statusMessage,"",{
                 duration:2000,})
                 this.updatecardservice.changemessage2();
@@ -55,5 +55,4 @@ export class ColabdialogComponent implements OnInit {
   }
 
 }
-
 

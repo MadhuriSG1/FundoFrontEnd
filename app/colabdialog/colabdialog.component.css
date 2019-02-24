@@ -1,0 +1,8 @@
+.card{
+    outline: none;
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    border: solid 2px transparent;
+    overflow-y: auto; 
+}

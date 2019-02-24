@@ -80,7 +80,8 @@ public deleteLabel(deleteLabel:Label):any{
 }
 
 public addCollaborator(sharedUserId:Number,sharedNoteId:Number):any{
-  return this.http.post(this.collaboratorUrl+'?sharedUserId='+sharedUserId+'&sharedNoteId='+sharedNoteId,httpOptions2)
+  //return this.http.post(this.collaboratorUrl+'?sharedUserId='+sharedUserId+'&sharedNoteId='+sharedNoteId,httpOptions2)
+  return this.http.post(this.collaboratorUrl + "?sharedUserId=" + sharedUserId + "&sharedNoteId=" + sharedNoteId,httpOptions2);
 }
 
 

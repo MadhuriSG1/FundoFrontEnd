@@ -17,11 +17,9 @@ export class ViewchangeService {
       response=>
       {
       this.views=response;
-      console.log("currentview "+this.views);
       }
     )
     this.view.next(!this.views);
-    console.log("revert "+!this.views)
   }
 }
 

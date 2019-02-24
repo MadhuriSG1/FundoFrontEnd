@@ -61,13 +61,13 @@ export class SinglecardComponent implements OnInit {
 
     const dialogRef = this.dialog.open(MydialogComponent, {
       width: '500px',
-      data: { notedetails: this.notedetails }
+      data: { notedetails: this.notedetails.note }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.notedetails = result;
-      console.log(this.notedetails);
+      this.notedetails.note = result;
+      console.log(this.notedetails.note);
       this.notecrudservice.updateNote(this.notedetails.note).subscribe(
         response => {
           if (response.statusCode == 200) {
@@ -75,7 +75,7 @@ export class SinglecardComponent implements OnInit {
               duration: 2000,
             })
           }
-          this.updatecardservice.changemessage('false', 'false');
+          this.updatecardservice.changemessage2();
         },
         error => {
           console.log("Error", error);

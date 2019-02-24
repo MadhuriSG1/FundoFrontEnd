@@ -1,13 +1,47 @@
-<mat-card >
-  <mat-card-title>Collaborators</mat-card-title>
-
+<h3>Collaborators</h3>
+<mat-divider></mat-divider>
+<mat-card class="card">
+  <mat-card-header>
+            <!-- <img mat-card-avatar src="../../../assets/super.jpg" 
+            style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;"> -->
+            <mat-card-title class="fontreduce">Madhuri Gaikwad</mat-card-title>
+             <mat-card-subtitle>madhuri.gaikwad198@gmail.com</mat-card-subtitle>
+         </mat-card-header>
   <mat-card-content>
-    <input matInput  placeholder="Person or email to share with" style="margin: initial;"[(ngModel)]="email" type="text" name="email" >
+   
+       <div fxLayout="column" *ngFor="let collab of data.notedetails.collabList" >
+         <div fxLayout="row" >
+             <!-- <img src="../../../assets/user.svg" 
+             style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;"> -->
+         <p style="margin-left:5%;">{{collab.email}}</p>
+         <button mat-button style="float:right;" (click)="removeCollab(collab.email)">
+           <mat-icon>delete</mat-icon>
+         </button>
+         </div>
+       </div>
+  
+       <div fxLayout="row "  fxLayoutGap="2%">
+           <!-- <img src="../../../assets/user.svg" 
+           style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;"> -->
+         <div fxLayoutAlign="start center">
+       <input matInput [(ngModel)]="email" type="text" name="email" placeholder="Person or email To Share With"> 
+     </div>
+   </div>
+  
+   
   </mat-card-content>
  
   <mat-card-footer >
-      <button  (click)="cancelCollaborator()" > Cancel</button><span>  </span>
-      <button  (click)="addCollaborator()">Save</button>
+      <!-- <button  (click)="cancelCollaborator()" > Cancel</button><span>  </span>
+      <button  (click)="addCollaborator()">Save</button> -->
+      <div fxLayout="row" fxLayoutGap="5%" fxLayoutAlign="end center">
+        <button mat-raised-button  (click)="addCollaborator()" >Save
+           </button>
+           <button mat-raised-button  [mat-dialog-close]> Cancel
+           </button>
+     </div>
   </mat-card-footer>
  
 </mat-card>
+
+

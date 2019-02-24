@@ -19,7 +19,16 @@
             {{item.labelTitle}} <button mat-icon-button (click)="removeThisLabel(item,notedetails.note)"><mat-icon>cancel</mat-icon></button></mat-chip>
          </div>
          </mat-chip-list>
+         <div fxLayout="row wrap" fxLayoutGap="4px grid">
+            <mat-chip-list *ngFor="let users of notedetails.collabList" style="margin-left:2%;">
+               <mat-icon *ngIf="users.image==null" matTooltip={{users.email}} >
+                     account_circle
+               </mat-icon>
+            </mat-chip-list>
+   </div>
+         
    </mat-card-content>
+   
    <div class=buttons>
       <mat-card-footer>
 
@@ -29,7 +38,7 @@
                add_alert
             </mat-icon>
          </button>
-         <button mat-icon-button matTooltip="Collaborator" (click)="openColabDialog(notedetails)">
+         <button mat-icon-button matTooltip="Collaborator" (click)="openColabDialog()">
             <mat-icon aria-label="Example icon-button with a heart icon">
                person_add
             </mat-icon>

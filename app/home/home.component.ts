@@ -57,7 +57,8 @@ export class HomeComponent implements OnInit {
                        this.labelsall=response;
                      }
                  )
-      if (result != null && result != "") {
+      if (result != null && result != "") 
+      {
         this.label.labelTitle = result;
         this.notecurdservice.createLabel(this.label).subscribe(
           response => {
@@ -67,6 +68,15 @@ export class HomeComponent implements OnInit {
          
         )
         this.updatelabelsService.changemessagelabel();
+      }
+      else
+      {
+        this.notecurdservice.getAllLabels().subscribe(
+          response=>
+          {
+            this.labelsall=response;
+          }
+        )
       }
     });
     
