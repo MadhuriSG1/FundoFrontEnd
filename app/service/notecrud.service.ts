@@ -79,10 +79,11 @@ public deleteLabel(deleteLabel:Label):any{
   return this.http.post(this.labelUrl+'/deletelabel',deleteLabel,httpOptions);
 }
 
-public addCollaborator(sharedUserId:Number,sharedNoteId:Number):any{
-  //return this.http.post(this.collaboratorUrl+'?sharedUserId='+sharedUserId+'&sharedNoteId='+sharedNoteId,httpOptions2)
-  return this.http.post(this.collaboratorUrl + "?sharedUserId=" + sharedUserId + "&sharedNoteId=" + sharedNoteId,httpOptions2);
+public addCollaborator(sharedUserId,sharedNoteId):any{
+  return this.http.post(this.collaboratorUrl + "?sharedUserID=" + sharedUserId + "&sharedNoteId=" + sharedNoteId,null,httpOptions2);
 }
 
-
+public deleteCollaborator(sharedUserId,sharedNoteId):any{
+  return this.http.delete(this.collaboratorUrl + "?sharedUserID=" + sharedUserId + "&sharedNoteId=" + sharedNoteId,httpOptions2);
+}
 }

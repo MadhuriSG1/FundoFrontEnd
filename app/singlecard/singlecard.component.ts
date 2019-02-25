@@ -30,8 +30,7 @@ export class SinglecardComponent implements OnInit {
 
   private colors: string[][] = [["white", "salmon", "orange", "yellow"], ["green", "teal", "blue", "CadetBlue"],
   ["Peru", "turquoise", "olive", "gray"]];
-
-
+   
   ngOnInit() {
     this.notecrudservice.getAllLabels().subscribe(
       response => {
@@ -88,13 +87,13 @@ export class SinglecardComponent implements OnInit {
   {
     const dialogRef=this.dialog.open(ColabdialogComponent,{
       width:'500px',
-      height:'200px',
       data:{notedetails:this.notedetails}
     });
 
     dialogRef.afterClosed().subscribe(result=>{
      
     });
+    
   }
 
 
@@ -175,13 +174,6 @@ export class SinglecardComponent implements OnInit {
     );
   }
 
-
-
-  //  lncheck(x,y)
-  // {
-  //   console.log(x);
-  //   console.log(y);
-  // }
 
   pinned() {
     this.notedetails.note.isPin = !this.notedetails.note.isPin;

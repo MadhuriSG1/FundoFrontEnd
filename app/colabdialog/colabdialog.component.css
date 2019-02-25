@@ -4,5 +4,23 @@
     box-shadow: none;
     border-color: transparent;
     border: solid 2px transparent;
-    overflow-y: auto; 
+    overflow-y: hidden; 
+}
+.collabinput
+{
+    border:transparent;
+    width: 200px;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.iconbutton
+{
+    background-color: coral;
+    margin-left: -10px;
+   
+   
+}
+.iconcolor{
+    background-color:transparent;
 }

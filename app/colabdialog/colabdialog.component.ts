@@ -32,25 +32,46 @@ export class ColabdialogComponent implements OnInit {
   {
     this.dialogRef.close();
     this.userService.getCollaboratorUserId(this.email).subscribe(
-      (response:Number) =>
+      (response) =>
       {
         console.log(response);
         if(response >0)
         {
-          this.noteCurdService.addCollaborator(this.data.notedetails.note.noteid,response).subscribe(
+        
+          this.noteCurdService.addCollaborator(response,this.data.notedetails.note.noteid).subscribe(
             response =>
             {
-              console.log(response)
-              this.snackBar.open(response.statusMessage,"",{
-                duration:2000,})
-                this.updatecardservice.changemessage2();
+              console.log(response);
+              this.updatecardservice.changemessage2();
+            
             }
           )
         }
+        
       }
     )
 }
-  cancelCollaborator() {
+  cancelCollaborator(email) {
+    
+    this.userService.getCollaboratorUserId(email).subscribe(
+      response=>
+      {
+        console.log("responsesfdsgfdg ="+response);
+        if(response>0)
+        {
+          this.noteCurdService.deleteCollaborator(response,this.data.notedetails.note.noteid).subscribe(
+            response=>
+            {
+              this.snackBar.open(response.statusMessage,"",{
+                duration:2000,})
+                this.updatecardservice.changemessage2();
+
+            }
+          )
+
+        }
+      }
+    )
 
   }
 

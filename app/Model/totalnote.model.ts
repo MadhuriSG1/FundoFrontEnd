@@ -3,5 +3,5 @@ import { CollabList } from '../Model/collablist.model';
 export class TotalNote
 {
     note:CreateNoteModel;
-    collabList:CollabList;
+    collabList:CollabList[];
 }

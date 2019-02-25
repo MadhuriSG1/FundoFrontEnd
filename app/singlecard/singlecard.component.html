@@ -12,20 +12,24 @@
          {{notedetails.note.description}}
       </p>
    </mat-card-subtitle>
-   <mat-card-content (click)="openDialog()">
+   <mat-card-content>
       <mat-chip-list>
       <div *ngFor="let item of notedetails.note.labels" >
          <mat-chip [selectable]="selectable" [removable]="removable">
             {{item.labelTitle}} <button mat-icon-button (click)="removeThisLabel(item,notedetails.note)"><mat-icon>cancel</mat-icon></button></mat-chip>
          </div>
          </mat-chip-list>
-         <div fxLayout="row wrap" fxLayoutGap="4px grid">
-            <mat-chip-list *ngFor="let users of notedetails.collabList" style="margin-left:2%;">
-               <mat-icon *ngIf="users.image==null" matTooltip={{users.email}} >
+        <div fxLayout="row wrap" >
+            <div *ngFor="let person of notedetails.collabUserDetailsList">
+               <button mat-icon-button  matTooltip={{person.email}}>
+               <mat-icon>
                      account_circle
                </mat-icon>
-            </mat-chip-list>
-   </div>
+              
+            </button>
+            </div>
+         </div>
+   
          
    </mat-card-content>
    

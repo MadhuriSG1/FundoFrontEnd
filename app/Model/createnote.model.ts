@@ -1,8 +1,8 @@
 export class CreateNoteModel{
-    noteid:number;
+    noteid:Number;
     title:string; 
     description:string;
-    userId:number; 
+    userId:Number; 
     isPin:boolean;
     color:string;
     isArchive:boolean;
