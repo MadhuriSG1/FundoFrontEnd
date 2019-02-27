@@ -19,7 +19,7 @@
           <mat-icon></mat-icon>
         </button>
         <p style="margin-left:5%;">{{singleCollab.email}}</p>
-        <button mat-icon-button (click)="cancelCollaborator(singleCollab.email)" matTooltip="Delete" style="position: absolute;">
+        <button mat-icon-button data-text-swap="Show" (click)="cancelCollaborator(singleCollab.email)" matTooltip="Delete" style="position: absolute;margin-left:350px;">
           <mat-icon class="iconcolor">
             cancel
           </mat-icon>

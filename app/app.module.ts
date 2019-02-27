@@ -41,7 +41,10 @@ import {MatChipsModule} from '@angular/material/chips';
 import { ArchiveComponent } from './archive/archive.component';
 import { TrashComponent } from './trash/trash.component'; 
 import {MatGridListModule} from '@angular/material/grid-list';
-import { ColabdialogComponent } from './colabdialog/colabdialog.component'; 
+import { ColabdialogComponent } from './colabdialog/colabdialog.component';
+import { ProfileimageComponent } from './profileimage/profileimage.component'; 
+import { ImageCropperModule } from 'ngx-image-cropper';
+
 
 
 @NgModule({
@@ -64,9 +67,10 @@ import { ColabdialogComponent } from './colabdialog/colabdialog.component';
     LabelsComponent,
     ArchiveComponent,
     TrashComponent,
-    ColabdialogComponent
+    ColabdialogComponent,
+    ProfileimageComponent
   ],
-  entryComponents: [MydialogComponent, SinglecardComponent,EditlabeldialogComponent,ColabdialogComponent],
+  entryComponents: [MydialogComponent, SinglecardComponent,EditlabeldialogComponent,ColabdialogComponent,ProfileimageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -85,7 +89,7 @@ import { ColabdialogComponent } from './colabdialog/colabdialog.component';
     MatSidenavModule,
     MatMenuModule,
     MatChipsModule,
-    MatTooltipModule,MatGridListModule
+    MatTooltipModule,MatGridListModule,ImageCropperModule
   ],
   providers: [UserService, SidebartoggleService, NotecrudService,
     ViewchangeService,UpdatecardsService,UpdatelabelsService],

@@ -3,6 +3,7 @@ import { RegisterUser } from '../Model/register.model';
 import { LoginUser } from '../Model/login.model';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserDetails } from '../Model/userdetails.model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -56,6 +57,19 @@ public resetLink(loginmodel :LoginUser,token:string):any
 public getCollaboratorUserId(email: String):Observable<Number>
 {
   return this.http.get<Number>(this.url+'collabpersonid?email='+email,httpOptions2);
+}
+public uploadProfileImage(file:File):any{
+  let formdata:FormData=new FormData();
+  formdata.append('file',file);
+  return this.http.post(this.url+"uploadimage",formdata,httpOptions2);
+}
+public getProfileImage():any{
+  return this.http.get(this.url+"getprofileimage")
+}
+
+public getUserInfo():Observable<UserDetails>
+{
+  return this.http.get<UserDetails>(this.url+"getUserDetails",httpOptions2)
 }
 
 }

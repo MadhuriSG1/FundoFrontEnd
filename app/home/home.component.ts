@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Label } from '../Model/label.model';
+import { UserDetails } from '../Model/userdetails.model';
 import { EditlabeldialogComponent } from '../editlabeldialog/editlabeldialog.component';
+import { ProfileimageComponent } from '../profileimage/profileimage.component';
 import { NotecrudService } from '../service/notecrud.service';
 import { MatDialog } from '@angular/material';
 import { UpdatecardsService } from '../service/updatecards.service';
@@ -9,6 +11,7 @@ import { UpdatelabelsService } from '../service/updatelabels.service';
 import { Router } from '@angular/router';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ViewchangeService } from '../service/viewchange.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +21,12 @@ import { ViewchangeService } from '../service/viewchange.service';
 export class HomeComponent implements OnInit {
   private clickedEvent: boolean;
   private show:boolean;
+  private userDetails=new UserDetails();
   label: Label = new Label();
   labelsall: Label[];
+  private profileImage:string=localStorage.getItem('Authorization');
 
-  constructor(private notecurdservice: NotecrudService, private dialog: MatDialog,
+  constructor(private notecurdservice: NotecrudService,private userService:UserService, private dialog: MatDialog,
      private updatecardsService: UpdatecardsService,private matsnackbar:MatSnackBar,
      private updatelabelsService:UpdatelabelsService,private router: Router,private viewchangeservice:ViewchangeService) {
   }
@@ -81,7 +86,29 @@ export class HomeComponent implements OnInit {
     });
     
   }
+  ProfileSelectDialog()
+  {
+    const dialogRef2=this.dialog.open(ProfileimageComponent,{
+    width:'300px',
+    height:'300px',
+    });
+   dialogRef2.afterClosed().subscribe(
+     (image:any)=>
+     {
+       if(image!=null)
+       {
+         this.userService.uploadProfileImage(image.file).subscribe(
+           value=>
+           {
+             console.log(value);
+           }
+         );
+       }
 
+     }
+   )
+
+  }
   changeView(){
     this.viewchangeservice.onViewChange();
    console.log(this.show);

@@ -59,6 +59,14 @@ button:focus {
     min-height: 600px;
   border: 0px solid rgba(255, 255, 255);
 }
+.example-card{
+  width: 250px;
+  height: 150px;
+}
+.profile{
+  width: 80px;
+  height: 80px;
+}
 
 /* .scrollContent
 {

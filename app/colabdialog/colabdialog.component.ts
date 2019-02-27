@@ -42,6 +42,8 @@ export class ColabdialogComponent implements OnInit {
             response =>
             {
               console.log(response);
+              this.snackBar.open(response.statusMessage,"",{
+                duration:2000,})
               this.updatecardservice.changemessage2();
             
             }
