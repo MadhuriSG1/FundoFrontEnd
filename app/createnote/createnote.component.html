@@ -1,12 +1,13 @@
-<div fxLayout="row" fxLayoutGap="10px" class="card">
+<div fxLayout="row" fxLayoutGap="10px" class="card" >
    <mat-card *ngIf=!navshow (click)="fullCardShow()" style="min-width: 500px; margin:300px">
       Take a note ...
 
    </mat-card>
 
-   <mat-card *ngIf=navshow>
+   <mat-card *ngIf=navshow [style.background-color]="myColor">
       <mat-card-title>
-         <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title">
+         <input class="inputclass" matInput placeholder="Title" style="margin-left:20px;" [(ngModel)]="createnote.title"
+         [style.background-color]="myColor">
       </mat-card-title>
       <mat-card-subtitle>
          <div class="takeanote" matInput placeholder="Take a note.." contenteditable="true" aria-placeholder='Take a note...'
@@ -24,11 +25,29 @@
                person_add
             </mat-icon>
          </button>
-         <button mat-icon-button matTooltip="Change  color">
+         <!-- <button mat-icon-button matTooltip="Change  color">
+            <mat-icon aria-label="Example icon-button with a heart icon">
+               palette
+            </mat-icon>
+         </button> -->
+        <button mat-icon-button [matMenuTriggerFor]="colormenu" matTooltip="Change color">
             <mat-icon aria-label="Example icon-button with a heart icon">
                palette
             </mat-icon>
          </button>
+         <mat-menu #colormenu="matMenu">
+            <mat-list>
+
+               <div *ngFor="let colorx of colors">
+                  <span *ngFor="let single of colorx">
+                     <button class="manual" mat-icon-button (click)="changeColor(single)">
+                        <mat-icon [style.color]="single">fiber_manual_record</mat-icon>
+                     </button>
+                  </span>
+               </div>
+            </mat-list>
+         </mat-menu>
+
          <button mat-icon-button matTooltip="Add image">
             <mat-icon aria-label="Example icon-button with a heart icon">
                add_photo_alternate

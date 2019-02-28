@@ -9,53 +9,31 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 })
 export class ProfileimageComponent implements OnInit {
   imageChangedEvent:any='';
-  cropImage;
+  croppedImage: any = '';
   constructor(public dialogRef:MatDialogRef<ProfileimageComponent>) { }
   
 
   ngOnInit() {}
-  fileChangeEvent(event:any):void
+  
+  fileChangeEvent(event: any): void 
   {
-    this.imageChangedEvent=event;
- 
+         this.imageChangedEvent = event;
   }
 
   imageCropped(event:any)
   {
     console.log(event);
-    this.cropImage=event;
+    this.croppedImage=event;
   }
+  
   selectProfileImage()
   {
-    if(this.cropImage!=null)
+    if(this.croppedImage!=null)
     {
-      this.dialogRef.close(this.cropImage);
+      this.dialogRef.close(this.croppedImage);
     }
 
   }
 
 }
 
-// imageChangedEvent: any = '';
-//   croppedImage;
-
-//   constructor(public dialogRef: MatDialogRef<ProfilepicComponent>) { }
-
-//   ngOnInit() { }
-
-//   fileChangeEvent(event: any): void {
-//     this.imageChangedEvent = event;
-//   }
-
-//   imageCropped(event:any) {
-//   console.log(event);
-//   this.croppedImage = event;
-//   }
-   
-//   setProfile()
-//   {
-//     if(this.croppedImage!=null)
-//     {
-//       this.dialogRef.close(this.croppedImage);
-//     }
-// }

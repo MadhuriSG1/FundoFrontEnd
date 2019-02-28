@@ -8,7 +8,6 @@ import { UserDetails } from '../Model/userdetails.model';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'token': localStorage.getItem('Authorization')
   }
   )
 };
@@ -64,12 +63,12 @@ public uploadProfileImage(file:File):any{
   return this.http.post(this.url+"uploadimage",formdata,httpOptions2);
 }
 public getProfileImage():any{
-  return this.http.get(this.url+"getprofileimage")
+  return this.http.get(this.url+"getprofileimage",httpOptions2)
 }
 
-public getUserInfo():Observable<UserDetails>
+public getUserDetails():Observable<UserDetails>
 {
-  return this.http.get<UserDetails>(this.url+"getUserDetails",httpOptions2)
+  return this.http.get<UserDetails>(this.url+"getuserdetails",httpOptions2)
 }
 
 }

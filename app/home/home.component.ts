@@ -42,6 +42,12 @@ export class HomeComponent implements OnInit {
         this.show=response;
       }
     );
+    this.userService.getUserDetails().subscribe(
+      response=>
+      {
+        this.userDetails=response;
+      }
+    )
     
   }
   childEventClicked(open: boolean) {
