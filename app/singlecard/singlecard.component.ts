@@ -9,6 +9,8 @@ import { UpdatecardsService } from '../service/updatecards.service';
 import { Label } from '../Model/label.model';
 import { MatChipsModule } from '@angular/material/chips';
 import { ColabdialogComponent } from '../colabdialog/colabdialog.component';
+import { FormControl } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @Component({
@@ -24,6 +26,9 @@ export class SinglecardComponent implements OnInit {
   }
   
   @Input() notedetails:TotalNote;
+  public dateTime=new FormControl;
+  d:Date;
+  private imageget:boolean=true;
 
   private labelsall: Label[];
   private allnotes: TotalNote[];
@@ -32,12 +37,18 @@ export class SinglecardComponent implements OnInit {
   ["Peru", "turquoise", "olive", "gray"]];
    
   ngOnInit() {
+
+   if(this.notedetails.note.reminder!==null)
+   {
+     this.d=new Date(this.notedetails.note.reminder);
+   }
     this.notecrudservice.getAllLabels().subscribe(
       response => {
         this.labelsall = response;
 
       }
-    )
+    );
+    
   }
   noteDelete() {
     this.notecrudservice.deleteNote(this.notedetails.note).subscribe(
@@ -220,7 +231,68 @@ export class SinglecardComponent implements OnInit {
 
   }
 
+  SetRemainder(event)
+  {
+    console.log("event "+event);
+    let date=new Date(event.value);
+    this.d=new Date(this.notedetails.note.reminder);
+    this.notedetails.note.reminder=date;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+      response=>
+      {
+        console.log(response);
+      }
+    )
+  }
+
+  removeRemainder()
+  {
+    this.notedetails.note.reminder=null;
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+      response=>
+      {
+        console.log(response);
+      }
+    );
+
+  }
+
+  method()
+  {
+    console.log('sdf');
+  }
 
 
 }
 
+
+
+// SetRemainder(event)
+// {
+//   console.log(event.value);
+//   let date=new Date(event.value);
+//   this.d=new Date(this.notedetails.note.remainder);
+//   this.notedetails.note.remainder=date;
+//   this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+//     response =>
+//     {
+//       console.log(response);
+//     }
+//   )
+
+// }
+
+// removeRemainder()
+// {
+//   this.notedetails.note.remainder=null;
+//   this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+//     response =>
+//     {
+//       console.log(response);
+//     }
+//   );
+// }
+// methods()
+// {
+//   console.log('sdf');
+// }

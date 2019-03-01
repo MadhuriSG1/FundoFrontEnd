@@ -10,5 +10,5 @@ export class CreateNoteModel{
     createdate:Date;
     image:string;
     updateddate:string;
-    reminder:string;
+    reminder:any;
 }

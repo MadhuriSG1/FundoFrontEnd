@@ -6,6 +6,7 @@ import { UserService } from '../service/user.service';
 import { TotalNote } from '../Model/totalnote.model';
 import { MatSnackBar } from '@angular/material';
 import { UpdatecardsService } from '../service/updatecards.service';
+import { UserDetails } from '../Model/userdetails.model';
 @Component({
   selector: 'app-colabdialog',
   templateUrl: './colabdialog.component.html',
@@ -19,9 +20,17 @@ export class ColabdialogComponent implements OnInit {
      
     }
    private email:String;
+   private userDetails=new UserDetails();
    
 
   ngOnInit() {
+    this.userService.getUserDetails().subscribe(
+      response=>
+      {
+        console.log(response);
+        this.userDetails=response;
+      }
+    );
   }
   onNoClick(): void {
     this.dialogRef.close();

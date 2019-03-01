@@ -52,3 +52,10 @@ margin-left: 2px;
 .adjust{
     margin-top: 70%
 }
+.marginremove{
+    margin-top: -5%;
+}
+::ng-deep .custom{
+    min-width: 300px;
+    background-color: white;
+}

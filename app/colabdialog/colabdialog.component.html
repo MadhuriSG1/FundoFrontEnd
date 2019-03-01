@@ -6,21 +6,21 @@
 
 
     <mat-card-title class="title"><button mat-icon-button style="margin-left: -25Px;background-color:coral;">
-        <mat-icon>m</mat-icon>
-      </button>Madhuri Gaikwad(Owner)</mat-card-title>
-    <mat-card-subtitle>madhuri.gaikwad198@gmail.com</mat-card-subtitle>
+        <mat-icon>person_outline</mat-icon>
+      </button>{{userDetails.name}}(Owner)</mat-card-title>
+    <mat-card-subtitle style="margin-left:25%;">{{userDetails.email}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
 
     <div fxLayout="column" *ngFor="let singleCollab of data.notedetails.collabUserDetailsList">
       <div fxLayout="row">
 
-        <button mat-icon-button class="iconbutton">
-          <mat-icon></mat-icon>
+        <button mat-icon-button class="iconbutton" style="border-block-end-color: black">
+          <mat-icon>person_outline</mat-icon>
         </button>
         <p style="margin-left:5%;">{{singleCollab.email}}</p>
         <button mat-icon-button data-text-swap="Show" (click)="cancelCollaborator(singleCollab.email)" matTooltip="Delete" style="position: absolute;margin-left:350px;">
-          <mat-icon class="iconcolor">
+          <mat-icon class="iconcolor" style="float: right;">
             cancel
           </mat-icon>
         </button>
@@ -31,7 +31,7 @@
       <!-- <img src="../../../assets/user.svg" 
            style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;"> -->
       <button mat-icon-button class="iconbutton">
-        <mat-icon></mat-icon>
+        <mat-icon>person_add</mat-icon>
       </button>
       <div fxLayoutAlign="start center">
         <input class="collabinput" matInput [(ngModel)]="email" type="text" name="email"

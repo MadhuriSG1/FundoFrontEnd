@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule,
   MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule,
-  MatRadioModule, MatListModule, MatSnackBarModule,MatTooltipModule
+  MatRadioModule, MatListModule, MatSnackBarModule, MatTooltipModule
 } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RegistrationComponent } from './registration/registration.component';
@@ -37,13 +37,16 @@ import { NotesComponent } from './notes/notes.component';
 import { MydialogComponent } from './mydialog/mydialog.component';
 import { EditlabeldialogComponent } from './editlabeldialog/editlabeldialog.component';
 import { LabelsComponent } from './labels/labels.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { ArchiveComponent } from './archive/archive.component';
-import { TrashComponent } from './trash/trash.component'; 
-import {MatGridListModule} from '@angular/material/grid-list';
+import { TrashComponent } from './trash/trash.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ColabdialogComponent } from './colabdialog/colabdialog.component';
-import { ProfileimageComponent } from './profileimage/profileimage.component'; 
+import { ProfileimageComponent } from './profileimage/profileimage.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
+
 
 
 
@@ -70,7 +73,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ColabdialogComponent,
     ProfileimageComponent
   ],
-  entryComponents: [MydialogComponent, SinglecardComponent,EditlabeldialogComponent,ColabdialogComponent,ProfileimageComponent],
+  entryComponents: [MydialogComponent, SinglecardComponent, EditlabeldialogComponent,
+    ColabdialogComponent, ProfileimageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -89,10 +93,11 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     MatSidenavModule,
     MatMenuModule,
     MatChipsModule,
-    MatTooltipModule,MatGridListModule,ImageCropperModule
+    MatTooltipModule, MatGridListModule, ImageCropperModule, OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [UserService, SidebartoggleService, NotecrudService,
-    ViewchangeService,UpdatecardsService,UpdatelabelsService],
+    ViewchangeService, UpdatecardsService, UpdatelabelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
