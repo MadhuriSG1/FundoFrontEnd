@@ -48,14 +48,25 @@ export class ColabdialogComponent implements OnInit {
         {
         
           this.noteCurdService.addCollaborator(response,this.data.notedetails.note.noteid).subscribe(
-            response =>
+            (response) =>
             {
+              console.log(response);
+              if(response)
+              {
+
+             
               console.log(response);
               this.snackBar.open(response.statusMessage,"",{
                 duration:2000,})
               this.updatecardservice.changemessage2();
-            
             }
+            
+            if(response==-1){
+              this.snackBar.open("Entered Invalid Email","",{
+                duration:2000,})
+            }
+            }
+           
           )
         }
         

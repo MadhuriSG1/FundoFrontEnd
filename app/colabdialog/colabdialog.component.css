@@ -14,13 +14,7 @@
 textarea:focus, input:focus{
     outline: none;
 }
-.iconbutton
-{
-    background-color: coral;
-    margin-left: -10px;
-   
-   
-}
+
 .iconcolor{
     background-color:transparent;
 }
@@ -36,3 +30,30 @@ a {
     bottom: 0;
     background: white;
   }
+
+  .icon{
+    border-radius: 50% 50% 50% 50%;
+    border-color: gray;
+    margin: 5px;
+    border-width: 1px;
+    border-style: solid;
+    
+    zoom: 1
+
+
+}
+.minsize{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.subalign
+{
+    margin-right: -20px;
+}
+.actioncolor
+{
+    color: gray;
+    border-radius: 5px;
+    padding: 5px;
+}

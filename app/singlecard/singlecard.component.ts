@@ -13,6 +13,7 @@ import { FormControl } from '@angular/forms';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-singlecard',
   templateUrl: './singlecard.component.html',

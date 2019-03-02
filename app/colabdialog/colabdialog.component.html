@@ -5,23 +5,23 @@
   <mat-card-header>
 
 
-    <mat-card-title class="title"><button mat-icon-button style="margin-left: -25Px;background-color:coral;">
+    <mat-card-title class="title" ><button mat-icon-button  class="icon" style="margin-left: -12px;">
         <mat-icon>person_outline</mat-icon>
-      </button>{{userDetails.name}}(Owner)</mat-card-title>
-    <mat-card-subtitle style="margin-left:25%;">{{userDetails.email}}</mat-card-subtitle>
+      </button><span class="minsize">{{userDetails.name}}(Owner)</span></mat-card-title>
+    <mat-card-subtitle style="margin-left: 52px">{{userDetails.email}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
 
     <div fxLayout="column" *ngFor="let singleCollab of data.notedetails.collabUserDetailsList">
       <div fxLayout="row">
 
-        <button mat-icon-button class="iconbutton" style="border-block-end-color: black">
+        <button mat-icon-button  class="icon" >
           <mat-icon>person_outline</mat-icon>
         </button>
         <p style="margin-left:5%;">{{singleCollab.email}}</p>
         <button mat-icon-button data-text-swap="Show" (click)="cancelCollaborator(singleCollab.email)" matTooltip="Delete" style="position: absolute;margin-left:350px;">
           <mat-icon class="iconcolor" style="float: right;">
-            cancel
+            close
           </mat-icon>
         </button>
       </div>
@@ -30,10 +30,10 @@
     <div fxLayout="row " fxLayoutGap="2%">
       <!-- <img src="../../../assets/user.svg" 
            style="vertical-align: middle; width: 40px;height: 40px;border-radius: 50%;"> -->
-      <button mat-icon-button class="iconbutton">
+      <button mat-icon-button   class="icon">
         <mat-icon>person_add</mat-icon>
       </button>
-      <div fxLayoutAlign="start center">
+      <div fxLayoutAlign="start center" >
         <input class="collabinput" matInput [(ngModel)]="email" type="text" name="email"
           placeholder="Person or email To Share With">
       </div>
@@ -41,14 +41,12 @@
 
 
   </mat-card-content>
-
-  <mat-card-footer>
-    <!-- <button  (click)="cancelCollaborator()" > Cancel</button><span>  </span>
-      <button  (click)="addCollaborator()">Save</button> -->
-    <div fxLayout="row" fxLayoutGap="5%" fxLayoutAlign="end center">
+  <mat-dialog-actions class="actioncolor"fxLayoutAlign="end end">
+ 
+    <div fxLayout="row" fxLayoutGap="5%" >
       <button mat-raised-button (click)="addCollaborator()">Save</button>
       <button mat-raised-button [mat-dialog-close]> Cancel </button>
     </div>
-  </mat-card-footer>
+  </mat-dialog-actions>
 
 </mat-card>

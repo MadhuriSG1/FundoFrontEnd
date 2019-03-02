@@ -16,31 +16,30 @@
       <mat-chip-list>
       <div *ngFor="let item of notedetails.note.labels" >
          <mat-chip [selectable]="selectable" [removable]="removable">
-            {{item.labelTitle}} <button mat-icon-button (click)="removeThisLabel(item,notedetails.note)"><mat-icon>cancel</mat-icon></button></mat-chip>
+            {{item.labelTitle}} <button class="icon1"mat-icon-button (click)="removeThisLabel(item,notedetails.note)"><mat-icon >close</mat-icon></button></mat-chip>
          </div>
          </mat-chip-list>
 
-         <!-- <mat-chip-list >
-            
-               <mat-chip  class="chipsize" *ngIf="notedetails.note.remainder!==null" (removed)="removeRemainder()"> {{d+" "+d}}
-                     {{d+" "+d}}
-                     <mat-icon matChipRemove >cancel</mat-icon>
-               </mat-chip>
-            
-</mat-chip-list>  -->
+        
          
         <div fxLayout="row wrap" >
             <div *ngFor="let person of notedetails.collabUserDetailsList">
-               <button mat-icon-button  matTooltip={{person.email}}>
+               <button mat-icon-button class="icon" matTooltip={{person.email}}>
                <mat-icon>
-                     account_circle
+                  person_outline
                </mat-icon>
-              
             </button>
             </div>
          </div>
    
-         
+          <mat-chip-list >
+            
+               <mat-chip  class="chipsize" *ngIf="notedetails.note.reminder!==null" (removed)="removeRemainder()">
+                     {{d.toLocaleDateString()+" "+d.toLocaleTimeString()}}
+                     <mat-icon matChipRemove>close</mat-icon>
+               </mat-chip>
+            
+</mat-chip-list> 
    </mat-card-content>
    
    <div class=buttons>
@@ -83,7 +82,7 @@
                   </button>
       </mat-menu>
 
-      <input [formControl]="dateTime" [owlDateTime]="dt1" dateTimeChange="method()"  (dateTimeChange)="SetRemainder($event)" style="display: none;">
+      <input [formControl]="dateTime" [owlDateTime]="dt1" dateTimeChange="method()"  #openid (dateTimeChange)="SetRemainder($event)" style="display: none;">
       <owl-date-time #dt1 ></owl-date-time>
 
          <button mat-icon-button matTooltip="Collaborator" (click)="openColabDialog()">

@@ -59,3 +59,17 @@ margin-left: 2px;
     min-width: 300px;
     background-color: white;
 }
+.icon{
+    border-radius: 50% 50% 50% 50%;
+    border-color: gray;
+    margin: 5px;
+    border-width: 1px;
+    border-style: solid;
+    color: gray;
+    zoom: 0.6
+}
+.icon1
+{
+    zoom: 0.5
+}
+

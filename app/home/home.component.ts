@@ -78,6 +78,12 @@ export class HomeComponent implements OnInit {
           }
          
         )
+        this.notecurdservice.getAllLabels().subscribe(
+          response=>
+          {
+            this.labelsall=response;
+          }
+        );
         this.updatelabelsService.changemessagelabel();
       }
       else
@@ -87,7 +93,7 @@ export class HomeComponent implements OnInit {
           {
             this.labelsall=response;
           }
-        )
+        );
       }
     });
     
