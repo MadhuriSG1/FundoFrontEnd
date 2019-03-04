@@ -44,7 +44,7 @@
    
    <div class=buttons>
       <mat-card-footer >
-      <div >
+      <div>
           
          <button mat-icon-button matTooltip="Remind me" [matMenuTriggerFor]="notificationmenu">
             <mat-icon aria-label="Example icon-button with a heart icon">
@@ -53,27 +53,26 @@
          </button>
          <mat-menu #notificationmenu="matMenu" class="custom" >
             <span mat-menu-item>Reminders</span>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="setLaterToday()">
                <div>
                   <span style="float: left;">Later today</span>
                   <span style="float: right;">8.00PM</span>
                </div>
             </button>
 
-            <button mat-menu-item>
+            <button mat-menu-item (click)="setTomorrow()"> 
                   <div>
                      <span style="float: left;">Tommorow</span>
                      <span style="float: right;">8.00AM</span>
                   </div>
                </button>
 
-               <button mat-menu-item>
+               <button mat-menu-item (click)="setNextWeek()"> 
                      <div>
                         <span style="float:left;">Next week</span>
                         <span style="float:right;">Mon,  8.00AM</span>
                      </div>
                   </button>
-
 
                <button mat-menu-item [owlDateTimeTrigger]="dt1">
                      <div>
@@ -83,7 +82,7 @@
       </mat-menu>
 
       <input [formControl]="dateTime" [owlDateTime]="dt1" dateTimeChange="method()"  #openid (dateTimeChange)="SetRemainder($event)" style="display: none;">
-      <owl-date-time #dt1 ></owl-date-time>
+      <owl-date-time #dt1></owl-date-time>
 
          <button mat-icon-button matTooltip="Collaborator" (click)="openColabDialog()">
             <mat-icon aria-label="Example icon-button with a heart icon">

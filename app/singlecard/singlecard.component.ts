@@ -236,8 +236,10 @@ export class SinglecardComponent implements OnInit {
   {
     console.log("event "+event);
     let date=new Date(event.value);
-    this.d=new Date(this.notedetails.note.reminder);
+    console.log(date);
     this.notedetails.note.reminder=date;
+    this.d=new Date(this.notedetails.note.reminder);
+    
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
       response=>
       {
@@ -253,9 +255,65 @@ export class SinglecardComponent implements OnInit {
       response=>
       {
         console.log(response);
+        
       }
     );
 
+  }
+  setLaterToday()
+  {
+    const today =  new Date();
+    //let time=today.toLocaleTimeString();
+    today.setHours(20,0,0);
+    let date=new Date(today);
+    this.notedetails.note.reminder=date;
+   // let date=2011-12-03T10:15:30'
+    
+   
+    this.d=new Date(this.notedetails.note.reminder);
+    console.log("ddddddddddd "+this.d);
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+      response=>
+      {
+        console.log(response);
+      }
+    )
+  }
+  setTomorrow()
+  {
+    var today = new Date();
+    var tomorrow = new Date();
+    tomorrow.setHours(20,0,0);
+    tomorrow.setDate(today.getDate()+1);
+    let date=new Date(tomorrow);
+    this.notedetails.note.reminder=date;
+    this.d=new Date(this.notedetails.note.reminder);
+    this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+      response=>
+      {
+        console.log(response);
+      }
+    ) 
+  }
+  setNextWeek()
+  {
+    const today =  new Date();
+    
+   
+      var day = today.getDay(),
+      diff = today.getDate()+7 - day + (day == 0 ? -6 : 1);
+      today.setHours(20,0,0);    
+      today.setDate(diff);
+      this.notedetails.note.reminder=today;
+      this.d=new Date(this.notedetails.note.reminder);
+      this.notecrudservice.updateNote(this.notedetails.note).subscribe(
+        response=>
+        {
+          console.log(response);
+        }
+      ) 
+    
+    
   }
 
   method()

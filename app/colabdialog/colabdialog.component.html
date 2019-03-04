@@ -41,12 +41,14 @@
 
 
   </mat-card-content>
-  <mat-dialog-actions class="actioncolor"fxLayoutAlign="end end">
- 
+  <mat-divider></mat-divider>
+  <div mat-dialog-actions class="actioncolor" fxLayoutAlign="end end">
+  
     <div fxLayout="row" fxLayoutGap="5%" >
+      
       <button mat-raised-button (click)="addCollaborator()">Save</button>
       <button mat-raised-button [mat-dialog-close]> Cancel </button>
     </div>
-  </mat-dialog-actions>
+  </div>
 
 </mat-card>
