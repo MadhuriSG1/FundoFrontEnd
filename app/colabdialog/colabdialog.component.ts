@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit,Inject,Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CreateNoteModel } from '../Model/createnote.model';
 import { NotecrudService } from '../service/notecrud.service';
@@ -21,6 +21,7 @@ export class ColabdialogComponent implements OnInit {
     }
    private email:String;
    private userDetails=new UserDetails();
+   @Input() notedetails:TotalNote;
    
 
   ngOnInit() {
@@ -52,9 +53,7 @@ export class ColabdialogComponent implements OnInit {
             {
               console.log(response);
               if(response)
-              {
-
-             
+              {            
               console.log(response);
               this.snackBar.open(response.statusMessage,"",{
                 duration:2000,})
@@ -87,6 +86,8 @@ export class ColabdialogComponent implements OnInit {
               this.snackBar.open(response.statusMessage,"",{
                 duration:2000,})
                 this.updatecardservice.changemessage2();
+                
+              
 
             }
           )

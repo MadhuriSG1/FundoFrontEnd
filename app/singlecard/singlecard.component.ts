@@ -103,6 +103,7 @@ export class SinglecardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result=>{
+    
      
     });
     
@@ -267,9 +268,7 @@ export class SinglecardComponent implements OnInit {
     today.setHours(20,0,0);
     let date=new Date(today);
     this.notedetails.note.reminder=date;
-   // let date=2011-12-03T10:15:30'
-    
-   
+ 
     this.d=new Date(this.notedetails.note.reminder);
     console.log("ddddddddddd "+this.d);
     this.notecrudservice.updateNote(this.notedetails.note).subscribe(
@@ -297,9 +296,7 @@ export class SinglecardComponent implements OnInit {
   }
   setNextWeek()
   {
-    const today =  new Date();
-    
-   
+      const today =  new Date();
       var day = today.getDay(),
       diff = today.getDate()+7 - day + (day == 0 ? -6 : 1);
       today.setHours(20,0,0);    
@@ -324,34 +321,3 @@ export class SinglecardComponent implements OnInit {
 
 }
 
-
-
-// SetRemainder(event)
-// {
-//   console.log(event.value);
-//   let date=new Date(event.value);
-//   this.d=new Date(this.notedetails.note.remainder);
-//   this.notedetails.note.remainder=date;
-//   this.notecrudservice.updateNote(this.notedetails.note).subscribe(
-//     response =>
-//     {
-//       console.log(response);
-//     }
-//   )
-
-// }
-
-// removeRemainder()
-// {
-//   this.notedetails.note.remainder=null;
-//   this.notecrudservice.updateNote(this.notedetails.note).subscribe(
-//     response =>
-//     {
-//       console.log(response);
-//     }
-//   );
-// }
-// methods()
-// {
-//   console.log('sdf');
-// }

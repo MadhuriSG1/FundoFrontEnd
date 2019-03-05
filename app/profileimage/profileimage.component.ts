@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ImageCropperModule } from 'ngx-image-cropper';
+import { ImageCropperModule, ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-profileimage',
@@ -20,10 +20,10 @@ export class ProfileimageComponent implements OnInit {
          this.imageChangedEvent = event;
   }
 
-  imageCropped(event:any)
+  imageCropped(event:ImageCroppedEvent)
   {
     console.log(event);
-    this.croppedImage=event;
+    this.croppedImage=event.base64;
   }
   
   selectProfileImage()

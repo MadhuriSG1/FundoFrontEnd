@@ -101,8 +101,8 @@ export class HomeComponent implements OnInit {
   ProfileSelectDialog()
   {
     const dialogRef2=this.dialog.open(ProfileimageComponent,{
-    width:'800px',
-    height:'500px',
+    width:'850px',
+    
     });
    dialogRef2.afterClosed().subscribe(
      (image:any)=>

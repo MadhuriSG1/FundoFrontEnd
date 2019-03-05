@@ -1,39 +1,57 @@
-<div style="overflow: hidden;" >
-    <mat-tab-group>
-        <mat-tab label="Upload Photos"> 
-          <div >
-            <h4>
-              Select Profile Image
-            </h4>
-          </div>
-       <span fxLayoutAlign="center center" style="color: gray"> <mat-icon style="zoom: 7;">add_photo_alternate</mat-icon></span>
+<div>
+  <div>
+    <h3>
+      Select Profile Image
+    </h3>
+  </div>
+  <mat-tab-group style="margin-bottom: 30px;">
+    <mat-tab label="Upload Photos">
+      <div style="overflow: hidden;">
+
+        <div (click)="selectPhoto.click()">
+          <span fxLayoutAlign="center center" style="color: gray;margin-bottom: 30px;margin-top: 10px;">
+            <mat-icon style="zoom: 6;">add_photo_alternate</mat-icon>
+          </span>
+
           <div fxLayoutAlign="center center">
-           <span >
-             <input type="file" (change)="fileChangeEvent($event)" />
-            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 3"
-              [resizeToWidth]="128" (imageCropped)="imageCropped($event)">
-            </image-cropper>
+            <span>
+              <input type="file" style="display: none" #selectPhoto accept="image/*"
+                (change)="fileChangeEvent($event)" />
+              <button mat-raised-button style="background-color: rgb(238, 238, 238);">
+                <span style="font-weight:bold; font-size: 80%">
+                  Select a photo from your computer</span></button>
+                  <div>
+              <image-cropper 
+              [imageChangedEvent]="imageChangedEvent" 
+              [maintainAspectRatio]="true"
+             [aspectRatio]="2 / 2"
+             [resizeToWidth]="64" 
+             format="png"
+             (imageCropped)="imageCropped($event)">
+              </image-cropper>
+            </div>
             </span>
           </div>
-        
+        </div>
         <mat-divider></mat-divider>
-        <div >
-          <div mat-dialog-actions>
+        <div>
+          <div mat-dialog-actions style="margin-bottom: 10px;">
             <button mat-raised-button (click)="selectProfileImage()" color="primary">
               Select a image
             </button>
-        
+
             <button mat-raised-button color="primary">
               Cancel
             </button>
           </div>
         </div>
-        </mat-tab>
-        <mat-tab label="Your Photos"></mat-tab>
-        <mat-tab label="Photos Of You"></mat-tab>
-      </mat-tab-group>
-      
-  
+      </div>
+    </mat-tab>
+    <mat-tab label="Your Photos"></mat-tab>
+    <mat-tab label="Photos Of You"></mat-tab>
+  </mat-tab-group>
+
+
 </div>
 
 <!-- <div fxLayout="column" fxLayoutGap="10px">
