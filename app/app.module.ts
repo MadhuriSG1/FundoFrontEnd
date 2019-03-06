@@ -45,7 +45,9 @@ import { ColabdialogComponent } from './colabdialog/colabdialog.component';
 import { ProfileimageComponent } from './profileimage/profileimage.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {MatTabsModule} from '@angular/material/tabs'; 
+import { MomentModule } from 'ngx-moment';
 
 
 
@@ -95,7 +97,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatMenuModule,
     MatChipsModule,
     MatTooltipModule, MatGridListModule, ImageCropperModule, OwlDateTimeModule,
-    OwlNativeDateTimeModule,MatTabsModule
+    OwlNativeDateTimeModule,NgxMaterialTimepickerModule,MomentModule,MatTabsModule
+
   ],
   providers: [UserService, SidebartoggleService, NotecrudService,
     ViewchangeService, UpdatecardsService, UpdatelabelsService],

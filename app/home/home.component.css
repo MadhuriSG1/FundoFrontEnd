@@ -67,6 +67,23 @@ button:focus {
   width: 80px;
   height: 80px;
 }
+.profileButton{
+  background-color: blanchedalmond;
+  zoom: 2;
+ 
+  
+
+}
+.nameStyle{
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+emailStyle{
+  font-size: 11px;
+
+}
+
 
 /* .scrollContent
 {

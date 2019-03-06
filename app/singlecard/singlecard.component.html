@@ -78,17 +78,25 @@
                      </div>
                   </button>
 
-                  <button mat-menu-item [owlDateTimeTrigger]="dt1">
+                  <button mat-menu-item [owlDateTimeTrigger]="dt1" [matMenuTriggerFor]="pickMenu">
                      <div>
                         <span style="float:left;">Pick date time</span>
                      </div>
+                     <mat-menu #pickMenu="matMenu" style="size: 50px;">
+                        <span>
+                            Pick time
+                           </span>
+                        </mat-menu>
                   </button>
+                  
                </mat-menu>
 
                <input [formControl]="dateTime" [owlDateTime]="dt1" dateTimeChange="method()" #openid
                   (dateTimeChange)="SetRemainder($event)" style="display: none;">
                <owl-date-time #dt1></owl-date-time>
-
+               <!-- <input [ngxTimepicker]="picker">
+               <ngx-material-timepicker #picker></ngx-material-timepicker> -->
+               
                <button mat-icon-button matTooltip="Collaborator" (click)="openColabDialog()">
                   <mat-icon aria-label="Example icon-button with a heart icon">
                      person_add
