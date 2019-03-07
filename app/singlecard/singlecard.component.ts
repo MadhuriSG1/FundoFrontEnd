@@ -11,6 +11,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ColabdialogComponent } from '../colabdialog/colabdialog.component';
 import { FormControl } from '@angular/forms';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 

@@ -10,6 +10,8 @@
 
     
 }
+
+
  .buttons{
     display: none;
 }
@@ -31,6 +33,7 @@ margin-left: 2px;
     border: solid 0px transparent;
    
   }
+
 
 .takeanote{
     outline: none;
@@ -71,5 +74,18 @@ margin-left: 2px;
 .icon1
 {
     zoom: 0.5
+}
+.pickerInput{
+    outline: none;
+
+   
+}
+[_nghost-c15] {
+    --clock-hand-color: orange;
+}
+[_nghost-c16] {
+    --clock-hand-color: orange;
+    --button-color: orange;
+    --dial-background-color: orange;
 }
 

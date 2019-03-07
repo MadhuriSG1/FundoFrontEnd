@@ -48,6 +48,7 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { MomentModule } from 'ngx-moment';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 
 
@@ -97,7 +98,7 @@ import { MomentModule } from 'ngx-moment';
     MatMenuModule,
     MatChipsModule,
     MatTooltipModule, MatGridListModule, ImageCropperModule, OwlDateTimeModule,
-    OwlNativeDateTimeModule,NgxMaterialTimepickerModule,MomentModule,MatTabsModule
+    OwlNativeDateTimeModule,NgxMaterialTimepickerModule.forRoot(),MomentModule,MatTabsModule,OverlayModule
 
   ],
   providers: [UserService, SidebartoggleService, NotecrudService,
